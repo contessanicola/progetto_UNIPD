@@ -37,14 +37,14 @@ class DBAccess
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
 
-    // Funzione per evitare SQL Injection
+    // Funzione per evitare SQL Injection: ricordarsi di farlo anche nella parte client
     private function escape($string)
     {
         return mysqli_real_escape_string($this->connection, $string);
     }
-    // Da usare nel caso di admin diversi da quello preimpostato (admin, admin) 
-    // TODO: Inserire funzione di hash durante registrazione
-    public function insertAdmin($username, $password, $nome, $cognome, $mail, $telefono)
+    //  Funzione per inserire qualunque utente
+    //  Presente hash sulla password
+    public function addUser($username, $password, $nome, $cognome, $mail, $telefono, $isAdmin)
     {
         $query = 'INSERT INTO login (username, password, nome, cognome, mail, numero_telefono, isAdmin) VALUES ("' .
             $this->escape($username) . '", "' .
@@ -53,13 +53,13 @@ class DBAccess
             $this->escape($cognome) . '", "' .
             $this->escape($mail) . '", "' .
             $this->escape($telefono) . '", "' .
-            "TRUE " . '")';
+            $this->escape($isAdmin) . '")';
         return mysqli_query($this->connection, $query);
     }
-    // Previsto login sia con username sia con email
-    public function adminLogin($username, $email, $password)
+    // Previsto login con username
+    public function userLogin($username, $password)
     {
-        if (($username != NULL && $email == NULL) || ($username == NULL && $email != NULL)) {
+        if ($username != NULL) {
             $query = 'SELECT password FROM login WHERE ' . 'username = "' . $this->escape($username) . '"';
             $result = mysqli_query($this->connection, $query) or die(mysqli_error($this->connection)); //Togliere die una volta finito
             $dbRequest = mysqli_fetch_row($result);
@@ -68,7 +68,7 @@ class DBAccess
     }
     public function insertHouse($id, $provincia, $citta, $via, $civico, $tipo, $superficie, $camere, $bagni, $parcheggio, $giardino, $piscina, $patio, $barbecue, $angolo_bar, $idromassaggio, $terrazzo, $arredato, $prezzo, $descrizione)
     {
-        $query = 'INSERT INTO lista_case (id_casa, provincia, citta, via, civico, tipo, superficie, camere, bagni, parcheggio, giardino, piscina, patio, barbecue, angolo_bar, idromassaggio, terrazzo, arredato, prezzo, descrizione) VALUES ("' .
+        $query = 'INSERT INTO casa (id_casa, provincia, citta, via, civico, tipo, superficie, camere, bagni, parcheggio, giardino, piscina, patio, barbecue, angolo_bar, idromassaggio, terrazzo, arredato, prezzo, descrizione) VALUES ("' .
             $this->escape($id) . '", "' .
             $this->escape($provincia) . '", "' .
             $this->escape($citta) . '", "' .
@@ -93,12 +93,12 @@ class DBAccess
     }
     public function getHouseList()
     {
-        $this->toRetrieve('SELECT * FROM lista_case');
+        $this->toRetrieve('SELECT * FROM casa');
     }
 
     public function deleteHouse($id)
     {
-        $query = 'DELETE FROM lista_case WHERE id_casa = "' . $this->escape($id) . '"';
+        $query = 'DELETE FROM casa WHERE id_casa = "' . $this->escape($id) . '"';
         return mysqli_query($this->connection, $query) === true; // Per confermare direttamente, evitando blocco DB.
     }
 }
