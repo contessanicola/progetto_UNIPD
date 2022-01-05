@@ -66,10 +66,11 @@ class DBAccess
             return password_verify($password, $dbRequest[0]);
         }
     }
-    public function insertHouse($id, $provincia, $citta, $via, $civico, $tipo, $superficie, $camere, $bagni, $parcheggio, $giardino, $piscina, $patio, $barbecue, $angolo_bar, $idromassaggio, $terrazzo, $arredato, $prezzo, $descrizione)
+    public function insertHouse($id, $regione, $provincia, $citta, $via, $civico, $tipo, $superficie, $camere, $bagni, $parcheggio, $giardino, $piscina, $patio, $barbecue, $angolo_bar, $idromassaggio, $terrazzo, $arredato, $prezzo, $descrizione)
     {
-        $query = 'INSERT INTO casa (id_casa, provincia, citta, via, civico, tipo, superficie, camere, bagni, parcheggio, giardino, piscina, patio, barbecue, angolo_bar, idromassaggio, terrazzo, arredato, prezzo, descrizione) VALUES ("' .
+        $query = 'INSERT INTO casa (id_casa, regione, provincia, citta, via, civico, tipo, superficie, camere, bagni, parcheggio, giardino, piscina, patio, barbecue, angolo_bar, idromassaggio, terrazzo, arredato, prezzo, descrizione) VALUES ("' .
             $this->escape($id) . '", "' .
+            $this->escape($regione) . '", "' .
             $this->escape($provincia) . '", "' .
             $this->escape($citta) . '", "' .
             $this->escape($via) . '", "' .
