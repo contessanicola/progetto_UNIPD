@@ -1,0 +1,202 @@
+@font-face {
+  font-family: Dyslexic-Regular;
+  src: url(../font/OpenDyslexic-Regular.otf);
+}
+
+@font-face {
+  font-family: Dyslexic-Bold;
+  src: url(../font/OpenDyslexic-Bold.otf);
+  font-weight: bold;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.hide {
+  display: none !important;
+}
+
+body {
+  background-color: #1f2128;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: Dyslexic-Regular;
+}
+
+/*================ SEZIONE HEADER E PAGE ================*/
+
+header {
+  display: flex;
+  max-height: 5em;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 5% 30px 5%;
+  background: #113755;
+  color: #bbbbbb;
+}
+
+#page {
+  display: flex;
+  height: 100%;
+}
+
+#menuButton {
+  display: flex;
+  background-color: none;
+  align-content: left;
+  margin-left: 6%;
+  filter: invert(100%) sepia(0%) saturate(26%) hue-rotate(138deg)
+    brightness(108%) contrast(107%);
+  width: 3em;
+  height: 3em;
+  transition: transform 0.3s ease-in-out;
+}
+
+#menuButton:hover {
+  transform: scale(1.3);
+}
+
+#breadcrumb {
+  background-color: #cae2ed;
+  color: #black;
+  font-size: 1.1em;
+  padding: 0.5em 0em 0.5em 1em;
+}
+/*================ SEZIONE LOGO ================*/
+
+/*TODO: Fixare ingombro del logo, parecchio ingombro a sinistra non necessario, sballa il posizionamento*/
+
+.logo {
+  cursor: pointer;
+  /*Fa diventare il cursore un puntatore ad un elemento che si clicca*/
+  width: 9em;
+  padding: 0.4em;
+  height: 9em;
+  transition: transform 0.2s ease-in-out;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+/*================ SEZIONE NAVBAR  ================*/
+
+#navbar {
+  flex-direction: row;
+}
+
+#navList {
+  list-style: none;
+}
+
+#navList li {
+  display: inline-block;
+  padding: 0.5em;
+}
+
+/*================ SEZIONE SIDEBAR ================*/
+
+#sidebar {
+  display: flex;
+  flex: 1 1 auto;
+  width: 12.5em;
+  flex-direction: column;
+  align-items: center;
+  background: #113755;
+  text-align: center;
+  color: white;
+}
+
+#pageList {
+  list-style: none;
+}
+
+#pageList li {
+  display: inline-block;
+  line-height: 3em;
+  padding: 0.5em;
+}
+
+/*================ SEZIONE LINK SIDEBAR E NAVBAR  ================*/
+
+.contentLink {
+  display: flex;
+  border-radius: 10px;
+}
+
+.contentLink:link {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s;
+}
+
+.contentLink:hover {
+  transition: 0.2s ease-in;
+  color: #99d98c;
+}
+
+.contentLink:not(:hover) {
+  transition: 0.2s ease-out;
+}
+
+/*================ SEZIONE CONTENT CENTRALE ================*/
+
+#content {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  align-items: center;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.856);
+  flex: auto;
+}
+
+#mainWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.scroll {
+  /*Solo per debug, togliere una volta finito*/
+  margin-bottom: 50em;
+}
+/*================ SEZIONE FOOTER ================*/
+
+/*decidere i colori di sfondo e font 
+da decidere se sfondo va bene con immagini*/
+
+footer {
+  clear: both;
+  text-align: center;
+  font-size: 0.8em;
+  padding: 0.5em;
+  background-color: #cae2ed;
+}
+footer img {
+  float: right;
+  margin-top: 0.6em;
+}
+
+/*================ SEZIONE MEDIA QUERY: LASCIARE PER ULTIME ================*/
+
+@media screen and (min-width: 601px) {
+  /*Lasciare cosi le width, altrimenti se le si fa uguali si ha il breakpoint non influenzato dalle query */
+  #menuButton {
+    display: none;
+  }
+  #sidebar {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #navbar {
+    display: none;
+  }
+}
