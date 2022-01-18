@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="it-IT">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="to be filled">
+    <meta name="keywords" content="Immobiliare, ImmoWeb, Tecno, Logica, Tecnologica, case, ville, appartamenti, negozi">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" media="print" href="../print.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css">
+
+    <title>La Tecno Logica Immoweb - Home</title>
+</head>
+
+<body>
+    <header>
+        <input alt="Pulsante Menu Laterale" id="menuButton" title="Menu laterale" type="image" src="../media/menu_add.svg" />
+        <nav id="navbar">
+            <ul id="navList">
+                <li><a title="Home" href="home.html" class="contentLink" lang="en">Home</a></li>
+                <li><a title="Catalogo" href="catalogo.html" class="contentLink">Catalogo</a></li>
+                <li><a title="Chi Siamo" href="about.html" class="contentLink">Chi Siamo</a></li>
+                <li><a title="Contatti" href="contatti.html" class="contentLink">Contatti</a></li>
+
+            </ul>
+        </nav>
+        <a title="Pagina Principale - La Tecno Logica" href="../html/home.html"><img class="logo" alt="" src="../media/Logo.svg" /></a>
+    </header>
+    <nav id="breadcrumb">
+        <p><span lang="en"> Home</span> &gt; &gt; Annuncio_NomeCasa</p>
+    </nav>
+    <div id="page">
+        <nav id="sidebar" class="hide">
+            <ul id="pageList">
+                <li><a title="Home" href="home.html" class="contentLink" lang="en">Home</a></li>
+                <li><a title="Catalogo" href="catalogo.html" class="contentLink">Catalogo</a></li>
+                <li><a title="Chi Siamo" href="about.html" class="contentLink">Chi Siamo</a></li>
+                <li><a title="Contatti" href="contatti.html" class="contentLink">Contatti</a></li>
+            </ul>
+        </nav>
+        <div id="mainWrapper">
+            <main id="content">
+                <h1>Casa uno</h1>
+                <!--Container delle immagini-->
+                <div class="containerImg">
+                    <!--Lista immagini-->
+                    <div class="slideFoto">
+                        <!-- <div class="numberText">1 / 7</div> -->
+                        <img class="imgCasa slideIn" alt="Casa monopiano, due coppie di vetrate, tetto due falde, esterno assi legno verticali, giardino con siepe" src="../media/immaginiCase/1/1a.jpeg">
+                    </div>
+                    <div class="slideFoto">
+                        <!-- <div class="numberText">2 / 7</div> -->
+                        <img class="imgCasa slideIn" alt="Interno ingresso, cucina, tavolo rettangolare sei posti, due lampadari a sfera, parquet e muri bianchi." src="../media/immaginiCase/1/1d.jpeg">
+                    </div>
+                    <div class="slideFoto">
+                        <!-- <div class="numberText">3 / 7</div> -->
+                        <img class="imgCasa slideIn" alt="Interno salotto, divano bianco, tappeto beige, tavolino vetro, mobiletti bassi e tv a muro, parquet." src="../media/immaginiCase/1/1e.jpeg">
+                    </div>
+                    <div class="slideFoto">
+                        <!-- <div class="numberText">4 / 7</div> -->
+                        <img class="imgCasa slideIn" alt="Interno bagno con doppio lavandino, specchio, finestra con tenda, box doccia di vetro, parquet" src="../media/immaginiCase/1/1f.jpeg">
+                    </div>
+                    <div class="slideFoto">
+                        <!-- <div class="numberText">5 / 7</div> -->
+                        <img class="imgCasa slideIn" alt="Interno cameretta letto singolo, parete rosa, vetrata con tenda rullo, scrivania con computer, parquet." src="../media/immaginiCase/1/1g.jpeg">
+                    </div>
+                    <div class="slideFoto">
+                        <!-- <div class="numberText">6 / 7</div> -->
+                        <img class="imgCasa slideIn" alt="Interno camera matrimoniale, vetrata, caminetto, pareti grigie, quadro con disegno alberi e foglie." src="../media/immaginiCase/1/1h.jpeg">
+                    </div>
+                    <div class="slideFoto">
+                        <!-- <div class="numberText">7 / 7</div> -->
+                        <img class="imgCasa slideIn" alt="Pianta della casa forma quadrata, corridoio ingresso centrale, stanze ai lati con bagno di fronte." src="../media/immaginiCase/1/1i.jpeg">
+                    </div>
+                    <!--Bottoni avanti e indietro-->
+                    <a class="prev" onclick="plusSlides(-1)">&#10094</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095</a>
+                    <!--Immagini galleria-->
+                    <div class="row">
+                        <div class="column">
+                            <img class="galleria cursor" alt="Casa monopiano, due coppie di vetrate, tetto due falde, esterno assi legno verticali, giardino con siepe" class="galleria cursor" src="../media/immaginiCase/1/1a.jpeg" onclick="currentSlide(1)">
+                        </div>
+                        <div class="column">
+                            <img class="galleria cursor" alt="Interno ingresso, cucina, tavolo rettangolare sei posti, due lampadari a sfera, parquet e muri bianchi." class="galleria cursor" src="../media/immaginiCase/1/1d.jpeg" onclick="currentSlide(2)">
+                        </div>
+                        <div class="column">
+                            <img class="galleria cursor" alt="Interno salotto, divano bianco, tappeto beige, tavolino vetro, mobiletti bassi e tv a muro, parquet." class="galleria cursor" src="../media/immaginiCase/1/1e.jpeg" onclick="currentSlide(3)">
+                        </div>
+                        <div class="column">
+                            <img class="galleria cursor" alt="Interno bagno con doppio lavandino, specchio, finestra con tenda, box doccia di vetro, parquet" class="galleria cursor" src="../media/immaginiCase/1/1f.jpeg" onclick="currentSlide(4)">
+                        </div>
+                        <div class="column">
+                            <img class="galleria cursor" alt="Interno cameretta letto singolo, parete rosa, vetrata con tenda rullo, scrivania con computer, parquet." class="galleria cursor" src="../media/immaginiCase/1/1g.jpeg" onclick="currentSlide(5)">
+                        </div>
+                        <div class="column">
+                            <img class="galleria cursor" alt="Interno camera matrimoniale, vetrata, caminetto, pareti grigie, quadro con disegno alberi e foglie." class="galleria cursor" src="../media/immaginiCase/1/1h.jpeg" onclick="currentSlide(6)">
+                        </div>
+                        <div class="column">
+                            <img class="galleria cursor" alt="Pianta della casa forma quadrata, corridoio ingresso centrale, stanze ai lati con bagno di fronte." class="galleria cursor" src="../media/immaginiCase/1/1i.jpeg" onclick="currentSlide(7)">
+                        </div>
+                    </div>
+                </div>
+                <!--Container del testo-->
+                <div class="containerText">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lobortis nibh in nisl finibus cursus. Sed mattis at ante quis imperdiet. Donec aliquet cursus lorem, nec maximus felis. Maecenas interdum diam odio. Pellentesque
+                        consectetur consequat nunc sed elementum. Vestibulum arcu nisl, pharetra vitae lorem sit amet, auctor lobortis sem. Sed accumsan rutrum ligula a consectetur.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lobortis nibh in nisl finibus cursus. Sed mattis at ante quis imperdiet. Donec aliquet cursus lorem, nec maximus felis. Maecenas interdum diam odio. Pellentesque
+                        consectetur consequat nunc sed elementum. Vestibulum arcu nisl, pharetra vitae lorem sit amet, auctor lobortis sem. Sed accumsan rutrum ligula a consectetur.</p>
+                </div>
+            </main>
+
+        </div>
+    </div>
+    <footer>
+        <img class="imgValidCode" src="../media/vcss-blue.gif" alt="css valido" />
+        <p>Università degli Studi di Padova- Tecnologie <span lang="en">Web </span><abbr title="Anno accademico">a.a. </abbr>2021-2022</p>
+        <p>Progetto a cura di: Nicolas Alberti, Enrico Bacci Bonivento, Nicola Contessa, Martina Garon</p>
+
+    </footer>
+
+</body>
+
+<script src="../js/slideshow.js"></script>
+<script src="../js/sidebar.js"></script>
+<!--Script posizionato sotto perchè altrimenti non rileva la presenza della navbar e quindi non funziona-->
+
+</html>
