@@ -1,0 +1,336 @@
+@font-face {
+  font-family: Dyslexic-Regular;
+  src: url(../font/OpenDyslexic-Regular.otf);
+}
+
+@font-face {
+  font-family: Dyslexic-Bold;
+  src: url(../font/OpenDyslexic-Bold.otf);
+  font-weight: bold;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hide {
+  display: none !important;
+}
+
+body {
+  background-color: #ffffff;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: Dyslexic-Regular;
+}
+
+h1 {
+  /* La proprietà clamp(min, value, max) permette, una volta settati i limiti
+     minimo e massimo, di far ingrandire l'elemento desiderato tramite il valore
+     specificato in value*/
+  font-size: clamp(.5rem, 10vw, 1.6rem);
+}
+
+/*================ SEZIONE HEADER E PAGE ================*/
+
+header {
+  display: flex;
+  min-height: 15vh;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 1em 1em 1em;
+  background: #113755;
+  color: #ffffff;
+}
+
+#page {
+  display: flex;
+  height: 100%;
+}
+
+#menuButton {
+  display: flex;
+  background-color: none;
+  align-content: left;
+  margin-left: 6%;
+  filter: invert(100%) sepia(0%) saturate(26%) hue-rotate(138deg) brightness(108%) contrast(107%);
+  width: 3em;
+  height: 3em;
+  transition: transform 0.3s ease-in-out;
+}
+
+#menuButton:hover {
+  transform: scale(1.3);
+}
+
+#breadcrumb {
+  background-color: #cae2ed;
+  padding: 0.5em 0em 0.5em 1em;
+}
+
+#breadcrumb > p {
+  font-size: clamp(.5em, 30vw, 1em);
+}
+
+/*================ SEZIONE LOGO ================*/
+
+/*TODO: Fixare ingombro del logo, parecchio ingombro a sinistra non necessario, sballa il posizionamento*/
+
+.logo {
+  cursor: pointer;
+  /*Fa diventare il cursore un puntatore ad un elemento che si clicca*/
+  width: 9em;
+  padding: 0.4em;
+  height: 9em;
+  transition: transform 0.2s ease-in-out;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+/*================ SEZIONE NAVBAR  ================*/
+
+#navbar {
+  flex-direction: row;
+}
+
+#navList {
+  list-style: none;
+}
+
+#navList li {
+  display: inline-block;
+  padding: 0.5em;
+}
+
+/*================ SEZIONE SIDEBAR ================*/
+
+#sidebar {
+  display: flex;
+  width: 0;
+  flex-direction: column;
+  z-index: 3;
+  overflow-x: hidden;
+  align-items: center;
+  text-align: center;
+  background: #113755;
+  color: white;
+  transition: .5s;
+}
+
+#overlay{
+  z-index: 2;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: none;
+}
+/*
+#sidebar .hide {
+  Transition non funzionante, non so perchè
+  width: 0;
+  transition: margin-right 0.5s ease-in-out;
+}*/
+
+#pageList {
+  list-style: none;
+  width: 9em;
+}
+
+#pageList li {
+  display: inline-block;
+  line-height: 3em;
+  padding: 0.5em;
+}
+
+/*================ SEZIONE LINK SIDEBAR E NAVBAR  ================*/
+
+.contentLink {
+  cursor: pointer;
+  padding: 6px 6px 6px 6px;
+  display: block;
+  border-radius: 10px;
+}
+
+.contentLink:link {
+  text-decoration: none;
+  color: white;
+  transition: color 0.2s;
+}
+
+.contentLink:hover {
+  transition: 0.2s ease-in;
+  transform: scale(1.1);
+  color: white;
+}
+
+.contentLink:not(:hover) {
+  transition: 0.2s ease-out;
+}
+
+.contentLink:visited {
+  color: #99d98c;
+}
+
+/*================ SEZIONE CONTENT CENTRALE ================*/
+
+#content {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  align-items: center;
+  text-align: center;
+  background: #ffffff;
+  flex: auto;
+}
+
+#mainWrapper {
+  display: flex;
+  min-width: 140px; /* Aggiunto per evitare una media query e per permettere alla sidebar
+                       di avere spazio per espandersi (provato con 320px di minimo)*/
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.scroll {
+  /*Solo per debug, togliere una volta finito*/
+  margin-bottom: 50em;
+}
+
+/*================ SEZIONE BOTTONE "SKIP-TO-CONTENT" PER IMAGE READER ================*/
+
+.skip-img-text-reader {
+  left: -10000px;
+  position: absolute;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/*================ SEZIONE SLIDEVIEWER FOTO ANNUNCI ================*/
+
+/* Posiziona il container dell'immagine*/
+
+.containerImg {
+  display: center;
+  overflow-y: auto;
+  min-width: 240px;
+  max-width: 80rem;
+  max-height: 75rem;
+}
+
+/* Allineo le dimensioni delle immagini a quelle del container */
+
+.imgCasa {
+  display: inline-block;
+  vertical-align: middle;
+  min-width: 240px;
+  max-width: 65vw;
+  max-height: 55vw;
+}
+
+/* Stili ed effetti per i bottoni */
+
+.buttonPN, .buttonNum {
+  border-radius: 4px;
+  background-color: white;
+  border: 2px solid #113755;
+  background-color: #113755;
+  color: white;
+  font-size: clamp(16px,2px,20px);
+  /* Poichè uso clamp, devo dividere i vari margin in ogni loro posizione
+     per ottenere l'effetto desiderato */
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: clamp(2px, 1px, 5px);
+  margin-right: clamp(2px, 1px, 5px);
+  cursor: pointer;
+  transition: all .3s;
+  outline: none;
+  box-shadow: 0 3px #999;
+  transition: .1s;
+}
+
+.buttonPN {
+  padding: 5px;
+}
+
+.buttonNum{
+  width: 25px;
+}
+
+.buttonPN:hover, .buttonNum:hover {
+  background-color: #0d2c44;
+  border-color: #0d2c44;
+}
+
+.buttonPN:active, .buttonNum:active {
+  background-color: #0d2c44;
+  border-color: #0d2c44;
+  box-shadow: 0 1px #666;
+  transform: translateY(2px);
+}
+
+
+/*================ SEZIONE CONTAINER TESTO ================*/
+
+.containerText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1em;
+  line-height: 1.8em;
+  width: 80%;
+  height: 100%;
+}
+
+/*================ SEZIONE FOOTER ================*/
+
+/*decidere i colori di sfondo e font 
+da decidere se sfondo va bene con immagini*/
+
+footer {
+  clear: both;
+  text-align: center;
+  font-size: 0.8em;
+  padding: 0.5em;
+  background-color: #cae2ed;
+}
+
+footer img {
+  float: right;
+  margin-top: 0.6em;
+}
+
+/*================ SEZIONE MEDIA QUERY: LASCIARE PER ULTIME ================*/
+
+@media screen and (min-width: 601px) {
+  /*Lasciare cosi le width, altrimenti se le si fa uguali si ha il breakpoint non influenzato dalle query */
+  #menuButton {
+    display: none;
+  }
+  #sidebar {
+    display: none;
+  }
+  .containerImg {
+    max-width: 80rem;
+    max-height: 75rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #navbar {
+    display: none;
+  }
+}
