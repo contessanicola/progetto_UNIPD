@@ -1,12 +1,28 @@
+/*================ SEZIONE VALORI GENERALI ================ */
+
 @font-face {
   font-family: Dyslexic-Regular;
   src: url(../font/OpenDyslexic-Regular.otf);
+  font-weight: normal;
 }
 
 @font-face {
   font-family: Dyslexic-Bold;
   src: url(../font/OpenDyslexic-Bold.otf);
   font-weight: bold;
+}
+
+@font-face {
+  font-family: Dyslexic-BoldItalic;
+  src: url(../font/OpenDyslexic-BoldItalic.otf);
+  font-style: italic;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: Dyslexic-Italic;
+  src: url(../font/OpenDyslexic-Italic.otf);
+  font-style: italic;
 }
 
 * {
@@ -35,11 +51,25 @@ h1 {
   font-size: clamp(.5rem, 10vw, 1.6rem);
 }
 
+h2 {
+  font-size: clamp(.3rem, 10vw, 1.4rem);
+}
+
+hr {
+  margin: 15px 0;
+  border-top: solid 1px #727378;
+}
+
+sup {
+  font-size: 1rem;
+}
+
 /*================ SEZIONE HEADER E PAGE ================*/
 
 header {
   display: flex;
-  min-height: 15vh;
+  min-height: 10vh;
+  max-height: 13vh;
   justify-content: space-between;
   align-items: center;
   padding: 1em 1em 1em 1em;
@@ -69,7 +99,7 @@ header {
 
 #breadcrumb {
   background-color: #cae2ed;
-  padding: 0.5em 0em 0.5em 1em;
+  padding: 0.3em 0em 0.3em 1.825em;
 }
 
 #breadcrumb > p {
@@ -79,13 +109,14 @@ header {
 /*================ SEZIONE LOGO ================*/
 
 /*TODO: Fixare ingombro del logo, parecchio ingombro a sinistra non necessario, sballa il posizionamento*/
+/*UPDATE: Dovrebbe essere fixato, riprovare alla fine durante i test eventuali bug*/
 
 .logo {
   cursor: pointer;
   /*Fa diventare il cursore un puntatore ad un elemento che si clicca*/
-  width: 9em;
-  padding: 0.4em;
-  height: 9em;
+  width: 8.5em;
+  padding-top: .8em;
+  height: 8.5em;
   transition: transform 0.2s ease-in-out;
 }
 
@@ -184,7 +215,7 @@ header {
 #content {
   display: flex;
   flex-direction: column;
-  padding: 1em;
+  padding: .3em .8em .8em .8em;
   align-items: center;
   text-align: center;
   background: #ffffff;
@@ -236,11 +267,15 @@ header {
   display: inline-block;
   vertical-align: middle;
   min-width: 240px;
-  max-width: 65vw;
-  max-height: 55vw;
+  max-width: 52vw;
+  max-height: 52vw;
 }
 
 /* Stili ed effetti per i bottoni */
+
+.buttonsCenter{
+  display: block;
+}
 
 .buttonPN, .buttonNum {
   border-radius: 4px;
@@ -282,17 +317,104 @@ header {
   transform: translateY(2px);
 }
 
+/*================ SEZIONE CONTAINER SPECIFICHE PRINCIPALI ================*/
+
+/* Contenitore Specifiche Salienti */
+.containerSpecs {
+  display: block;
+  padding-top: .3em;
+  flex-direction: row;
+  max-height: 50vh;
+  min-width: 75vw;
+}
+
+.containerSpecs ul {
+  list-style-type: none;
+  margin-top: .8rem;
+  margin-bottom: -.8rem;  
+}
+
+/* Sezione prezzo */
+.specsPrice {
+  text-align: left;
+  vertical-align: middle;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-top: 17px;
+  margin-bottom: 10px;
+}
+
+/* Sezione elementi specifiche principali e testo*/
+.specsItem {
+  vertical-align: middle;
+  text-align: left;
+  font-size: 1.2rem;
+  border-top: 1px solid #72737842;
+  content: "";
+}
+
+.specsLabel, .specsValue, .mSquare {
+  vertical-align: middle;
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+/* Classe per modifica icone SVG */
+
+.specsIcon {
+  vertical-align: middle;
+  shape-rendering: geometricPrecision;
+  width: 32px;
+  height: 32px;
+  margin: 20px 15px 20px 0;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 
 /*================ SEZIONE CONTAINER TESTO ================*/
 
 .containerText {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding-top: 1em;
-  line-height: 1.8em;
-  width: 80%;
+  align-content: center;
+  margin-top: .8em;
+  max-width: 48rem;
   height: 100%;
+}
+
+.containerText > p {
+  margin-top: .8em;
+  line-height: 2em;
+  font-size: clamp(.5rem, 10vw, 1.1rem);
+}
+
+/*================ SEZIONE CONTAINER SPECIFICHE ESTESE ================*/
+
+.containerSpecsFull {
+  display: block;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
+  margin-top: .8em;
+  min-width: 15rem;
+  height: 100%;
+}
+/* Sezioni specifiche per i dt e i dd */
+.specsFullTitle {
+  color: #505050;
+  max-width: 18rem;
+  font-size: 1.3em;
+  text-align: left;
+}
+
+.specsFullDefine {
+  max-width: 25rem;
+  font-size: 1.18em;
+  text-align: left;
+  line-height: 2em;
 }
 
 /*================ SEZIONE FOOTER ================*/
@@ -332,5 +454,31 @@ footer img {
 @media screen and (max-width: 600px) {
   #navbar {
     display: none;
+  }
+}
+
+/* Media query per il posizionamento delle specifiche salienti su schermi più grandi */
+@media screen and (min-width: 400px){
+  .specsPrice, .specsItem {
+    display:inline-block;
+    border-top: none;
+  }
+  .specsIcon{
+    margin-right: 5px;
+  }
+  .specsPrice::after {
+    align-items: center;
+    margin-left: .5em;
+    border-right: 1px solid #727378;
+    content: "";
+  }
+  .specsItem::after {
+    align-items: center;
+    margin-left: .5em;
+    border-right: 1px solid #727378;
+    content: "";
+  }
+  .containerSpecsFull{
+    min-width: 20rem;
   }
 }
