@@ -46,8 +46,8 @@ body {
 
 h1 {
   /* La proprietà clamp(min, value, max) permette, una volta settati i limiti
-     minimo e massimo, di far ingrandire l'elemento desiderato, che avrà come limiti
-     di dimensione quelli min e max, mentre il valore preferito rimane value*/
+     minimo e massimo, di far ingrandire l'elemento desiderato tramite il valore
+     specificato in value*/
   font-size: clamp(.5rem, 10vw, 1.6rem);
 }
 
@@ -255,7 +255,6 @@ header {
 
 .containerImg {
   display: center;
-  position: relative;
   overflow-y: auto;
   min-width: 240px;
   max-width: 80rem;
@@ -272,89 +271,65 @@ header {
   max-height: 52vw;
 }
 
-.containerBtn {
-  position: relative;
-  vertical-align: middle;
-  min-width: 240px;
-  max-width: 52vw;
-  max-height: 52vw;
+/* Stili ed effetti per i bottoni */
+
+.buttonsCenter{
+  display: block;
 }
 
-/* Stili ed effetti per le thumbnail */
-
-.cursor {
-  cursor: pointer;
-}
-
-.prev, .next {
-  position: absolute; /*Si posiziona in modo assoluto relativamente al contenitore genitore, che è impostato a relative*/
-  cursor: pointer;
-  background-color: transparent;
-  border-color: transparent; 
-  border-radius: 0 3px 3px 0;
-  transition: .2s ease-in-out;
+.buttonPN, .buttonNum {
+  border-radius: 4px;
+  background-color: white;
+  border: 2px solid #113755;
+  background-color: #113755;
   color: white;
-  top: 43%;
-  min-width: .5vw;
-  padding: 12px;
-  font-size: 14px;
-  font-weight: bold;
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
+  font-size: clamp(16px,2px,20px);
+  /* Poichè uso clamp, devo dividere i vari margin in ogni loro posizione
+     per ottenere l'effetto desiderato */
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: clamp(2px, 1px, 5px);
+  margin-right: clamp(2px, 1px, 5px);
+  cursor: pointer;
+  transition: all .3s;
+  outline: none;
+  box-shadow: 0 3px #999;
+  transition: .1s;
 }
 
-.prev {
-  left:0;
-}
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-.prev:hover, .next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-.row {
-  margin-top: 10px;
-}
-
-.row::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.column {
-  display: inline;
-  overflow: hidden;
-  max-width: 20rem;
-}
-
-.thumb {
-  opacity: 0.6;
-  max-width: 7rem;
+.buttonPN {
   padding: 5px;
 }
 
-.active, .thumb:hover {
-  transition: .2s ease-in;
-  opacity: 1;
+.buttonNum{
+  width: 25px;
 }
 
-.thumb:not(:hover) {
-  transition: .2s ease-out;
+.buttonNum:active{
+  width: 25px;
+  color: #99d98c;
 }
 
+.buttonPN:hover, .buttonNum:hover {
+  background-color: #0d2c44;
+  border-color: #0d2c44;
+  color: #99d98c;
+}
+
+.buttonPN:active, .buttonNum:active {
+  background-color: #0d2c44;
+  border-color: #0d2c44;
+  color: #99d98c;
+  box-shadow: 0 1px #666;
+  transform: translateY(2px);
+}
 
 /*================ SEZIONE CONTAINER SPECIFICHE PRINCIPALI ================*/
 
 /* Contenitore Specifiche Salienti */
 .containerSpecs {
   display: block;
-  margin-top: -20px;
+  padding-top: .3em;
   flex-direction: row;
   max-height: 50vh;
   min-width: 75vw;
@@ -491,10 +466,6 @@ footer img {
 
 /* Media query per il posizionamento delle specifiche salienti su schermi più grandi */
 @media screen and (min-width: 400px){
-  .prev, .next {
-    padding: 18px;
-  }
-
   .specsPrice, .specsItem {
     display:inline-block;
     border-top: none;
