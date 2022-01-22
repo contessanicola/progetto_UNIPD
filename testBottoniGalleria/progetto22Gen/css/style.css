@@ -264,7 +264,7 @@ header {
 /* Allineo le dimensioni delle immagini a quelle del container */
 
 .imgCasa {
-  display: none;
+  display: inline-block;
   position: relative;
   vertical-align: middle;
   min-width: 240px;
@@ -273,7 +273,6 @@ header {
 }
 
 .containerBtn {
-  display: none;
   position: relative;
   vertical-align: middle;
   min-width: 240px;
