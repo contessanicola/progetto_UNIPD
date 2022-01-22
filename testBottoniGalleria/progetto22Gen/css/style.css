@@ -1,0 +1,507 @@
+/*================ SEZIONE VALORI GENERALI ================ */
+
+@font-face {
+  font-family: Dyslexic-Regular;
+  src: url(../font/OpenDyslexic-Regular.otf);
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Dyslexic-Bold;
+  src: url(../font/OpenDyslexic-Bold.otf);
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: Dyslexic-BoldItalic;
+  src: url(../font/OpenDyslexic-BoldItalic.otf);
+  font-style: italic;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: Dyslexic-Italic;
+  src: url(../font/OpenDyslexic-Italic.otf);
+  font-style: italic;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hide {
+  display: none !important;
+}
+
+body {
+  background-color: #ffffff;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: Dyslexic-Regular;
+}
+
+h1 {
+  /* La proprietà clamp(min, value, max) permette, una volta settati i limiti
+     minimo e massimo, di far ingrandire l'elemento desiderato tramite il valore
+     specificato in value*/
+  font-size: clamp(.5rem, 10vw, 1.6rem);
+}
+
+h2 {
+  font-size: clamp(.3rem, 10vw, 1.4rem);
+}
+
+hr {
+  margin: 15px 0;
+  border-top: solid 1px #727378;
+}
+
+sup {
+  font-size: 1rem;
+}
+
+/*================ SEZIONE HEADER E PAGE ================*/
+
+header {
+  display: flex;
+  min-height: 10vh;
+  max-height: 13vh;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 1em 1em 1em;
+  background: #113755;
+  color: #ffffff;
+}
+
+#page {
+  display: flex;
+  height: 100%;
+}
+
+#menuButton {
+  display: flex;
+  background-color: none;
+  align-content: left;
+  margin-left: 6%;
+  filter: invert(100%) sepia(0%) saturate(26%) hue-rotate(138deg) brightness(108%) contrast(107%);
+  width: 3em;
+  height: 3em;
+  transition: transform 0.3s ease-in-out;
+}
+
+#menuButton:hover {
+  transform: scale(1.3);
+}
+
+#breadcrumb {
+  background-color: #cae2ed;
+  padding: 0.3em 0em 0.3em 1.825em;
+}
+
+#breadcrumb > p {
+  font-size: clamp(.5em, 30vw, 1em);
+}
+
+/*================ SEZIONE LOGO ================*/
+
+/*TODO: Fixare ingombro del logo, parecchio ingombro a sinistra non necessario, sballa il posizionamento*/
+/*UPDATE: Dovrebbe essere fixato, riprovare alla fine durante i test eventuali bug*/
+
+.logo {
+  cursor: pointer;
+  /*Fa diventare il cursore un puntatore ad un elemento che si clicca*/
+  width: 8.5em;
+  padding-top: .8em;
+  height: 8.5em;
+  transition: transform 0.2s ease-in-out;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+/*================ SEZIONE NAVBAR  ================*/
+
+#navbar {
+  flex-direction: row;
+}
+
+#navList {
+  list-style: none;
+}
+
+#navList li {
+  display: inline-block;
+  padding: 0.5em;
+}
+
+/*================ SEZIONE SIDEBAR ================*/
+
+#sidebar {
+  display: flex;
+  width: 0;
+  flex-direction: column;
+  z-index: 3;
+  overflow-x: hidden;
+  align-items: center;
+  text-align: center;
+  background: #113755;
+  color: white;
+  transition: .5s;
+}
+
+#overlay{
+  z-index: 2;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: none;
+}
+/*
+#sidebar .hide {
+  Transition non funzionante, non so perchè
+  width: 0;
+  transition: margin-right 0.5s ease-in-out;
+}*/
+
+#pageList {
+  list-style: none;
+  width: 9em;
+}
+
+#pageList li {
+  display: inline-block;
+  line-height: 3em;
+  padding: 0.5em;
+}
+
+/*================ SEZIONE LINK SIDEBAR E NAVBAR  ================*/
+
+.contentLink {
+  cursor: pointer;
+  padding: 6px 6px 6px 6px;
+  display: block;
+  border-radius: 10px;
+}
+
+.contentLink:link {
+  text-decoration: none;
+  color: white;
+  transition: color 0.2s;
+}
+
+.contentLink:hover {
+  transition: 0.2s ease-in;
+  transform: scale(1.1);
+  color: white;
+}
+
+.contentLink:not(:hover) {
+  transition: 0.2s ease-out;
+}
+
+.contentLink:visited {
+  color: #99d98c;
+}
+
+/*================ SEZIONE CONTENT CENTRALE ================*/
+
+#content {
+  display: flex;
+  flex-direction: column;
+  padding: .3em .8em .8em .8em;
+  align-items: center;
+  text-align: center;
+  background: #ffffff;
+  flex: auto;
+}
+
+#mainWrapper {
+  display: flex;
+  min-width: 140px; /* Aggiunto per evitare una media query e per permettere alla sidebar
+                       di avere spazio per espandersi (provato con 320px di minimo)*/
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.scroll {
+  /*Solo per debug, togliere una volta finito*/
+  margin-bottom: 50em;
+}
+
+/*================ SEZIONE BOTTONE "SKIP-TO-CONTENT" PER IMAGE READER ================*/
+
+.skip-img-text-reader {
+  left: -10000px;
+  position: absolute;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/*================ SEZIONE SLIDEVIEWER FOTO ANNUNCI ================*/
+
+/* Posiziona il container dell'immagine*/
+
+.containerImg {
+  display: center;
+  overflow-y: auto;
+  min-width: 240px;
+  max-width: 80rem;
+  max-height: 75rem;
+}
+
+/* Allineo le dimensioni delle immagini a quelle del container */
+
+.imgCasa {
+  display: none;
+  position: relative;
+  vertical-align: middle;
+  min-width: 240px;
+  max-width: 52vw;
+  max-height: 52vw;
+}
+
+.containerBtn {
+  display: none;
+  position: relative;
+  vertical-align: middle;
+  min-width: 240px;
+  max-width: 52vw;
+  max-height: 52vw;
+}
+
+/* Stili ed effetti per i bottoni */
+
+.cursor {
+  cursor: pointer;
+}
+
+.prev, .next {
+  position: absolute;
+  cursor: pointer;
+  /*background-color: transparent;
+  border-color: transparent; */
+  border-radius: 0 3px 3px 0;
+  margin-top: calc(100% - 25vh);
+  color: white;
+  width: 40px;
+  padding: 14px;
+  font-size: 14px;
+  font-weight: bold;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.next {
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.row {
+  margin-top: 10px;
+}
+
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  display: inline;
+  overflow: hidden;
+  max-width: 20rem;
+}
+
+.thumb {
+  opacity: 0.6;
+  max-width: 7rem;
+  padding: 5px;
+}
+
+.active, .thumb:hover {
+  opacity: 1;
+}
+
+
+/*================ SEZIONE CONTAINER SPECIFICHE PRINCIPALI ================*/
+
+/* Contenitore Specifiche Salienti */
+.containerSpecs {
+  display: block;
+  margin-top: -20px;
+  flex-direction: row;
+  max-height: 50vh;
+  min-width: 75vw;
+}
+
+.containerSpecs ul {
+  list-style-type: none;
+  margin-top: .8rem;
+  margin-bottom: -.8rem;  
+}
+
+/* Sezione prezzo */
+.specsPrice {
+  text-align: left;
+  vertical-align: middle;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-top: 17px;
+  margin-bottom: 10px;
+}
+
+/* Sezione elementi specifiche principali e testo*/
+.specsItem {
+  vertical-align: middle;
+  text-align: left;
+  font-size: 1.2rem;
+  border-top: 1px solid #72737842;
+  content: "";
+}
+
+.specsLabel, .specsValue, .mSquare {
+  vertical-align: middle;
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+/* Classe per modifica icone SVG */
+
+.specsIcon {
+  vertical-align: middle;
+  shape-rendering: geometricPrecision;
+  width: 32px;
+  height: 32px;
+  margin: 20px 15px 20px 0;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+
+/*================ SEZIONE CONTAINER TESTO ================*/
+
+.containerText {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin-top: .8em;
+  max-width: 48rem;
+  height: 100%;
+}
+
+.containerText > p {
+  margin-top: .8em;
+  line-height: 2em;
+  font-size: clamp(.5rem, 10vw, 1.1rem);
+}
+
+/*================ SEZIONE CONTAINER SPECIFICHE ESTESE ================*/
+
+.containerSpecsFull {
+  display: block;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
+  margin-top: .8em;
+  min-width: 15rem;
+  height: 100%;
+}
+/* Sezioni specifiche per i dt e i dd */
+.specsFullTitle {
+  color: #505050;
+  max-width: 18rem;
+  font-size: 1.3em;
+  text-align: left;
+}
+
+.specsFullDefine {
+  max-width: 25rem;
+  font-size: 1.18em;
+  text-align: left;
+  line-height: 2em;
+}
+
+/*================ SEZIONE FOOTER ================*/
+
+/*decidere i colori di sfondo e font 
+da decidere se sfondo va bene con immagini*/
+
+footer {
+  clear: both;
+  text-align: center;
+  font-size: 0.8em;
+  padding: 0.5em;
+  background-color: #cae2ed;
+}
+
+footer img {
+  float: right;
+  margin-top: 0.6em;
+}
+
+/*================ SEZIONE MEDIA QUERY: LASCIARE PER ULTIME ================*/
+
+@media screen and (min-width: 601px) {
+  /*Lasciare cosi le width, altrimenti se le si fa uguali si ha il breakpoint non influenzato dalle query */
+  #menuButton {
+    display: none;
+  }
+  #sidebar {
+    display: none;
+  }
+  .containerImg {
+    max-width: 80rem;
+    max-height: 75rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #navbar {
+    display: none;
+  }
+}
+
+/* Media query per il posizionamento delle specifiche salienti su schermi più grandi */
+@media screen and (min-width: 400px){
+  .specsPrice, .specsItem {
+    display:inline-block;
+    border-top: none;
+  }
+  .specsIcon{
+    margin-right: 5px;
+  }
+  .specsPrice::after {
+    align-items: center;
+    margin-left: .5em;
+    border-right: 1px solid #727378;
+    content: "";
+  }
+  .specsItem::after {
+    align-items: center;
+    margin-left: .5em;
+    border-right: 1px solid #727378;
+    content: "";
+  }
+  .containerSpecsFull{
+    min-width: 20rem;
+  }
+}
