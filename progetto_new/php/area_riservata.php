@@ -8,12 +8,8 @@ session_start();
 
 $output = file_get_contents("../html/area_riservata.html");
 
-$output = str_replace('<header></header>',importModules::header(),$output);
-$output = str_replace('<nav id="sidebar"></nav>',importModules::sidebar(),$output);
-$output = str_replace('<footer></footer>',importModules::footer(),$output);
-
 if(isset($_SESSION['username'])){
-      $output = str_replace('<div id="nav_area_riservata"></div>',importModules::nav_online(), $output);
+      $output = importModules::importEverythingOnline($output);
       //<a href="dettagli.php?id_casa="     "><img src="../media/immaginiCase/1/temp.jpeg" class="preview_casa"></a>
 
       $connect = new DBAccess();

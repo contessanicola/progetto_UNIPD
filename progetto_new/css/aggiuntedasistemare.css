@@ -1,0 +1,51 @@
+/*HOME HTML PREFERITI*/
+
+.preview_casa{
+    width: 150px;
+}
+#preferiti{
+    display: flex;
+    flex-direction: row;
+}
+
+
+/* DETTAGLI.HTML*/
+.casa{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 50px;
+}
+.img_casa{
+    width: 300px;
+}
+.titolo,
+.informazioni{
+    display: flex;
+    flex-direction: row;
+}
+.dettagli{
+    width: 30vw;
+    padding-left: 20px;
+}
+
+/* NAV LINK INVIISBLE TAB*/
+#skip-nav-link{
+    background: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0 0 0.25rem, 0.25rem;
+    position: absolute;
+    transform: translateY(-120%);
+    transition: transform 235ms ease-in;
+    color: black;
+}
+#skip-nav-link:focus{
+    transform: translateY(0);
+}
+
+#navList{
+    display: flex;
+    flex-direction: row;
+}
+#nav_area_riservata{
+    flex-wrap: nowrap;
+}

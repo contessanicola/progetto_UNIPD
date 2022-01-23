@@ -8,15 +8,12 @@ session_start();
 
 $output = file_get_contents("../html/dettagli.html");
 
-$output = str_replace('<header></header>',importModules::header(),$output);
-$output = str_replace('<nav id="sidebar"></nav>',importModules::sidebar(),$output);
-$output = str_replace('<footer></footer>',importModules::footer(),$output);
 
 if(isset($_SESSION['username'])){
-      $output = str_replace('<div id="nav_area_riservata"></div>',importModules::nav_online(), $output);
+      $output = importModules::importEverythingOnline($output);
 }
 else{
-      $output = str_replace('<div id="nav_area_riservata"></div>',importModules::nav_offline(), $output);
+      $output = importModules::importEverythingOffline($output);
 }
 
 $connect = new DBAccess();
@@ -26,37 +23,35 @@ $casa = $connect->db_getArray(getCasaBy1Field("id_casa", $_GET["id_casa"]));
 
 $casa = $casa[0];
 
-$template_casa = file_get_contents("../html/modules/dettagli.html");
-$temp = $template_casa;
 
-$temp = str_replace('<div class="tipologia"></div>', '<div class="tipologia">' . $casa["tipologia"] . '</div>' , $temp);
-$temp = str_replace('<div class="via"></div>', '<div class="via">'.$casa["via"].'</div>',$temp);
-$temp = str_replace('<div class="civico"></div>', '<div class="civico">'.$casa["civico"].'</div>',$temp);
-$temp = str_replace('<div class="citta"></div>', '<div class="citta">'.$casa["citta"].'</div>',$temp);
-$temp = str_replace('<div class="provincia"></div>', '<div class="provincia">'.$casa["provincia"].'</div>',$temp);
-$temp = str_replace('<div class="prezzo"></div>', '<div class="prezzo">'.$casa["prezzo"].'</div>',$temp);
-$temp = str_replace('<div class="camere"></div>', '<div class="camere">'.$casa["camere"].'</div>',$temp);
-$temp = str_replace('<div class="superficie"></div>', '<div class="superficie">'. $casa["superficie"] . '</div>',$temp);
-$temp = str_replace('<div class="bagni"></div>', '<div class="bagni">'.$casa["bagni"].'</div>',$temp);
-$temp = str_replace('<div class="descrizione"></div>', '<div class="descrizione">'.$casa["descrizione"].'</div>',$temp);
-$temp = str_replace('<a href="" class="link">', '<a href="dettagli.php?id_casa='.$casa["id_casa"].'" class="link">',$temp);
+$output = str_replace('<span class="locali"></span>', '<span class="locali">' . ($casa["camere"] + $casa["bagni"]) . '</span>' , $output);
+$output = str_replace('<span class="tipologia"></span>', '<span class="tipologia">' . $casa["tipologia"] . '</span>' , $output);
+$output = str_replace('<span class="via"></span>', '<span class="via">'.$casa["via"].'</span>',$output);
+$output = str_replace('<span class="civico"></span>', ' <span class="civico">'.$casa["civico"].'</span>',$output);
+$output = str_replace('<span class="citta"></span>', ' <span class="citta">'.$casa["citta"].'</span>',$output);
+$output = str_replace('<span class="provincia"></span>', ' <span class="provincia">'.$casa["provincia"].'</span>',$output);
+$output = str_replace('<span class="prezzo"></span>', '<span class="prezzo">'.$casa["prezzo"].'</span>',$output);
+$output = str_replace('<span class="camere"></span>', '<span class="camere">'.$casa["camere"].'</span>',$output);
+$output = str_replace('<span class="superficie"></span>', '<span class="superficie">'. $casa["superficie"] . '</span>',$output);
+$output = str_replace('<span class="bagni"></span>', '<span class="bagni">'.$casa["bagni"].'</span>',$output);
+$output = str_replace('<div class="descrizione"></div>', '<div class="descrizione">'.$casa["descrizione"].'</div>',$output);
+$output = str_replace('<a href="" class="link">', '<a href="dettagli.php?id_casa='.$casa["id_casa"].'" class="link">',$output);
 
 if(isset($_SESSION['username'])){
       $preferito = $connect->db_getArray(getPreferitiByMoreField(array("id_casa","username"), array($_GET["id_casa"],$_SESSION['username'])));
 
       if(isset($preferito)){
-            $temp = str_replace('<a class="preferito"></a>', '<a class="preferito true" href="toggle_preferito.php?id_casa='.$_GET["id_casa"].'&username='.$_SESSION['username'].'&preferito=rimuovi">Rimuovi Preferito</a>',$temp);
+            $output = str_replace('<a class="preferito"></a>', '<a class="preferito true" href="toggle_preferito.php?id_casa='.$_GET["id_casa"].'&username='.$_SESSION['username'].'&preferito=rimuovi">Rimuovi Preferito</a>',$output);
       }
       else{
-            $temp = str_replace('<a class="preferito"></a>', '<a class="preferito true" href="toggle_preferito.php?id_casa='.$_GET["id_casa"].'&username='.$_SESSION['username'].'&preferito=aggiungi">Aggiungi Preferito</a>',$temp);
+            $output = str_replace('<a class="preferito"></a>', '<a class="preferito true" href="toggle_preferito.php?id_casa='.$_GET["id_casa"].'&username='.$_SESSION['username'].'&preferito=aggiungi">Aggiungi Preferito</a>',$output);
       }
 
       if($_SESSION['isAdmin'] == 1){
-            $temp .= '<a href="rimuovi_casa.php?id_casa='. $_GET["id_casa"].'">Rimuovi</a> ';
-            $temp .= '<a href="modifica_casa.php?id_casa='. $_GET["id_casa"].'">Modifica</a>';
+            $output .= '<a href="rimuovi_casa.php?id_casa='. $_GET["id_casa"].'">Rimuovi</a> ';
+            $output .= '<a href="modifica_casa.php?id_casa='. $_GET["id_casa"].'">Modifica</a>';
       }
 }
-$output = str_replace('<div class="casa"></div>',$temp,$output);
 
 echo($output);
 $connect->closeConnection()

@@ -1,15 +1,7 @@
 <!DOCTYPE html>
 <html lang="it-IT">
-
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="to be filled">
-    <meta name="keywords" content="Immobiliare, ImmoWeb, Tecno, Logica, Tecnologica, case, ville, appartamenti, negozi">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--<link rel="stylesheet" type="text/css" media="print" href="../print.css" />-->
-    <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css">
-
+    <meta>
     <title>La Tecno Logica Immoweb - Home</title>
 </head>
 
@@ -22,47 +14,7 @@
         <!--Cambio da aside a nav, poichè è l'elemento di navigazione principale nel caso di navigazione cellulare-->
         <nav id="sidebar"></nav>
         <div id="mainWrapper">
-            <main id="content">
-                <section id="ricerca">
-                    <form id="search_form" action="catalogo.php" method="get" >
-                        <div class="input_row">
-                            <label for="tipologia">Tipologia:</label>
-                            <input type="radio" id="rurale" name="tipologia" value="rurale">
-                            <label for="rurale">Rurale</label>
-                            <input type="radio" id="villa" name="tipologia" value="villa">
-                            <label for="villa">Villa</label>
-                            <input type="radio" id="appartamento" name="tipologia" value="appartamento">
-                            <label for="appartamento">Appartamento</label>
-                            <input type="radio" id="attività_commerciale" name="tipologia" value="attività_commerciale">
-                            <label for="attività_commerciale">Attività Commerciale</label>
-                        </div>
-                        <div class="input_row">
-                            <label for="regione">Regione:</label>
-                            <select id="regione" name="regione">
-                                <option value="Abruzzo">Abruzzo</option>
-                                <option value="Basilicata">Basilicata</option>
-                                <option value="Calabria">Calabria</option>
-                                <option value="Campania">Campania</option>
-                                <option value="Emilia-Romagna">Emilia-Romagna</option>
-                                <option value="Friuli Venezia Giulia">Friuli Venezia Giulia</option>
-                                <option value="Lazio">Lazio</option>
-                                <option value="Liguria">Liguria</option>
-                                <option value="Lombardia">Lombardia</option>
-                                <option value="Marche">Marche</option>
-                                <option value="Molise">Molise</option>
-                                <option value="Puglia">Puglia</option>
-                                <option value="Sardegna">Sardegna</option>
-                                <option value="Sicilia">Sicilia</option>
-                                <option value="Toscana">Toscana</option>
-                                <option value="Trentino-Alto Adige">Trentino-Alto Adige</option>
-                                <option value="Umbria">Umbria</option>
-                                <option value="Valle d'Aosta">Valle d'Aosta</option>
-                                <option value="Veneto">Veneto</option>
-                              </select>
-                        </div>
-                        <button type="submit" name="submit" value="submit">Cerca</button>
-                    </form>
-                </section>
+            <main id="content">             
                 PREFERITI
                 <section id="preferiti"></section>
             </main>
@@ -77,13 +29,3 @@
 <!--Script posizionato sotto perchè altrimenti non rileva la presenza della navbar e quindi non funziona-->
 
 </html>
-
-<style>
-    .preview_casa{
-        width: 150px;
-    }
-    #preferiti{
-        display: flex;
-        flex-direction: row;
-    }
-</style>
