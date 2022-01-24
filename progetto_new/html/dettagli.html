@@ -12,7 +12,7 @@
         <p><span lang="en"> Home</span> > > Annuncio</p>
     </nav>
     <div id="page">
-        <nav></nav>
+      <nav id="sidebar"></nav>
         <div id="mainWrapper">
             <main id="content">
                 <a id="skip-desc" class="skip-img-text-reader" href="#textAnnounce">Salta alla descrizione</a>
@@ -95,15 +95,17 @@
                         <dd class="specsFullDefine">&euro; <span class="prezzo"></span></dd>
                     </dl> <!--Fixare CSS per dimensioni maggiori di 400px-->
                 </div>
-                <form id="contactForm">
-                    <input type="text" id="contactInfoText" aria-label="Casella di testo per richiedere informazioni sull'immobile." aria-placeholder="Scrivi qui le informazioni che vuoi richiedere all'agente immobiliare: ti risponderà al più presto!">
+                <form id="contactForm" action="richieste.php" method="post">
+                  <textarea id="contactInfoText" aria-label="Casella di testo per richiedere informazioni sull'immobile." placeholder="Mi interessa questo immobile e vorrei avere maggiori informazioni."></textarea>
+                  <button id="submitContact" type="submit" name="submit" value="Submit">Invia richiesta</button>
                 </form> 
             </main>            
         </div>
     </div>
     <footer></footer>
+  <script src="../js/slideshow.js"></script> 
+  <script src="../js/sidebar.js"></script>
 </body>
 </html>
-<script src="../js/slideshow.js"></script> 
-<script src="../js/sidebar.js"></script>
+
 

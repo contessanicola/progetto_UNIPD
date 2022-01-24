@@ -19,8 +19,6 @@
                     <form id="search_form" action="catalogo.php" method="get" >
                         <div class="input_row">
                             <label for="tipologia">Tipologia:</label>
-                            <input type="radio" id="rurale" name="tipologia" value="rurale">
-                            <label for="rurale">Rurale</label>
                             <input type="radio" id="villa" name="tipologia" value="villa">
                             <label for="villa">Villa</label>
                             <input type="radio" id="appartamento" name="tipologia" value="appartamento">
@@ -52,19 +50,19 @@
                                 <option value="Veneto">Veneto</option>
                               </select>
                         </div>
-                        <button type="submit" name="submit" value="submit">Cerca</button>
-                        <button onclick="location.href='catalogo.php'" >Resetta Filtri</button>
+                        <button class="buttonSearch" type="submit" name="submit" value="submit">Cerca</button>
+                        <button class="buttonSearch" type="button" onclick="location.href='catalogo.php'" >Resetta Filtri</button>
                     </form>
                 </section>
                 <div id="catalogo">
                     <div class="casa"></div>                   
                 </div>
-            </main>
-            
+            </main>  
         </div>
     </div>
     <footer></footer>
+    <script src="../js/sidebar.js"></script>
 </body>
 </html>
-<script src="../js/sidebar.js"></script>
+
 

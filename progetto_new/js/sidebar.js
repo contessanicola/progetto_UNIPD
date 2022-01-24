@@ -9,7 +9,7 @@ function overlay(isShow){
 
   function openNav() {
     overlay(true);
-    document.getElementById('sidebar').style.width="15em";
+    document.getElementById('sidebar').style.width="35em";
     document.getElementById('menuButton').src="../media/menu_remove.svg";
     inhibitOpenMenu = true;
   }

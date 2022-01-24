@@ -151,7 +151,7 @@ header {
   text-align: center;
   background: #113755;
   color: white;
-  transition: .5s;
+  transition: .4s;
 }
 
 #overlay{
@@ -163,12 +163,6 @@ header {
   left: 0;
   display: none;
 }
-/*
-#sidebar .hide {
-  Transition non funzionante, non so perchè
-  width: 0;
-  transition: margin-right 0.5s ease-in-out;
-}*/
 
 #pageList {
   list-style: none;
@@ -185,7 +179,7 @@ header {
 
 .contentLink {
   cursor: pointer;
-  padding: 6px 6px 6px 6px;
+  padding: 5px 5px 5px 5px;
   display: block;
   border-radius: 10px;
 }
@@ -211,17 +205,6 @@ header {
 }
 
 /*================ SEZIONE CONTENT CENTRALE ================*/
-
-#content {
-  display: flex;
-  flex-direction: column;
-  padding: .3em .8em .8em .8em;
-  align-items: center;
-  text-align: center;
-  background: #ffffff;
-  flex: auto;
-}
-
 #mainWrapper {
   display: flex;
   min-width: 140px; /* Aggiunto per evitare una media query e per permettere alla sidebar
@@ -231,6 +214,16 @@ header {
   align-items: center;
   width: 100%;
   height: 100%;
+}
+
+#content {
+  display: flex;
+  flex-direction: column;
+  padding: .3em .8em .8em .5em;
+  align-items: center;
+  text-align: center;
+  background: #ffffff;
+  flex: auto;
 }
 
 .scroll {
@@ -248,6 +241,8 @@ header {
   height: 1px;
   overflow: hidden;
 }
+
+/*================================================== SEZIONE LAYOUT ANNUNCI ==================================================*/
 
 /*================ SEZIONE SLIDEVIEWER FOTO ANNUNCI ================*/
 
@@ -349,7 +344,7 @@ header {
 }
 
 
-/*================ SEZIONE CONTAINER SPECIFICHE PRINCIPALI ================*/
+/*================ SEZIONE CONTAINER SPECIFICHE PRINCIPALI ANNUNCI ================*/
 
 /* Contenitore Specifiche Salienti */
 .containerSpecs {
@@ -406,7 +401,7 @@ header {
 }
 
 
-/*================ SEZIONE CONTAINER TESTO ================*/
+/*================ SEZIONE CONTAINER TESTO ANNUNCI ================*/
 
 .containerText {
   display: flex;
@@ -423,7 +418,7 @@ header {
   font-size: clamp(.5rem, 10vw, 1.1rem);
 }
 
-/*================ SEZIONE CONTAINER SPECIFICHE ESTESE ================*/
+/*================ SEZIONE CONTAINER SPECIFICHE ESTESE ANNUNCI ================*/
 
 .containerSpecsFull {
   display: block;
@@ -449,12 +444,156 @@ header {
   line-height: 2em;
 }
 
+/*================ SEZIONE TEXTAREA FORM RICHIESTA ================*/
+
+#contactInfoText { /* BUG: width rimane fissa dopo aver modificato media query per #content */
+  display: flex;
+  align-content: center;
+  margin-top: 1em;
+  height: 10em;
+  border: 1px solid #113755;
+  border-radius: 3px;
+  cursor: text;
+  transition: all .2s ease-in-out;
+  font-family: Dyslexic-Regular;
+  font-size: 11pt;
+}
+
+#contactInfoText:hover {
+  transform: scale(1.03);
+} 
+
+#submitContact {
+  border-radius: 4px;
+  margin: .5em 0 1em 0;
+  border: 2px solid #113755;
+  background-color: #113755;
+  padding: 4px;
+  color: white;
+  font-size: 20pt;
+  cursor: pointer;
+  transition: all .2s;
+  outline: none;
+  box-shadow: 0 3px #999;
+  font-family: Dyslexic-Regular;
+}
+
+#submitContact:active {
+  background-color: #0d2c44;
+  border-color: #0d2c44;
+  box-shadow: 0 1px #666;
+  transform: translateY(2px);
+}
+
+/*================================================== FINE SEZIONE LAYOUT ANNUNCI ==================================================*/
+
+
+/*================================================== SEZIONE LAYOUT CATALOGO CASE ==================================================*/
+
+.casa {
+  display: flex;
+  margin-top: 1em;
+}
+
+.dettagli{
+  display: block;
+  text-align: left;
+  width: 43vw;
+  padding-left: 15px;
+}
+
+.titolo, .informazioni {
+  display: block;
+  font-size: 12.5pt;
+}
+
+.img_casa {
+  vertical-align: middle;
+  min-width: 240px;
+  max-width: 30vw;
+  max-height: 30vw;
+}
+
+.tipologia, .via, .civico, .citta, .provincia, .prezzo, .camere, .superficie, .bagni {
+  display: inline;
+}
+
+.divider {
+  margin: 0;
+}
+
+.link_img {
+  display: block;
+  max-height: 40vw;
+}
+
+#regione {
+  background-color: #cae2ed;
+  border: solid 1px #113755;
+  border-radius: 2px;
+}
+
+.buttonSearch {
+  border-radius: 4px;
+  margin: .8em .3em .8em 0;
+  border: 2px solid #113755;
+  background-color: #113755;
+  padding: 4px;
+  color: white;
+  font-size: 12pt;
+  cursor: pointer;
+  transition: all .2s;
+  outline: none;
+  box-shadow: 0 3px #999;
+  font-family: Dyslexic-Regular;
+}
+
+.buttonSearch:active {
+  background-color: #0d2c44;
+  border-color: #0d2c44;
+  box-shadow: 0 1px #666;
+  transform: translateY(2px);
+}
+
+/*================================================== FINE SEZIONE LAYOUT CATALOGO CASE ==================================================*/
+
+
+/*================ SEZIONE REGISTRAZIONE E LOGIN ================*/
+
+.input_row {
+  margin-top: 1.3em;
+}
+
+#signup_form button, #login_form button {
+  border-radius: 4px;
+  margin: 1em 0 .6em 0;
+  border: 2px solid #113755;
+  background-color: #113755;
+  padding: 4px;
+  color: white;
+  font-size: 18pt;
+  cursor: pointer;
+  transition: all .2s;
+  outline: none;
+  box-shadow: 0 3px #999;
+  font-family: Dyslexic-Regular;
+}
+
+#signup_form button:active, #login_form button:active {
+  background-color: #0d2c44;
+  border-color: #0d2c44;
+  box-shadow: 0 1px #666;
+  transform: translateY(2px);
+}
+
+
 /*================ SEZIONE FOOTER ================*/
 
 /*decidere i colori di sfondo e font 
 da decidere se sfondo va bene con immagini*/
 
 footer {
+  display: flex;
   clear: both;
   text-align: center;
   font-size: 0.8em;
@@ -463,7 +602,8 @@ footer {
 }
 
 footer img {
-  float: right;
+  max-width: 60px;
+  max-height: 20px;
   margin-top: 0.6em;
 }
 
@@ -487,9 +627,40 @@ footer img {
   #navbar {
     display: none;
   }
+  #content {
+    max-width: clamp(320px, 1vw ,600px);
+  }
+
+  /* Media query per la sezione del catalogo */
+  .casa {
+    max-width: clamp(320px, 1vw ,600px);
+    min-height: 60vh;
+  }
+  .img_casa {
+    min-height: clamp(140px, 1vh, 60vh);
+  }
+
+  .link_casa {
+    display: inline-block;
+    position: relative;
+  }
+  .dettagli {
+    display: inline-block;
+    position: absolute;
+    padding-top: 23vh;
+    min-width: 280px;
+    padding-left: 0;
+    margin-left: -7vw;
+    line-height: 1.75em;
+    text-align: center;
+  }
+  .titolo, .informazioni {
+    display: inline-block;
+    min-width: 280px;
+  }
 }
 
-/* Media query per il posizionamento delle specifiche salienti su schermi più grandi */
+/* Media query per il posizionamento delle specifiche salienti su schermi con larghezza più grande di 400px*/
 @media screen and (min-width: 400px){
   .prev, .next {
     padding: 18px;

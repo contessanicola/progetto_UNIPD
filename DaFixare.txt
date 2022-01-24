@@ -1,0 +1,4 @@
+1) Mancano ALT sulle immagini thumbnail
+2) Sull'attributo page nello scorrimento del catalogo viene segnalato errore
+3) inserire class per bottoni avanti e indietro
+4) modificare dimensioni delle immagini 

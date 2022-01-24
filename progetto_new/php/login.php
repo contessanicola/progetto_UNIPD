@@ -1,7 +1,7 @@
 <?php
 require_once "functions/importModules.php";
 
-$output = file_get_contents("../HTML/login.html");
+$output = file_get_contents("../html/login.html");
 
 if(isset($_SESSION['username'])){
       $output = importModules::importEverythingOnline($output);
