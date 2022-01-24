@@ -16,7 +16,7 @@
 <body>
     <header>
         <input alt="Pulsante Menu Laterale" id="menuButton" onclick="openNav()" type="image" src="../media/menu_add.svg" />
-        <div id="overlay" onclick="closeNav()" ontouchstart="closeNav()" onscroll="closeNav()"></div>
+        <div id="overlay" onclick="closeNav()" onscroll="closeNav()"></div> <!--Eliminato ontouch start perchè codice non valido-->
         <nav id="navbar">
             <ul id="navList">
                 <li><a title="Home" href="home.html" class="contentLink" lang="en">Home</a></li>
@@ -138,11 +138,8 @@
         <p>Progetto a cura di: Nicolas Alberti, Enrico Bacci Bonivento, Nicola Contessa, Martina Garon</p>
 
     </footer>
-
+    <script src="../js/slideshow.js"></script> 
+    <script src="../js/sidebar.js"></script>
+    <!--Script posizionato sotto perchè altrimenti non rileva la presenza della navbar e quindi non funziona-->    
 </body>
-
-<script src="../js/slideshow.js"></script> 
-<script src="../js/sidebar.js"></script>
-<!--Script posizionato sotto perchè altrimenti non rileva la presenza della navbar e quindi non funziona-->
-
 </html>
