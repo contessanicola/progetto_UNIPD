@@ -7,15 +7,12 @@ session_start();
 
 $output = file_get_contents("../html/catalogo.html");
 $caseperpagine = 10;
-$output = str_replace('<header></header>',importModules::header(),$output);
-$output = str_replace('<nav id="sidebar"></nav>',importModules::sidebar(),$output);
-$output = str_replace('<footer></footer>',importModules::footer(),$output);
 
 if(isset($_SESSION['username'])){
-      $output = str_replace('<div id="nav_area_riservata"></div>',importModules::nav_online(), $output);
+      $output = importModules::importEverythingOnline($output);
 }
 else{
-      $output = str_replace('<div id="nav_area_riservata"></div>',importModules::nav_offline(), $output);
+      $output = importModules::importEverythingOffline($output);
 }
 
 $connect = new DBAccess();
@@ -40,14 +37,16 @@ else{
 $template_casa = file_get_contents("../html/modules/casa.html");
 $temp = "";
 
-$row = count($catalogo);
+
 
 if(!isset($_GET["page"])){
       $_GET["page"] = 1;  
 }
-
-$catalogo = array_slice($catalogo, 0 + ($_GET["page"] - 1) * $caseperpagine, $caseperpagine + ($_GET["page"] - 1) * $caseperpagine);
-
+$row = 0;
+if(!empty($catalogo)){
+      $row = count($catalogo);
+      $catalogo = array_slice($catalogo, 0 + ($_GET["page"] - 1) * $caseperpagine, $caseperpagine + ($_GET["page"] - 1) * $caseperpagine);
+}
 if($_GET["page"]>1){
       $previous = '<a href=catalogo.php?'. http_build_query(array_merge($_GET, array('page' => ($_GET["page"]-1)))) .'>Previous</a> ';
 }
@@ -67,6 +66,7 @@ if(!empty($catalogo)){
             $temp = str_replace('<div class="bagni"></div>', '<div class="bagni">'.$casa["bagni"].'</div>',$temp);
             $temp = str_replace('<div class="descrizione"></div>', '<div class="descrizione">'.$casa["descrizione"].'</div>',$temp);
             $temp = str_replace('<a href="" class="link">', '<a href="dettagli.php?id_casa='.$casa["id_casa"].'" class="link">',$temp);
+            $temp = str_replace('<img src="../media/immaginiCase/1/1a.jpeg" class="img_casa">', '<img src="../media/immaginiCase/'.$casa["id_casa"].'/'.$casa["id_casa"].'a.jpeg" class="img_casa">',$temp);
       }
 }
 if(isset($previous))

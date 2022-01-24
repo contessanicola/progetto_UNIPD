@@ -1,28 +1,12 @@
-/*================ SEZIONE VALORI GENERALI ================ */
-
 @font-face {
   font-family: Dyslexic-Regular;
   src: url(../font/OpenDyslexic-Regular.otf);
-  font-weight: normal;
 }
 
 @font-face {
   font-family: Dyslexic-Bold;
   src: url(../font/OpenDyslexic-Bold.otf);
   font-weight: bold;
-}
-
-@font-face {
-  font-family: Dyslexic-BoldItalic;
-  src: url(../font/OpenDyslexic-BoldItalic.otf);
-  font-style: italic;
-  font-weight: bold;
-}
-
-@font-face {
-  font-family: Dyslexic-Italic;
-  src: url(../font/OpenDyslexic-Italic.otf);
-  font-style: italic;
 }
 
 * {
@@ -46,30 +30,16 @@ body {
 
 h1 {
   /* La proprietà clamp(min, value, max) permette, una volta settati i limiti
-     minimo e massimo, di far ingrandire l'elemento desiderato, che avrà come limiti
-     di dimensione quelli min e max, mentre il valore preferito rimane value*/
+     minimo e massimo, di far ingrandire l'elemento desiderato tramite il valore
+     specificato in value*/
   font-size: clamp(.5rem, 10vw, 1.6rem);
-}
-
-h2 {
-  font-size: clamp(.3rem, 10vw, 1.4rem);
-}
-
-hr {
-  margin: 15px 0;
-  border-top: solid 1px #727378;
-}
-
-sup {
-  font-size: 1rem;
 }
 
 /*================ SEZIONE HEADER E PAGE ================*/
 
 header {
   display: flex;
-  min-height: 10vh;
-  max-height: 13vh;
+  min-height: 15vh;
   justify-content: space-between;
   align-items: center;
   padding: 1em 1em 1em 1em;
@@ -99,7 +69,7 @@ header {
 
 #breadcrumb {
   background-color: #cae2ed;
-  padding: 0.3em 0em 0.3em 1.825em;
+  padding: 0.5em 0em 0.5em 1em;
 }
 
 #breadcrumb > p {
@@ -109,14 +79,13 @@ header {
 /*================ SEZIONE LOGO ================*/
 
 /*TODO: Fixare ingombro del logo, parecchio ingombro a sinistra non necessario, sballa il posizionamento*/
-/*UPDATE: Dovrebbe essere fixato, riprovare alla fine durante i test eventuali bug*/
 
 .logo {
   cursor: pointer;
   /*Fa diventare il cursore un puntatore ad un elemento che si clicca*/
-  width: 8.5em;
-  padding-top: .8em;
-  height: 8.5em;
+  width: 9em;
+  padding: 0.4em;
+  height: 9em;
   transition: transform 0.2s ease-in-out;
 }
 
@@ -132,11 +101,18 @@ header {
 
 #navList {
   list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 #navList li {
   display: inline-block;
   padding: 0.5em;
+}
+
+#nav_area_riservata{
+  border-left: 1px solid white;
 }
 
 /*================ SEZIONE SIDEBAR ================*/
@@ -215,7 +191,7 @@ header {
 #content {
   display: flex;
   flex-direction: column;
-  padding: .3em .8em .8em .8em;
+  padding: 1em;
   align-items: center;
   text-align: center;
   background: #ffffff;
@@ -255,7 +231,6 @@ header {
 
 .containerImg {
   display: center;
-  position: relative;
   overflow-y: auto;
   min-width: 240px;
   max-width: 80rem;
@@ -268,141 +243,50 @@ header {
   display: inline-block;
   vertical-align: middle;
   min-width: 240px;
-  max-width: 52vw;
-  max-height: 52vw;
+  max-width: 65vw;
+  max-height: 55vw;
 }
 
-.containerBtn {
-  position: relative;
-  vertical-align: middle;
-  min-width: 240px;
-  max-width: 52vw;
-  max-height: 52vw;
-}
+/* Stili ed effetti per i bottoni */
 
-/* Stili ed effetti per le thumbnail */
-
-.cursor {
-  cursor: pointer;
-}
-
-.prev, .next {
-  position: absolute; /*Si posiziona in modo assoluto relativamente al contenitore genitore, che è impostato a relative*/
-  cursor: pointer;
-  background-color: transparent;
-  border-color: transparent; 
-  border-radius: 0 3px 3px 0;
-  transition: .2s ease-in-out;
+.buttonPN, .buttonNum {
+  border-radius: 4px;
+  background-color: white;
+  border: 2px solid #113755;
+  background-color: #113755;
   color: white;
-  top: 43%;
-  min-width: .5vw;
-  padding: 12px;
-  font-size: 14px;
-  font-weight: bold;
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
+  font-size: clamp(16px,2px,20px);
+  /* Poichè uso clamp, devo dividere i vari margin in ogni loro posizione
+     per ottenere l'effetto desiderato */
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: clamp(2px, 1px, 5px);
+  margin-right: clamp(2px, 1px, 5px);
+  cursor: pointer;
+  transition: all .3s;
+  outline: none;
+  box-shadow: 0 3px #999;
+  transition: .1s;
 }
 
-.prev {
-  left:0;
-}
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-.prev:hover, .next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-.row {
-  margin-top: 10px;
-}
-
-.row::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.column {
-  display: inline;
-  overflow: hidden;
-  max-width: 20rem;
-}
-
-.thumb {
-  opacity: 0.6;
-  max-width: 7rem;
+.buttonPN {
   padding: 5px;
 }
 
-.active, .thumb:hover {
-  transition: .2s ease-in;
-  opacity: 1;
+.buttonNum{
+  width: 25px;
 }
 
-.thumb:not(:hover) {
-  transition: .2s ease-out;
+.buttonPN:hover, .buttonNum:hover {
+  background-color: #0d2c44;
+  border-color: #0d2c44;
 }
 
-
-/*================ SEZIONE CONTAINER SPECIFICHE PRINCIPALI ================*/
-
-/* Contenitore Specifiche Salienti */
-.containerSpecs {
-  display: block;
-  margin-top: -20px;
-  flex-direction: row;
-  max-height: 50vh;
-  min-width: 75vw;
-}
-
-.containerSpecs ul {
-  list-style-type: none;
-  margin-top: .8rem;
-  margin-bottom: -.8rem;  
-}
-
-/* Sezione prezzo */
-.specsPrice {
-  text-align: left;
-  vertical-align: middle;
-  font-size: 1.3rem;
-  font-weight: bold;
-  margin-top: 17px;
-  margin-bottom: 10px;
-}
-
-/* Sezione elementi specifiche principali e testo*/
-.specsItem {
-  vertical-align: middle;
-  text-align: left;
-  font-size: 1.2rem;
-  border-top: 1px solid #72737842;
-  content: "";
-}
-
-.specsLabel, .specsValue, .mSquare {
-  vertical-align: middle;
-  font-size: 1rem;
-  font-weight: normal;
-}
-
-/* Classe per modifica icone SVG */
-
-.specsIcon {
-  vertical-align: middle;
-  shape-rendering: geometricPrecision;
-  width: 32px;
-  height: 32px;
-  margin: 20px 15px 20px 0;
-  -ms-user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
+.buttonPN:active, .buttonNum:active {
+  background-color: #0d2c44;
+  border-color: #0d2c44;
+  box-shadow: 0 1px #666;
+  transform: translateY(2px);
 }
 
 
@@ -411,42 +295,11 @@ header {
 .containerText {
   display: flex;
   flex-direction: column;
-  align-content: center;
-  margin-top: .8em;
-  max-width: 48rem;
+  align-items: center;
+  padding-top: 1em;
+  line-height: 1.8em;
+  width: 80%;
   height: 100%;
-}
-
-.containerText > p {
-  margin-top: .8em;
-  line-height: 2em;
-  font-size: clamp(.5rem, 10vw, 1.1rem);
-}
-
-/*================ SEZIONE CONTAINER SPECIFICHE ESTESE ================*/
-
-.containerSpecsFull {
-  display: block;
-  flex-wrap: wrap;
-  flex-direction: column;
-  align-content: center;
-  margin-top: .8em;
-  min-width: 15rem;
-  height: 100%;
-}
-/* Sezioni specifiche per i dt e i dd */
-.specsFullTitle {
-  color: #505050;
-  max-width: 18rem;
-  font-size: 1.3em;
-  text-align: left;
-}
-
-.specsFullDefine {
-  max-width: 25rem;
-  font-size: 1.18em;
-  text-align: left;
-  line-height: 2em;
 }
 
 /*================ SEZIONE FOOTER ================*/
@@ -487,34 +340,9 @@ footer img {
   #navbar {
     display: none;
   }
+
+  #nav_area_riservata{
+    border-left: none;
+    border-top: 1px solid white;
 }
-
-/* Media query per il posizionamento delle specifiche salienti su schermi più grandi */
-@media screen and (min-width: 400px){
-  .prev, .next {
-    padding: 18px;
-  }
-
-  .specsPrice, .specsItem {
-    display:inline-block;
-    border-top: none;
-  }
-  .specsIcon{
-    margin-right: 5px;
-  }
-  .specsPrice::after {
-    align-items: center;
-    margin-left: .5em;
-    border-right: 1px solid #727378;
-    content: "";
-  }
-  .specsItem::after {
-    align-items: center;
-    margin-left: .5em;
-    border-right: 1px solid #727378;
-    content: "";
-  }
-  .containerSpecsFull{
-    min-width: 20rem;
-  }
 }

@@ -25,5 +25,28 @@ class importModules{
         $footer_return = file_get_contents("../html/modules/footer.html")."\n";
         return $footer_return;
     }
+
+    public static function metatags() {
+        $meta_return = file_get_contents("../html/modules/metatags.html")."\n";
+        return $meta_return;
+    }
+
+    public static function importEverythingOnline($output){
+        $output = str_replace('<meta>',importModules::metatags(),$output);
+        $output = str_replace('<header></header>',importModules::header(),$output);
+        $output = str_replace('<nav id="sidebar"></nav>',importModules::sidebar(),$output);
+        $output = str_replace('<footer></footer>',importModules::footer(),$output);
+        $output = str_replace('<div id="nav_area_riservata"></div>',importModules::nav_online(), $output);
+        return $output;
+    }
+
+    public static function importEverythingOffline($output){
+        $output = str_replace('<meta>',importModules::metatags(),$output);
+        $output = str_replace('<header></header>',importModules::header(),$output);
+        $output = str_replace('<nav id="sidebar"></nav>',importModules::sidebar(),$output);
+        $output = str_replace('<footer></footer>',importModules::footer(),$output);
+        $output = str_replace('<div id="nav_area_riservata"></div>',importModules::nav_offline(), $output);
+        return $output;
+    }
 }
 ?>

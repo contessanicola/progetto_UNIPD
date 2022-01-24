@@ -2,51 +2,108 @@
 <html lang="it-IT">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="to be filled">
-    <meta name="keywords" content="Immobiliare, ImmoWeb, Tecno, Logica, Tecnologica, case, ville, appartamenti, negozi">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" media="print" href="../print.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css">   
-    <title>La Tecno Logica Immoweb - Home</title>
+    <meta>
+    <title>La Tecno Logica Immoweb - Annuncio</title>
 </head>
 
 <body>
     <header></header>
     <nav id="breadcrumb">
-        <p><span lang="en"> Home</span></p>
+        <p><span lang="en"> Home</span> > > Annuncio</p>
     </nav>
     <div id="page">
         <nav></nav>
         <div id="mainWrapper">
             <main id="content">
-                <div id="catalogo">
-                    <div class="casa"></div> 
+                <a id="skip-desc" class="skip-img-text-reader" href="#textAnnounce">Salta alla descrizione</a>
+                <a id="skip-specs" class="skip-img-text-reader" href="#specsAnnounce">Salta alle caratteristiche</a>
+                <h1> via <span class="via"></span><span class="civico"></span>,<span class="citta"></span><span class="provincia"></span></h1>
+                <div class="containerImg">
+                    <img class="imgCasa" alt="Casa monopiano, due coppie di vetrate, tetto due falde, esterno assi legno verticali, giardino con siepe" src="../media/immaginiCase/1/1a.jpeg">
+                    <img class="imgCasa" alt="Interno ingresso, cucina, tavolo rettangolare sei posti, due lampadari a sfera, parquet e muri bianchi." src="../media/immaginiCase/1/1d.jpeg">
+                    <img class="imgCasa" alt="Interno salotto, divano bianco, tappeto beige, tavolino vetro, mobiletti bassi e tv a muro, parquet." src="../media/immaginiCase/1/1e.jpeg">
+                    <img class="imgCasa" alt="Interno bagno con doppio lavandino, specchio, finestra con tenda, box doccia di vetro, parquet" src="../media/immaginiCase/1/1f.jpeg">
+                    <img class="imgCasa" alt="Interno cameretta letto singolo, parete rosa, vetrata con tenda rullo, scrivania con computer, parquet." src="../media/immaginiCase/1/1g.jpeg">
+                    <img class="imgCasa" alt="Interno camera matrimoniale, vetrata, caminetto, pareti grigie, quadro con disegno alberi e foglie." src="../media/immaginiCase/1/1h.jpeg">
+                    <img class="imgCasa" alt="Pianta della casa forma quadrata, corridoio ingresso centrale, stanze ai lati con bagno di fronte." src="../media/immaginiCase/1/1i.jpeg">
+                    <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
+                    <button class="next" onclick="plusSlides(1)">&#10095;</button>
                 </div>
-            </main>
-            
+                    <div class="row">
+                        <div class="column">
+                          <img class="thumb cursor" src="../media/immaginiCase/1/1a.jpeg" onclick="currentSlide(1)" alt="Immagine 1">
+                        </div>
+                        <div class="column">
+                          <img class="thumb cursor" src="../media/immaginiCase/1/1d.jpeg" onclick="currentSlide(2)" alt="Immagine 2">
+                        </div>
+                        <div class="column">
+                          <img class="thumb cursor" src="../media/immaginiCase/1/1e.jpeg" onclick="currentSlide(3)" alt="Immagine 3">
+                        </div>
+                        <div class="column">
+                          <img class="thumb cursor" src="../media/immaginiCase/1/1f.jpeg" onclick="currentSlide(4)" alt="Immagine 4">
+                        </div>
+                        <div class="column">
+                          <img class="thumb cursor" src="../media/immaginiCase/1/1g.jpeg" onclick="currentSlide(5)" alt="Immagine 5">
+                        </div>
+                        <div class="column">
+                          <img class="thumb cursor" src="../media/immaginiCase/1/1h.jpeg" onclick="currentSlide(6)" alt="Immagine 6">
+                        </div>
+                        <div class="column">
+                          <img class="thumb cursor" src="../media/immaginiCase/1/1i.jpeg" onclick="currentSlide(7)" alt="Immagine 7">
+                        </div>
+                      </div>
+                  <div class="containerSpecs">
+                    <ul>
+                        <li class="specsPrice">&euro; <span class="prezzo"></span></li>
+                        <!-- li contiene: span Locali span Numero svg simbolo-->
+                        <li class="specsItem"><svg class="specsIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><g id="Layer_28" data-name="Layer 28"><path d="M57,6H7A1,1,0,0,0,6,7V57a1,1,0,0,0,1,1H36.59a1,1,0,0,0,1-1V39.92a1,1,0,0,0-2,0V56H8V40.92H26.89a1,1,0,0,0,1-1V30.54a1,1,0,0,0-2,0v8.38H8V22H26.89a1,1,0,0,0,1-1V8H38.71v6.92a1,1,0,1,0,2,0V8H56V22.88H39.71a1,1,0,0,0,0,2H56v14H45.33a1,1,0,0,0,0,2H56V56H47a1,1,0,0,0,0,2H57a1,1,0,0,0,1-1V7A1,1,0,0,0,57,6ZM25.89,20H8V8H25.89Z"/></g></svg><span class="specsLabel">Locali </span><span class="specsValue"><span class="locali"></span></span></li> <!--&nbsp; tra 150 e m2-->
+                        <li class="specsItem"><svg class="specsIcon" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M60.9101 21.42L42.6101 3.12005C42.3725 2.90647 42.0622 2.79193 41.7429 2.79996C41.4236 2.80798 41.1194 2.93794 40.8929 3.16318C40.6664 3.38841 40.5347 3.69181 40.5249 4.0111C40.5151 4.33038 40.6278 4.64131 40.8401 4.88005L59.1501 23.1901C59.3888 23.4023 59.6997 23.5151 60.019 23.5052C60.3383 23.4954 60.6417 23.3637 60.8669 23.1372C61.0922 22.9107 61.2221 22.6065 61.2302 22.2872C61.2382 21.9679 61.1236 21.6576 60.9101 21.42V21.42Z" fill="black"/>
+                            <path d="M4.85002 40.81C4.61128 40.5978 4.30035 40.485 3.98107 40.4949C3.66179 40.5047 3.35838 40.6364 3.13315 40.8629C2.90791 41.0894 2.77795 41.3935 2.76993 41.7129C2.76191 42.0322 2.87644 42.3425 3.09002 42.58L21.39 60.88C21.6276 61.0936 21.9378 61.2081 22.2572 61.2001C22.5765 61.1921 22.8807 61.0621 23.1072 60.8369C23.3337 60.6117 23.4654 60.3083 23.4752 59.989C23.485 59.6697 23.3722 59.3588 23.16 59.12L4.85002 40.81Z" fill="black"/>
+                            <path d="M47.85 14.06L37.1 16.22C36.8193 16.2696 36.564 16.4136 36.3764 16.6281C36.1888 16.8427 36.0801 17.115 36.0684 17.3998C36.0568 17.6846 36.1428 17.9648 36.3122 18.194C36.4816 18.4232 36.7243 18.5876 37 18.66L41.72 19.86L19.94 41.69L18.89 37.13C18.8241 36.8574 18.6685 36.6149 18.4481 36.4415C18.2278 36.268 17.9555 36.1737 17.675 36.1737C17.3946 36.1737 17.1223 36.268 16.9019 36.4415C16.6816 36.6149 16.5259 36.8574 16.46 37.13L14 47.83C13.9519 48.0331 13.9557 48.2451 14.0113 48.4463C14.0669 48.6475 14.1724 48.8315 14.318 48.9811C14.4636 49.1307 14.6446 49.2411 14.8442 49.3021C15.0439 49.3631 15.2557 49.3727 15.46 49.33L26.22 47.18C26.4925 47.1171 26.7362 46.9654 26.913 46.7487C27.0897 46.5321 27.1893 46.2628 27.1962 45.9833C27.2031 45.7038 27.1168 45.4299 26.9509 45.2048C26.7851 44.9797 26.549 44.8162 26.28 44.74L21.58 43.54L43.38 21.73L44.38 26.27C44.4499 26.5405 44.6076 26.7801 44.8284 26.9511C45.0493 27.1222 45.3207 27.215 45.6 27.215C45.8794 27.215 46.1508 27.1222 46.3716 26.9511C46.5925 26.7801 46.7502 26.5405 46.82 26.27L49.24 15.57C49.2814 15.3735 49.2753 15.17 49.2221 14.9763C49.1689 14.7827 49.0701 14.6046 48.9341 14.4568C48.7981 14.3091 48.6288 14.196 48.4402 14.1269C48.2516 14.0579 48.0493 14.035 47.85 14.06V14.06ZM16.9 46.5L17.68 43.05C17.9 43.81 17.92 45.26 18.92 45.44L20.38 45.81L16.9 46.5ZM45.67 20.35C45.45 19.59 45.43 18.14 44.43 17.96L43 17.59L46.48 16.89L45.67 20.35Z" fill="black"/>
+                            </svg><span class="specsLabel">Superficie </span><span class=" noBreak specsValue"> <span class="superficie"></span> </span><span class="mSquare">m<sup>2</sup></span></li>
+                        <li class="specsItem"><svg class="specsIcon" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M59 32H57V21C57 18.6131 56.0518 16.3239 54.364 14.636C52.6761 12.9482 50.3869 12 48 12C45.6131 12 43.3239 12.9482 41.636 14.636C39.9482 16.3239 39 18.6131 39 21V25C39 25.2652 39.1054 25.5196 39.2929 25.7071C39.4804 25.8946 39.7348 26 40 26C40.2652 26 40.5196 25.8946 40.7071 25.7071C40.8946 25.5196 41 25.2652 41 25V21C41 19.1435 41.7375 17.363 43.0503 16.0503C44.363 14.7375 46.1435 14 48 14C49.8565 14 51.637 14.7375 52.9497 16.0503C54.2625 17.363 55 19.1435 55 21V32H53V21C53 19.6739 52.4732 18.4021 51.5355 17.4645C50.5979 16.5268 49.3261 16 48 16C46.6739 16 45.4021 16.5268 44.4645 17.4645C43.5268 18.4021 43 19.6739 43 21V25C43 25.2652 43.1054 25.5196 43.2929 25.7071C43.4804 25.8946 43.7348 26 44 26C44.2652 26 44.5196 25.8946 44.7071 25.7071C44.8946 25.5196 45 25.2652 45 25V21C45 20.2044 45.3161 19.4413 45.8787 18.8787C46.4413 18.3161 47.2044 18 48 18C48.7956 18 49.5587 18.3161 50.1213 18.8787C50.6839 19.4413 51 20.2044 51 21V32H30C29.7348 32 29.4804 32.1054 29.2929 32.2929C29.1054 32.4804 29 32.7348 29 33C29 33.2652 29.1054 33.5196 29.2929 33.7071C29.4804 33.8946 29.7348 34 30 34H59C59.2652 34 59.5196 34.1054 59.7071 34.2929C59.8946 34.4804 60 34.7348 60 35C60 35.2652 59.8946 35.5196 59.7071 35.7071C59.5196 35.8946 59.2652 36 59 36H30.17C29.9048 36 29.6504 36.1054 29.4629 36.2929C29.2754 36.4804 29.17 36.7348 29.17 37C29.17 37.2652 29.2754 37.5196 29.4629 37.7071C29.6504 37.8946 29.9048 38 30.17 38H55V49C55 50.8565 54.2625 52.637 52.9497 53.9497C51.637 55.2625 49.8565 56 48 56H16C14.1435 56 12.363 55.2625 11.0503 53.9497C9.7375 52.637 9 50.8565 9 49V38H10C10.2652 38 10.5196 37.8946 10.7071 37.7071C10.8946 37.5196 11 37.2652 11 37C11 36.7348 10.8946 36.4804 10.7071 36.2929C10.5196 36.1054 10.2652 36 10 36H5C4.73478 36 4.48043 35.8946 4.29289 35.7071C4.10536 35.5196 4 35.2652 4 35C4 34.7348 4.10536 34.4804 4.29289 34.2929C4.48043 34.1054 4.73478 34 5 34H13V48C13 48.2652 13.1054 48.5196 13.2929 48.7071C13.4804 48.8946 13.7348 49 14 49H26C26.2652 49 26.5196 48.8946 26.7071 48.7071C26.8946 48.5196 27 48.2652 27 48V33C27 32.7348 26.8946 32.4804 26.7071 32.2929C26.5196 32.1054 26.2652 32 26 32H5C4.20435 32 3.44129 32.3161 2.87868 32.8787C2.31607 33.4413 2 34.2044 2 35C2 35.7956 2.31607 36.5587 2.87868 37.1213C3.44129 37.6839 4.20435 38 5 38H7V49C7.00105 51.2131 7.81745 53.3482 9.29322 54.9973C10.769 56.6465 12.8006 57.6941 15 57.94V59C15 59.7956 15.3161 60.5587 15.8787 61.1213C16.4413 61.6839 17.2044 62 18 62C18.7956 62 19.5587 61.6839 20.1213 61.1213C20.6839 60.5587 21 59.7956 21 59V58H43V59C43 59.7956 43.3161 60.5587 43.8787 61.1213C44.4413 61.6839 45.2044 62 46 62C46.7956 62 47.5587 61.6839 48.1213 61.1213C48.6839 60.5587 49 59.7956 49 59V57.94C51.1994 57.6941 53.231 56.6465 54.7068 54.9973C56.1825 53.3482 56.9989 51.2131 57 49V38H59C59.7956 38 60.5587 37.6839 61.1213 37.1213C61.6839 36.5587 62 35.7956 62 35C62 34.2044 61.6839 33.4413 61.1213 32.8787C60.5587 32.3161 59.7956 32 59 32V32ZM25 47H15V44H25V47ZM25 42H15V34H25V42ZM19 59C19 59.2652 18.8946 59.5196 18.7071 59.7071C18.5196 59.8946 18.2652 60 18 60C17.7348 60 17.4804 59.8946 17.2929 59.7071C17.1054 59.5196 17 59.2652 17 59V58H19V59ZM47 59C47 59.2652 46.8946 59.5196 46.7071 59.7071C46.5196 59.8946 46.2652 60 46 60C45.7348 60 45.4804 59.8946 45.2929 59.7071C45.1054 59.5196 45 59.2652 45 59V58H47V59Z" fill="black"/>
+                            <path d="M6 24H32C32.2652 24 32.5196 23.8946 32.7071 23.7071C32.8946 23.5196 33 23.2652 33 23V3C33 2.73478 32.8946 2.48043 32.7071 2.29289C32.5196 2.10536 32.2652 2 32 2H6C5.73478 2 5.48043 2.10536 5.29289 2.29289C5.10536 2.48043 5 2.73478 5 3V23C5 23.2652 5.10536 23.5196 5.29289 23.7071C5.48043 23.8946 5.73478 24 6 24ZM7 4H17.59L27.29 13.71C27.383 13.8037 27.4936 13.8781 27.6154 13.9289C27.7373 13.9797 27.868 14.0058 28 14.0058C28.132 14.0058 28.2627 13.9797 28.3846 13.9289C28.5064 13.8781 28.617 13.8037 28.71 13.71C28.8037 13.617 28.8781 13.5064 28.9289 13.3846C28.9797 13.2627 29.0058 13.132 29.0058 13C29.0058 12.868 28.9797 12.7373 28.9289 12.6154C28.8781 12.4936 28.8037 12.383 28.71 12.29L20.41 4H24.59L27.79 7.21C27.883 7.30373 27.9936 7.37812 28.1154 7.42889C28.2373 7.47966 28.368 7.5058 28.5 7.5058C28.632 7.5058 28.7627 7.47966 28.8846 7.42889C29.0064 7.37812 29.117 7.30373 29.21 7.21C29.3037 7.11704 29.3781 7.00644 29.4289 6.88458C29.4797 6.76272 29.5058 6.63201 29.5058 6.5C29.5058 6.36799 29.4797 6.23728 29.4289 6.11542C29.3781 5.99356 29.3037 5.88296 29.21 5.79L27.41 4H31V22H13V7C13 6.73478 12.8946 6.48043 12.7071 6.29289C12.5196 6.10536 12.2652 6 12 6C11.7348 6 11.4804 6.10536 11.2929 6.29289C11.1054 6.48043 11 6.73478 11 7V22H7V4Z" fill="black"/>
+                            <path d="M16 17C16.2652 17 16.5196 16.8946 16.7071 16.7071C16.8946 16.5196 17 16.2652 17 16V10C17 9.73478 16.8946 9.48043 16.7071 9.29289C16.5196 9.10536 16.2652 9 16 9C15.7348 9 15.4804 9.10536 15.2929 9.29289C15.1054 9.48043 15 9.73478 15 10V16C15 16.2652 15.1054 16.5196 15.2929 16.7071C15.4804 16.8946 15.7348 17 16 17Z" fill="black"/>
+                            </svg><span class="specsLabel">Bagni </span><span class="specsValue"><span class="bagni"></span></span></li>
+                    </ul>
+                </div>
+                <!--Container del testo-->
+                <div id="textAnnounce" class="containerText">
+                    <hr>
+                    <h2>Descrizione</h2>
+                    <p><div class="descrizione"></div></p>
+                </div>
+                <div id="specsAnnounce" class="containerSpecsFull">
+                    <hr>
+                    <h2>Caratteristiche</h2>
+                    <dl>
+                        <dt class="specsFullTitle">Tipologia</dt>
+                        <dd class="specsFullDefine"><span class="tipologia"></span></dd>
+                        <dt class="specsFullTitle">Superficie</dt>
+                        <dd class="specsFullDefine"><span class="superficie"></span> m<sup>2</sup></dd>
+                        <dt class="specsFullTitle">Locali</dt>
+                        <dd class="specsFullDefine"><span class="camere"></span> camere, <span class="bagni"></span> bagno</dd>
+                        <dt class="specsFullTitle">Parcheggio - Posto Auto</dt>
+                        <dd class="specsFullDefine"><span class="parcheggio"></span></dd>
+                        <dt class="specsFullTitle">Altre Caratteristiche</dt>
+                        <dd class="specsFullDefine">Giardino Privato</dd>
+                        <dd class="specsFullDefine">Idromassaggio</dd>
+                        <dd class="specsFullDefine">Arredato</dd>
+                        <dt class="specsFullTitle">Prezzo</dt>
+                        <dd class="specsFullDefine">&euro; <span class="prezzo"></span></dd>
+                    </dl> <!--Fixare CSS per dimensioni maggiori di 400px-->
+                </div>
+                <form id="contactForm">
+                    <input type="text" id="contactInfoText" aria-label="Casella di testo per richiedere informazioni sull'immobile." aria-placeholder="Scrivi qui le informazioni che vuoi richiedere all'agente immobiliare: ti risponderà al più presto!">
+                </form> 
+            </main>            
         </div>
     </div>
     <footer></footer>
 </body>
 </html>
+<script src="../js/slideshow.js"></script> 
 <script src="../js/sidebar.js"></script>
-<style>
-.casa{
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 50px;
-}
-.img_casa{
-    width: 300px;
-}
-.titolo,
-.informazioni{
-    display: flex;
-    flex-direction: row;
-}
-.dettagli{
-    width: 30vw;
-    padding-left: 20px;
-}
-</style>
+
