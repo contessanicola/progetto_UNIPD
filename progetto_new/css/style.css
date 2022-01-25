@@ -448,6 +448,7 @@ header {
 
 #contactInfoText { /* BUG: width rimane fissa dopo aver modificato media query per #content */
   display: flex;
+  width: 100%;
   align-content: center;
   margin-top: 1em;
   height: 10em;
@@ -518,6 +519,10 @@ header {
   display: inline;
 }
 
+.tipologia{
+  text-transform: capitalize;
+}
+
 .divider {
   margin: 0;
 }
@@ -546,6 +551,8 @@ header {
   outline: none;
   box-shadow: 0 3px #999;
   font-family: Dyslexic-Regular;
+  text-decoration: none;
+  appearance: button;
 }
 
 .buttonSearch:active {
@@ -599,6 +606,8 @@ footer {
   font-size: 0.8em;
   padding: 0.5em;
   background-color: #cae2ed;
+  align-items: center;
+  justify-content: center;
 }
 
 footer img {

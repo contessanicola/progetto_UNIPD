@@ -3,7 +3,7 @@
 
 <head>
     <meta>
-    <title>La Tecno Logica Immoweb - Annuncio</title>
+    <title>Annuncio - La Tecno Logica Immoweb</title>
 </head>
 
 <body>
@@ -68,6 +68,7 @@
                             <path d="M16 17C16.2652 17 16.5196 16.8946 16.7071 16.7071C16.8946 16.5196 17 16.2652 17 16V10C17 9.73478 16.8946 9.48043 16.7071 9.29289C16.5196 9.10536 16.2652 9 16 9C15.7348 9 15.4804 9.10536 15.2929 9.29289C15.1054 9.48043 15 9.73478 15 10V16C15 16.2652 15.1054 16.5196 15.2929 16.7071C15.4804 16.8946 15.7348 17 16 17Z" fill="black"/>
                             </svg><span class="specsLabel">Bagni </span><span class="specsValue"><span class="bagni"></span></span></li>
                     </ul>
+                    <a class="preferito"></a>
                 </div>
                 <!--Container del testo-->
                 <div id="textAnnounce" class="containerText">
@@ -95,10 +96,20 @@
                         <dd class="specsFullDefine">&euro; <span class="prezzo"></span></dd>
                     </dl> <!--Fixare CSS per dimensioni maggiori di 400px-->
                 </div>
-                <form id="contactForm" action="richieste.php" method="post">
-                  <textarea id="contactInfoText" aria-label="Casella di testo per richiedere informazioni sull'immobile." placeholder="Mi interessa questo immobile e vorrei avere maggiori informazioni."></textarea>
-                  <button id="submitContact" type="submit" name="submit" value="Submit">Invia richiesta</button>
+                <div id="specsAnnounce" class="containerSpecsFull">
+                  <hr>
+                  <h2>Richiedi</h2>
+                <form id="contactForm" action="aggiungi_richiesta.php" method="get">
+                  <input type="hidden" value="" name="id_casa" />
+                  <label for="orario">Scegli un orario:</label>
+                    <input type="datetime-local" id="orario"
+                        name="orario" value="today"
+                        min="today" max="" required />
+                  <textarea id="contactInfoText" name="text" aria-label="Casella di testo per richiedere informazioni sull'immobile." placeholder="Mi interessa questo immobile e vorrei avere maggiori informazioni."></textarea>
+                  <button id="submitContact" type="submit" name="submit" value="submit">Invia richiesta</button>
                 </form> 
+                </div>
+                <div id="specsAnnounce" class="containerSpecsFull"></div>
             </main>            
         </div>
     </div>

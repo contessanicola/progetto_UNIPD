@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 22, 2022 at 12:55 AM
+-- Generation Time: Jan 25, 2022 at 06:55 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -58,8 +58,7 @@ CREATE TABLE `casa` (
 
 INSERT INTO `casa` (`id_casa`, `regione`, `provincia`, `citta`, `via`, `civico`, `tipologia`, `superficie`, `camere`, `bagni`, `parcheggio`, `giardino`, `piscina`, `patio`, `barbecue`, `angolo_bar`, `idromassaggio`, `terrazzo`, `arredato`, `prezzo`, `descrizione`) VALUES
 (2, 'Veneto', 'Padova', 'Este', 'A. Palladio', 3, 'villa', 315, 5, 3, NULL, 'privato', 0, 0, 0, 0, 0, 1, 1, 0, 'Prestigiosa villa liberty in stile francese, con grande parco privato con fontane e labirinto. Il palazzetto d’epoca si sviluppa su tre livelli. È presente un’ampia soffitta da organizzare in spazi personalizzati. L’immobile è da ristrutturare, presenti pregiati parquet e stucchi. Trattativa riservata.'),
-(3, 'Trentino', 'Bolzano', 'Bolzano', 'I. Kostner', 2, 'villa', 250, 5, 3, 'posto_auto', 'privato', 1, 0, 1, 0, 1, 0, 1, 750000, 'Moderna villetta di recente costruzione con mattoni a vista, grandi vetrate e lucernari. L’immobile è completo di posto auto doppio, giardino privato con piscina, vasca idromassaggio esterna, zona barbecue, ampia zona giorno con caminetto. Parquet in tutta la casa, arredi moderni.'),
-(4, 'Trentino', 'Trento', 'Tovel', 'Brenta', 38, 'villa', 200, 3, 2, NULL, 'privato', 0, 0, 1, 0, 0, 0, 1, 610000, 'Affascinante baita di montagna ristrutturata con affaccio sul lago, con pedana e posto barca sul pontile. Dispone di moderne vetrate e parquet con riscaldamento a pavimento. '),
+(3, 'Trentino', 'Bolzano', 'Bolzano', 'I. Kostner', 2, 'villa', 280, 6, 3, 'posto_auto', 'privato', 1, 0, 1, 0, 1, 0, 1, 750000, 'Moderna villetta di recente costruzione con mattoni a vista, grandi vetrate e lucernari. L’immobile è completo di posto auto doppio, giardino privato con piscina, vasca idromassaggio esterna, zona barbecue, ampia zona giorno con caminetto. Parquet in tutta la casa, arredi moderni.'),
 (5, 'Trentino', 'Trento', 'Rovereto', 'M. Botta', 87, 'villa', 300, 3, 2, 'posto_auto', 'privato', 1, 0, 1, 1, 1, 0, 1, 620000, 'Moderna villetta di recente costruzione con mattoni a vista, grandi vetrate e lucernari. L’immobile è completo di posto auto doppio, giardino privato con piscina, vasca idromassaggio esterna, zona barbecue, ampia zona giorno con caminetto. Particolare studiolo con affaccio su zona giorno. Parquet in tutta la casa, arredi moderni.'),
 (6, 'Trentino', 'Trento', 'Pinzolo', 'Pra Rodont', 52, 'villa', 150, 2, 2, 'posto_auto', 'privato', 1, 0, 1, 0, 0, 1, 1, 700000, 'Piccolo chalet moderno in contesto esclusivo in località sciistica. Completo di abbaini e lucernari. Al primo piano rialzato dispone di studio, bagno, in un unico spazio cucina, zona pranzo e salotto. Al secondo piano mansardato due camere da letto e un bagno. Ottimo come seconda casa.'),
 (7, 'Veneto', 'Vicenza', 'Bassano del Grappa', 'Dell\'Asparagina', 20, 'villa', 160, 3, 2, 'posto_auto', 'privato', 1, 1, 1, 0, 0, 1, 1, 460000, 'Si propone villino moderno completo di tutte le comodità. Essendo costruita con componenti prefabbricate, permette costi contenuti e un’alta efficienza energetica. Comoda metratura e spazio esterno attrezzato.'),
@@ -119,10 +118,9 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`username`, `password`, `nome`, `cognome`, `mail`, `numero_telefono`, `isAdmin`) VALUES
-('aaaaaaaaa', 'Password96-', 'nicola', 'contessa', 'email@email.com', 1234564890, 0),
 ('admin', 'admin', 'Martina', 'pluto', 'example2708@gmail.com', 3472637812, 1),
-('bbbbbbbbb', 'Password96-', 'cacascsa', 'asdasd', 'pasdas@adasd', 123456789, 0),
-('ttttttttttt', 'Password96-', 'maicasc', 'casdasd', 'test@email.com', 123456789, 0),
+('asdasdasd', 'asdasdasd', 'asdasdasd', 'asdasdasd', 'asd@asd', 123456789, 0),
+('testtest', 'passwordtecno', 'cavaascasd', 'asdasdasd', 'asdi@jwe', 123456789, 0),
 ('user', 'user', 'Utente', 'Prova', 'example123@gmail.com', 3248283901, 0);
 
 -- --------------------------------------------------------
@@ -142,7 +140,7 @@ CREATE TABLE `preferiti` (
 
 INSERT INTO `preferiti` (`id_casa`, `username`) VALUES
 (2, 'admin'),
-(4, 'admin');
+(2, 'user');
 
 -- --------------------------------------------------------
 
@@ -153,23 +151,18 @@ INSERT INTO `preferiti` (`id_casa`, `username`) VALUES
 CREATE TABLE `richieste` (
   `id_casa` int(50) NOT NULL,
   `username` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `richiesta` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL
+  `richiesta` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `orario` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `sessioni`
+-- Dumping data for table `richieste`
 --
 
-CREATE TABLE `sessioni` (
-  `id_sessione` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nome` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `cognome` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `ultima_attivita` datetime NOT NULL,
-  `logged` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `richieste` (`id_casa`, `username`, `richiesta`, `orario`) VALUES
+(2, 'admin', '', '2022-01-25 16:38:00'),
+(7, 'admin', '\'2222222 questo è un test', '2022-01-26 06:12:00'),
+(10, 'admin', 'Nuovo test per insert', '2022-01-25 15:31:00');
 
 -- --------------------------------------------------------
 
@@ -182,6 +175,13 @@ CREATE TABLE `sopralluoghi` (
   `username` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `orario` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `sopralluoghi`
+--
+
+INSERT INTO `sopralluoghi` (`id_casa`, `username`, `orario`) VALUES
+(11, 'admin', '2022-01-23 08:20:21');
 
 --
 -- Indexes for dumped tables
@@ -219,12 +219,6 @@ ALTER TABLE `preferiti`
 ALTER TABLE `richieste`
   ADD PRIMARY KEY (`id_casa`,`username`),
   ADD KEY `username` (`username`) USING BTREE;
-
---
--- Indexes for table `sessioni`
---
-ALTER TABLE `sessioni`
-  ADD PRIMARY KEY (`id_sessione`);
 
 --
 -- Indexes for table `sopralluoghi`
