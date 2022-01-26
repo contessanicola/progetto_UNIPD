@@ -1,6 +1,7 @@
 1) Mancano ALT sulle immagini thumbnail
 2) Sull'attributo page nello scorrimento del catalogo viene segnalato errore
-3) inserire class per bottoni avanti e indietro
+3) FATTO: inserire class per bottoni avanti e indietro
 4) modificare dimensioni delle immagini 
-5) I pulsanti Previous e Next per lo scorrimento delle pagine da mobile non funzionano
+5) FATTO: I pulsanti Previous e Next per lo scorrimento delle pagine da mobile non funzionano
 6) CSS di stampa.
+7) Sistemare inserimento caratteristiche (dl, dt e dd potrebbero essere un problema)

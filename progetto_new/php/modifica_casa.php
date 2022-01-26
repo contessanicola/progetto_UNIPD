@@ -3,7 +3,7 @@ require_once "functions/importModules.php";
 require_once "functions/db.php";
 require_once "functions/casa.php";
 
-$output = file_get_contents("../HTML/modifica_casa.html");
+$output = file_get_contents("../html/modifica_casa.html");
 session_start();
 if(isset($_SESSION['username'])){
       $output = importModules::importEverythingOnline($output);

@@ -1,9 +1,9 @@
 <?php
 class DBAccess{
 	private const HOST_DB = "127.0.0.1";
-	private const DATABASE_NAME = "techweb";
-	private const USERNAME = "root";
-	private const PASSWORD = "";
+	private const DATABASE_NAME = "nalberti";
+	private const USERNAME = "nalberti";
+	private const PASSWORD = "eX2iu4ooThae0oz1";
 
 	private $connection;
 	
