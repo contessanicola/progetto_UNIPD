@@ -39,7 +39,7 @@ if(isset($_SESSION["isAdmin"])){
       $output = str_replace('placeholder="terrazzo', 'placeholder="' . $casa["terrazzo"], $output);
       $output = str_replace('placeholder="arredato', 'placeholder="' . $casa["arredato"], $output);
       $output = str_replace('placeholder="prezzo', 'placeholder="' . $casa["prezzo"], $output);
-      $output = str_replace('placeholder="descrizione', 'placeholder="' . $casa["descrizione"], $output);
+      $output = str_replace('<Descrizione>', '' . $casa["descrizione"], $output);
 }
 else{
       header("location: errore.php?errore=404+Page+Not+Found");

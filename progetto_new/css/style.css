@@ -401,6 +401,68 @@ header {
   user-select: none;
 }
 
+/* Bottone per aggiungere ai preferiti */
+/*
+.favHeart1 {
+  fill: white;
+  position: relative;
+  cursor:pointer;
+  width: 20px;
+  height: 20px;
+  margin-right: 3px;
+  margin-left: 6px;
+  margin-top: 3px;
+  float: right;
+  transition: all .2s ease-in-out;
+}
+
+.favHeart2 {
+  fill: #113755;
+  position: absolute;
+  float: right;
+  cursor: pointer;
+  width: 14px;
+  height: 14px;
+  margin-left: 8.8px;
+  margin-top: 6px;
+  transition: all .2s ease-in-out;
+}
+.favHeart2:hover {
+  fill: white;
+}
+
+.favHeart2.liked {
+  fill: white;
+} Da tenere nel caso si volessero usare i file svg puri*/
+
+#favHeart1 {
+  position: relative;
+  cursor:pointer;
+  width: 20px;
+  height: 20px;
+  margin-right: 3px;
+  margin-left: 6px;
+  margin-top: 3px;
+  float: right;
+  transition: all .2s ease-in-out;
+}
+
+#favHeart2 {
+  display: none;
+  position: relative;
+  cursor:pointer;
+  width: 20px;
+  height: 20px;
+  margin-right: 3px;
+  margin-left: 6px;
+  margin-top: 3px;
+  float: right;
+  transition: all .2s ease-in-out;
+}
+
+#buttonLikeText {
+  display: inline-flex;
+}
 
 /*================ SEZIONE CONTAINER TESTO ANNUNCI ================*/
 
@@ -549,7 +611,8 @@ header {
   border-radius: 2px;
 }
 
-.buttonSearch {
+/* Usato come template anche per altri bottoni nelle pagine*/
+.buttonSearch, .contentLinkButton, .buttonLike {
   border-radius: 4px;
   margin: 1.5em .3em .3em 0;
   border: 2px solid #113755;
@@ -568,31 +631,21 @@ header {
   appearance: button;
 }
 
-.buttonSearch:active, .contentLinkButton:active {
+.buttonSearch:active, .contentLinkButton:active, .buttonLike:active {
   background-color: #0d2c44;
   border-color: #0d2c44;
   box-shadow: 0 1px #666;
   transform: translateY(2px);
 }
 
-
 .contentLinkButton {
-  border-radius: 4px;
-  margin-top: .5em;
-  border: 2px solid #113755;
-  background-color: #113755;
+  margin: .5em 0 0 0;
   padding: 2px;
-  color: white;
-  font-size: 12pt;
-  cursor: pointer;
-  transition: all .2s;
-  outline: none;
-  box-shadow: 0 3px #999;
-  font-family: Dyslexic-Regular;
-  text-decoration: none;
-  -moz-appearance: button;
-  -webkit-appearance: button;
-  appearance: button;
+}
+
+.buttonLike {
+  margin: 1em 0 .2em .5em;
+  padding: 1px;
 }
 
 /*================================================== FINE SEZIONE LAYOUT CATALOGO CASE ==================================================*/
@@ -655,7 +708,7 @@ header {
 da decidere se sfondo va bene con immagini*/
 
 footer {
-  display: flex;
+  display: inline-block;
   clear: both;
   text-align: center;
   font-size: 0.8em;
@@ -665,11 +718,18 @@ footer {
   justify-content: center;
 }
 
-footer img {
-  max-width: 60px;
-  max-height: 20px;
+.imgValidCodeCSS {
+  max-width: 100px;
+  max-height: 40px;
+  margin-top: 0.6em;
+
+}
+.imgValidCodeHTML {
+  max-width: 100px;
+  max-height: 31px;
   margin-top: 0.6em;
 }
+
 
 /*================ SEZIONE MEDIA QUERY: LASCIARE PER ULTIME ================*/
 
@@ -756,5 +816,8 @@ footer img {
   }
   .containerSpecsFull{
     min-width: 20rem;
+  }
+  .buttonLike {
+    margin: 0 0 .2em .5em;
   }
 }
