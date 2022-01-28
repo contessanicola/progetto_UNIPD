@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="it-IT">
+
+<head>
+    <meta>
+    <title>Registrati - La Tecno Logica Immoweb</title>
+</head>
+
+<body>
+    <header></header>
+    <nav id="breadcrumb">
+        <p><span lang="en"> Registrati</span></p>
+    </nav>
+    <div id="page">
+        <nav id="sidebar"></nav>
+        <div id="mainWrapper">
+            <main id="content">
+                <section id="signup">
+                    <h2>Registrati</h2>
+                    <form id="signup_form" action="post_registrazione.php" method="post" >
+                        <div class="input_row">
+                            <label for="username">Username: </label><input type="text" id="username" placeholder="username" name="username" required>
+                        </div>
+                        <div class="input_row">
+                            <label for="password">Password: </label><input type="password" id="password" placeholder="password" name="password" required>
+                        </div>
+                        <div class="input_row">
+                            <label for="rpassword">Password: </label><input type="password" id="rpassword" placeholder="ripeti password" name="rpassword" required>
+                        </div>
+                        <div class="input_row">
+                            <label for="nome">Nome: </label><input type="text" id="nome" placeholder="nome" name="nome" required>
+                        </div>
+                        <div class="input_row">
+                            <label for="cognome">Cognome: </label><input type="text" id="cognome" placeholder="cognome" name="cognome" required>
+                        </div>
+                        <div class="input_row">
+                            <label for="email">E-Mail: </label><input type="email" id="email" placeholder="esempio@dominio.it" name="email" required>
+                        </div>
+                        <div class="input_row">
+                            <label for="numero_telefono">Numero di Telefono: </label><input type="number" id="numero_telefono" placeholder="0123456789" name="numero_telefono" required>
+                        </div>
+                        <button type="submit" name="submit" value="submit">Registrati</button>
+                    </form>
+                </section>
+            </main>
+            <footer></footer>
+        </div>
+    </div>
+    <script src="../js/sidebar.js"></script>
+<script src="../js/signup_check.js"></script>
+</body>
+</html>

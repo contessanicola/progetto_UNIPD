@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="it-IT">
+
+<head>
+    <meta>
+    <title>Catalogo - La Tecno Logica Immoweb</title>
+</head>
+
+<body>
+    <header></header>
+    <nav id="breadcrumb">
+        <p><span lang="en">Catalogo</span></p>
+    </nav>
+    <div id="page">
+        <nav id="sidebar"></nav>
+        <div id="mainWrapper">
+            <main id="content">
+                <section id="ricerca">
+                    <form id="search_form" action="catalogo.php" method="get" >
+                        <div class="input_row">
+                            <label for="tipologia">Tipologia:</label>
+                            <input type="radio" id="villa" name="tipologia" value="villa">
+                            <label for="villa">Villa</label>
+                            <input type="radio" id="appartamento" name="tipologia" value="appartamento">
+                            <label for="appartamento">Appartamento</label>
+                            <input type="radio" id="attività_commerciale" name="tipologia" value="attività_commerciale">
+                            <label for="attività_commerciale">Attività Commerciale</label>
+                        </div>
+                        <div class="input_row">
+                            <label for="regione">Regione:</label>
+                            <select id="regione" name="regione">
+                                <option value="Abruzzo">Abruzzo</option>
+                                <option value="Basilicata">Basilicata</option>
+                                <option value="Calabria">Calabria</option>
+                                <option value="Campania">Campania</option>
+                                <option value="Emilia-Romagna">Emilia-Romagna</option>
+                                <option value="Friuli Venezia Giulia">Friuli Venezia Giulia</option>
+                                <option value="Lazio">Lazio</option>
+                                <option value="Liguria">Liguria</option>
+                                <option value="Lombardia">Lombardia</option>
+                                <option value="Marche">Marche</option>
+                                <option value="Molise">Molise</option>
+                                <option value="Puglia">Puglia</option>
+                                <option value="Sardegna">Sardegna</option>
+                                <option value="Sicilia">Sicilia</option>
+                                <option value="Toscana">Toscana</option>
+                                <option value="Trentino-Alto Adige">Trentino-Alto Adige</option>
+                                <option value="Umbria">Umbria</option>
+                                <option value="Valle d'Aosta">Valle d'Aosta</option>
+                                <option value="Veneto">Veneto</option>
+                              </select>
+                        </div>
+                        <button class="buttonSearch" type="submit" name="submit" value="submit">Cerca</button>
+                        <button class="buttonSearch" type="button" onclick="location.href='catalogo.php'" >Resetta Filtri</button>
+                    </form>
+                </section>
+                <div id="catalogo">
+                    <div class="casa"></div>                   
+                </div>
+            </main>  
+        </div>
+    </div>
+    <footer></footer>
+    <script src="../js/sidebar.js"></script>
+</body>
+</html>
+
+

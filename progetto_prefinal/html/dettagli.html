@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="it-IT">
+
+<head>
+    <meta>
+    <title>Annuncio - La Tecno Logica Immoweb</title>
+</head>
+
+<body>
+    <header></header>
+    <nav id="breadcrumb">
+        <p><span lang="en"> Home</span> &gt; &gt; Annuncio</p>
+    </nav>
+    <div id="page">
+      <nav id="sidebar"></nav>
+        <div id="mainWrapper">
+            <main id="content">
+                <a id="skip-desc" class="skip-img-text-reader" href="#textAnnounce">Salta alla descrizione</a>
+                <a id="skip-specs" class="skip-img-text-reader" href="#specsAnnounce">Salta alle caratteristiche</a>
+                <h1> via <span class="via"></span><span class="civico"></span>,<span class="citta"></span><span class="provincia"></span></h1>
+                <div class="containerImg">
+                    <img class="imgCasa" alt="" src="">
+                    <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
+                    <button class="next" onclick="plusSlides(1)">&#10095;</button>
+                </div>
+                    <div class="row">
+                        <div class="column"><img class="thumb cursor" src="" onclick="" alt=""></div>
+                      </div>
+                      <div class="containerSpecs">
+                        <ul>
+                            <li class="specsPrice">&euro; <span class="prezzo"></span></li>
+                            <!-- li contiene: span Locali span Numero svg simbolo-->
+                            <li class="specsItem"><img class="specsIcon" alt="" src="../media/floor-icon.svg">
+                              <span class="specsLabel">Locali </span><span class="specsValue"><span class="locali"></span></span></li> <!--&nbsp; tra 150 e m2-->
+                            <li class="specsItem">
+                              <img class="specsIcon" alt="" src="../media/dimension-icon.svg">
+                              <span class="specsLabel">Superficie </span><span class=" noBreak specsValue"> <span class="superficie"></span> </span><span class="mSquare">m<sup>2</sup></span></li>
+                            <li class="specsItem">
+                              <img class="specsIcon" alt="" src="../media/bathroom-icon.svg">
+                              <span class="specsLabel">Bagni </span><span class="specsValue"><span class="bagni"></span></span></li>    
+                            <li class="specsItem">
+                                <form action="post_preferito.php"></form>
+                            </li>
+                        </ul>
+                    </div>
+                <!--Container del testo-->
+                <div id="textAnnounce" class="containerText">
+                    <hr>
+                    <h2>Descrizione</h2>
+                    <div class="descrizione"></div>
+                </div>
+                <div id="specsAnnounce" class="containerSpecsFull">
+                    <h2>Caratteristiche</h2>
+                    <dl>
+                        <dt class="specsFullTitle">Tipologia</dt>
+                        <dd class="specsFullDefine"><span class="tipologia"></span></dd>
+                        <dt class="specsFullTitle">Superficie</dt>
+                        <dd class="specsFullDefine"><span class="superficie"></span> m<sup>2</sup></dd>
+                        <dt class="specsFullTitle">Locali</dt>
+                        <dd class="specsFullDefine"><span class="camere"></span> camere, <span class="bagni"></span> bagno</dd>
+                        <dt class="specsFullTitle">Parcheggio - Posto Auto</dt>
+                        <dd class="specsFullDefine"><span class="parcheggio"></span></dd>
+                        <dt class="specsFullTitle">Altre Caratteristiche</dt>
+                        <dd class="specsFullDefine"><span class="giardino"></span><span class="terrazzo"></span><span class="piscina"></span><span class="arredato"></span><span class="barbecue"></span><span class="angolo_bar"></span><span class="idromassaggio"></span><span class="Patio"></span></dd>
+                        <dt class="specsFullTitle">Prezzo</dt>
+                        <dd class="specsFullDefine">&euro; <span class="prezzo"></span></dd>
+                    </dl> 
+                </div>
+                <div id="requestAnnounce" class="containerSpecsFull">
+                  <hr>
+                  <h2>Richiedi</h2>
+                <form id="contactForm" action="post_richiesta.php" method="post">
+                  <input type="hidden" value="" name="id_casa" />
+                  <input type="hidden" value="insert" name="azione" />
+                  <label for="orario">Scegli un orario:</label>
+                    <input type="datetime-local" id="orario"
+                        name="orario" value="today"
+                        min="today" max="" required />
+                  <textarea id="contactInfoText" name="richiesta" aria-label="Casella di testo per richiedere informazioni sull'immobile." placeholder="Mi interessa questo immobile e vorrei avere maggiori informazioni."></textarea>
+                  <button id="submitContact" type="submit" name="submit" value="submit">Invia richiesta</button>
+                </form> 
+                </div>
+                <div id="optionsAnnounce" class="containerSpecsFull"></div>
+            </main>            
+        </div>
+    </div>
+    <footer></footer>
+  <script src="../js/slideshow.js"></script> 
+  <script src="../js/sidebar.js"></script>
+</body>
+</html>
+
+

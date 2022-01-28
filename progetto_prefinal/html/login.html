@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="it-IT">
+
+<head>
+    <meta>
+    <title>La Tecno Logica Immoweb - Accedi</title>
+</head>
+
+<body>
+    <header></header>
+    <nav id="breadcrumb">
+        <p><span>Accedi</span></p>
+    </nav>
+    <div id="page">
+        <nav id="sidebar"></nav>
+        <div id="mainWrapper">
+            <main id="content">
+                <section id="login">
+                    <h2>Accedi alla tua Area Riservata</h2>
+                    <form id="login_form" action="post_login.php" method="post">
+                        <div class="input_row">
+                            <label for="username">Username: </label><input type="text" id="username" placeholder="username" name="username" required>
+                        </div>
+                        <div class="input_row">
+                            <label for="password">Password: </label><input type="password" id="password" placeholder="password" name="password" required>
+                        </div>
+                        <button type="submit" name="submit" value="Submit">Accedi</button>
+                    </form>
+                </section>
+            </main>
+            <footer></footer>
+        </div>
+
+    </div>
+    <script src="../js/sidebar.js"></script>
+    <script src="../js/login_check.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="it-IT">
+
+<head>
+    <meta>
+    <title>Modifica Casa - La Tecno Logica Immoweb</title>
+</head>
+
+<body>
+    <header></header>
+    <nav id="breadcrumb">
+        <p><span lang="en"> Modifica Casa</span></p>
+    </nav>
+    <div id="page">
+        <nav id="sidebar"></nav>
+        <div id="mainWrapper">
+            <main id="content">
+                <section id="modifica_casa">
+                    <h2>Modifica l'annuncio dell'immobile selezionato</h2>
+                    <form id="form_modifica_casa" action="post_casa.php" method="post" >
+                        <input type="text" name="azione" value="modify" hidden>
+                        <div class="input_row">
+                            <label for="id_casa">Id Casa: </label><input readonly type="number" id="id_casa" placeholder="id_casa" name="id_casa" value="" required>
+                        </div>
+                        <div class="input_row">
+                            <label for="regione">Regione: </label><input type="text" id="regione" placeholder="regione" name="regione" value="" >
+                        </div>
+                        <div class="input_row">
+                            <label for="provincia">Provincia: </label><input type="text" id="provincia" placeholder="provincia" name="provincia" value="" >
+                        </div>
+                        <div class="input_row">
+                            <label for="citta">Città: </label><input type="text" id="citta" placeholder="citta" name="citta" value="" >
+                        </div>
+                        <div class="input_row">
+                            <label for="via">Via: </label><input type="text" id="via" placeholder="via" name="via" value="" >
+                        </div>
+                        <div class="input_row">
+                            <label for="civico">Civico: </label><input type="number" id="civico" placeholder="civico" name="civico" value="" >
+                        </div>
+                        <div class="input_row">
+                            <label for="tipologia">Tipologia: </label><input type="text" id="tipologia" placeholder="tipologia" name="tipologia" value="" >
+                        </div>
+                        <div class="input_row">
+                            <label for="superficie">Superficie: </label><input type="text" id="superficie" placeholder="superficie" name="superficie" value="" >
+                        </div>
+                        <div class="input_row">
+                            <label for="camere">Camere: </label><input type="text" id="camere" placeholder="camere" name="camere" value="" >
+                        </div>
+                        <div class="input_row">
+                            <label for="bagni">Bagni: </label><input type="text" id="bagni" placeholder="bagni" name="bagni" value="" >
+                        </div>
+                        <div class="input_row">
+                            <label for="parcheggio">Parcheggio: </label><input type="text" id="parcheggio" placeholder="parcheggio" name="parcheggio" value="" >
+                        </div>
+                        <div class="input_row">
+                            <label for="giardino">Giardino: </label><input type="text" id="giardino" placeholder="giardino" name="giardino" value="" >
+                        </div>
+                        <div class="input_row">
+                            <label for="piscina">Piscina: </label><input type="checkbox" id="piscina" placeholder="piscina" name="piscina" value="1">
+                        </div>
+                        <div class="input_row">
+                            <label for="patio">Patio: </label><input type="checkbox" id="patio" placeholder="patio" name="patio" value="1" >
+                        </div>
+                        <div class="input_row">
+                            <label for="barbecue">Barbecue: </label><input type="checkbox" id="barbecue" placeholder="barbecue" name="barbecue" value="1" >
+                        </div>
+                        <div class="input_row">
+                            <label for="angolo_bar">Angolo Bar: </label><input type="checkbox" id="angolo_bar" placeholder="angolo_bar" name="angolo_bar" value="1" >
+                        </div>
+                        <div class="input_row">
+                            <label for="idromassaggio">Idromassaggio </label><input type="checkbox" id="idromassaggio" placeholder="idromassaggio" name="idromassaggio" value="1" >
+                        </div>
+                        <div class="input_row">
+                            <label for="terrazzo">Terrazzo: </label><input type="checkbox" id="terrazzo" placeholder="terrazzo" name="terrazzo" value="1" >
+                        </div>
+                        <div class="input_row">
+                            <label for="arredato">Arredato: </label><input type="checkbox" id="arredato" placeholder="arredato" name="arredato" value="1" >
+                        </div>
+                        <div class="input_row">
+                            <label for="prezzo">Prezzo: </label><input type="text" id="prezzo" placeholder="prezzo" name="prezzo" value="" >
+                        </div>
+                        <div class="input_row">
+                            <label for="descrizione">Descrizione: </label><textarea type="text" id="descrizione" placeholder="descrizione" name="descrizione" ></textarea>
+                        </div>
+                        <button type="submit" name="submit" value="submit">Modifica</button>
+                    </form>
+                </section>
+            </main>
+            <footer></footer>
+        </div>
+    </div>
+    <script src="../js/sidebar.js"></script>
+<script src="../js/signup_check.js"></script>
+</body>
+</html>
