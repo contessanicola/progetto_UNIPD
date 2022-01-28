@@ -1,0 +1,30 @@
+[
+  {
+    "nome": "1a.jpeg",
+    "alt" : "Facciata di casa ad un solo piano con due coppie di finestre grandi con montanti di metallo nero, copertura a due falde, casa rivestita di assi verticali di legno chiaro. Recinto di siepe verde e due alberi, uno a destra e uno a sinistra."
+  },  
+  {
+    "nome": "1d.jpeg",
+    "alt" : "Visuale interna dell’ ingresso nella casa, a sinistra piccola cucina bianca con mobiletti alti, di fronte un tavolo da pranzo di vetro a sei posti con sedie dalla linea semplice  di legno e pelle bianca. Sopra al tavolo e nella zona cucina due lampadari uguali di stoffa bianca stile lanterna circolare di carta. Grandi finestre con montanti di metallo nero. Muri intonacati di bianco, parquet ad assi lunghe in legno chiaro."
+  } , 
+  {
+    "nome": "1e.jpeg",
+    "alt" : "Visuale interna della zona salotto, a sinistra divano di pelle bianca a due posti con tappeto beige a motivi geometrici circolari in bianco, di fronte si intravede zona pranzo con tavolo tramite foro tra i muri, tavolino da caffè di vetro con centrotavola di candele, sulla destra zona tv con mobiletti bassi di legno bianco, televisore grande a muro, mobiletti alti sottili di legno bianco. Lampadario di stoffa bianca stile lanterna circolare di carta. Muri intonacati di bianco, parquet ad assi lunghe in legno chiaro."
+  }  ,
+  {
+    "nome": "1f.jpeg",
+    "alt" : "Visuale interna del bagno, a sinistra due mobili sospesi di legno bianco con ripiano e vaschetta lavandino in ceramica bianca non incassata. Specchi a muro grandi con tre applique. Di fronte finestra alta con montanti di metallo nero con tenda bianca lunga fino a terra, pianta in vaso decorativa. A destra box doccia con vetri e montanti in acciaio. Muri rivestiti di grandi fasce piastrellate color bianco, parquet ad assi lunghe in legno chiaro. "
+  }  ,
+  {
+    "nome": "1g.jpeg",
+    "alt" : "Visuale interna di cameretta per bambina o ragazza, a sinistra letto a piazza singola addossato alla parete color rosa tenue, struttura letto bianca e lenzuolo rosa. Tappetino circolare bianco. Comodino bianco con ripiano di vetro con lampada di metallo appoggiata. Di fronte grandi finestre con montanti di metallo nero, tende a rullo rosa. A destra scrivania di vetro addossata al vetro con sedia girevole di legno bianco e metallo nero. Sopra alla scrivania computer fisso e libri appoggiati. Parquet ad assi lunghe in legno chiaro."
+  }    ,
+  {
+    "nome": "1h.jpeg",
+    "alt" : "Visuale interna di camera matrimoniale, a sinistra grandi finestre con montanti di metallo nero, vaso nero rettangolare con piante dalle foglie rosse. Di fronte, caminetto grigio scuro con specchio sulla parete. Muri intonacati di grigio. A destra del caminetto porta bianca liscia di ingresso alla camera. Sulla destra letto matrimoniale con trapunta bianca e cuscini bianchi. Comodini da entrambi i lati in legno bianco con lampade a paralume rettangolare. Sopra al letto quadro formato da quattro tele verticali affiancate, rappresentazione di rami e foglie di albero in autunno con colori tra rosso e giallo. Parquet ad assi lunghe in legno chiaro."
+  }    ,
+  {
+    "nome": "1i.jpeg",
+    "alt" : "Rappresentazione grafica della pianta quadrata della casa, distribuzione spazi su un unico piano, ingresso con piccolo corridoio, zona pranzo e salotto sulla destra, di fronte all’ingresso porta del bagno, sulla sinistra due porte bianche per le due stanze da letto, matrimoniale e singola."
+  }  
+]
