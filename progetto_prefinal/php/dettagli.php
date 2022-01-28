@@ -97,7 +97,7 @@ if(isset($_GET["id_casa"])){
             $imgThumbTemplate = '';
             $index = 1;
             foreach($json_decoded as $file){
-                  $imgTemplate .= '<img loading=lazy class="imgCasa" alt="" src="../media/immaginiCase/'.$casa["id_casa"].'/'.$file["nome"].'">';
+                  $imgTemplate .= '<img loading=lazy class="imgCasa" alt="'.$file["alt"].'" src="../media/immaginiCase/'.$casa["id_casa"].'/'.$file["nome"].'">';
                   $imgThumbTemplate .= '<div class="column"><img loading=lazy class="thumb cursor" src="../media/immaginiCase/'.$casa["id_casa"].'/'.$file["nome"].'" onclick="currentSlide('.$index.')" alt=""></div>';
                   $index = $index+1;
             }
