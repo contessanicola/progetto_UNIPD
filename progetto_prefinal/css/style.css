@@ -108,21 +108,20 @@ header {
 
 /*================ SEZIONE LOGO ================*/
 
-/*TODO: Fixare ingombro del logo, parecchio ingombro a sinistra non necessario, sballa il posizionamento*/
-/*UPDATE: Dovrebbe essere fixato, riprovare alla fine durante i test eventuali bug*/
-
+/*TODO: tolti effetti al logo e reso non cliccabile (no puntatore): valutare se rimetterli*/
 .logo {
-  cursor: pointer;
+  /*cursor: pointer;*/
   /*Fa diventare il cursore un puntatore ad un elemento che si clicca*/
   width: 8.5em;
   padding-top: .8em;
   height: 8.5em;
-  transition: transform 0.2s ease-in-out;
+  /*transition: transform 0.2s ease-in-out;*/
 }
 
+/*
 .logo:hover {
   transform: scale(1.1);
-}
+}*/
 
 /*================ SEZIONE NAVBAR  ================*/
 
@@ -227,11 +226,6 @@ header {
   flex: auto;
 }
 
-.scroll {
-  /*Solo per debug, togliere una volta finito*/
-  margin-bottom: 50em;
-}
-
 /*================ SEZIONE BOTTONE "SKIP-TO-CONTENT" PER IMAGE READER ================*/
 
 .skip-img-text-reader {
@@ -285,8 +279,8 @@ header {
 .prev, .next {
   position: absolute; /*Si posiziona in modo assoluto relativamente al contenitore genitore, che è impostato a relative*/
   cursor: pointer;
-  background-color: transparent;
-  border-color: transparent; 
+  background-color: rgba(0, 0, 0, 0.8);
+  border-color: rgba(0, 0, 0, 0.8); 
   border-radius: 0 3px 3px 0;
   transition: .2s ease-in-out;
   color: white;
@@ -307,10 +301,6 @@ header {
 .next {
   right: 0;
   border-radius: 3px 0 0 3px;
-}
-
-.prev:hover, .next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .row {
@@ -401,40 +391,6 @@ header {
   user-select: none;
 }
 
-/* Bottone per aggiungere ai preferiti */
-/*
-.favHeart1 {
-  fill: white;
-  position: relative;
-  cursor:pointer;
-  width: 20px;
-  height: 20px;
-  margin-right: 3px;
-  margin-left: 6px;
-  margin-top: 3px;
-  float: right;
-  transition: all .2s ease-in-out;
-}
-
-.favHeart2 {
-  fill: #113755;
-  position: absolute;
-  float: right;
-  cursor: pointer;
-  width: 14px;
-  height: 14px;
-  margin-left: 8.8px;
-  margin-top: 6px;
-  transition: all .2s ease-in-out;
-}
-.favHeart2:hover {
-  fill: white;
-}
-
-.favHeart2.liked {
-  fill: white;
-} Da tenere nel caso si volessero usare i file svg puri*/
-
 #favHeart1 {
   position: relative;
   cursor:pointer;
@@ -483,7 +439,7 @@ header {
 
 /*================ SEZIONE CONTAINER SPECIFICHE ESTESE ANNUNCI ================*/
 .containerSpecsFull{
-  max-width: 50%;
+  max-width: 100%;
 }
 .containerSpecsFull dl {
   display: flex;
@@ -509,6 +465,7 @@ header {
   font-size: clamp(.8em, 3vw, 1.2em);
   line-height: 2em;
 }
+
 
 /*================ SEZIONE TEXTAREA FORM RICHIESTA ================*/
 
@@ -702,7 +659,12 @@ header {
   box-shadow: 0 1px #666;
   transform: translateY(2px);
 }
+/*================ SEZIONE TESTO CHI SIAMO E CONTATTI ================*/
 
+.text {
+  font-size: 18pt;
+  max-width: 45rem;
+}
 
 /*================ SEZIONE FOOTER ================*/
 
@@ -735,7 +697,7 @@ footer {
 
 /*================ SEZIONE MEDIA QUERY: LASCIARE PER ULTIME ================*/
 
-@media screen and (min-width: 601px) {
+@media screen and (min-width: 769px) {
   /*Lasciare cosi le width, altrimenti se le si fa uguali si ha il breakpoint non influenzato dalle query */
   #menuButton {
     display: none;
@@ -749,22 +711,14 @@ footer {
   }
 }
 
-/* Inserita media query perchè altrimenti il logo rovinava l'impaginamento*/
-
-@media screen and (min-width: 601px) and (max-width: 686px){
-  .logo {
-    max-width: clamp(50px, 8vw, 136px);
-  }
-}
-
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
   #navbar {
     display: none;
   }
 
   /* Media query per la sezione del catalogo */
   .casa {
-    max-width: clamp(320px, 1vw ,600px);
+    max-width: clamp(320px, 1vw ,768px);
     min-height: 60vh;
   }
   .img_casa {
@@ -778,11 +732,11 @@ footer {
   .dettagli {
     display: inline-block;
     position: absolute;
-    padding-top: 23vh;
+    margin-top: 22vh;
     min-width: 280px;
     padding-left: 0;
     margin-left: -7vw;
-    line-height: 1.75em;
+    line-height: 1.7em;
     text-align: center;
   }
   .titolo, .informazioni {
