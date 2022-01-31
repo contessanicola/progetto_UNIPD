@@ -51,11 +51,9 @@ function checkRegex(item, regex) {
 
 function checkPassword(p,rp){
     if (!(p.value === rp.value)) {
-        p.classList.add("error");
         rp.classList.add("error");
         return false;
     }
-    p.classList.remove("error");
     rp.classList.remove("error");
     return true;
 }

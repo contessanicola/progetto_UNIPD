@@ -22,7 +22,10 @@ function overlay(isShow){
     }, 200);
   }
 
-  //Modifiche al JS sidebar fatte il 23-01-22
-  //Aggiunto Overlay quando si apre la sidebar, si disattiva quando si schiaccia in qualsiasi altra parte
-  //BUG: quando si riclicca il bottone per la chiusura, la sidebar non si chiude e rimane aperta
-  //aggiunto timeout 200 ms per gestire la chiusura del pulsante menu 
+  window.onscroll = function scrollFunction() {
+    if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
+      document.getElementById("backToTop").classList.remove("hide");
+    } else {
+      document.getElementById("backToTop").classList.add("hide");
+    }
+  }
