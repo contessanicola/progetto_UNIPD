@@ -509,6 +509,9 @@ header {
   line-height: 2em;
 }
 
+.virgola:not(:last-child):after{
+      content: "  ";
+  }
 
 /*================ SEZIONE TEXTAREA FORM RICHIESTA ================*/
 
