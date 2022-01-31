@@ -625,7 +625,8 @@ header {
   text-align: center;
 }
 
-#form_modifica_casa #descrizione {
+#form_modifica_casa #descrizione,
+#form_aggiungi_casa #descrizione {
   display: flex;
   width: 100%;
   align-content: center;
@@ -638,7 +639,8 @@ header {
   font-size: 11pt;
 }
 
-#signup_form button, #login_form button {
+#signup_form button, #login_form button,
+#form_aggiungi_casa button,#form_modifica_casa button {
   border-radius: 4px;
   margin: 1em 0 .6em 0;
   border: 2px solid #113755;
@@ -653,7 +655,8 @@ header {
   font-family: Dyslexic-Regular;
 }
 
-#signup_form button:active, #login_form button:active {
+#signup_form button:active, #login_form button:active,
+#form_aggiungi_casa button:active,#form_modifica_casa button:active {
   background-color: #0d2c44;
   border-color: #0d2c44;
   box-shadow: 0 1px #666;
@@ -680,6 +683,7 @@ footer {
   background-color: #cae2ed;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
 .imgValidCodeCSS {
