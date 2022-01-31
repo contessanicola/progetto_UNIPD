@@ -79,6 +79,8 @@ header {
 
 #page {
   display: flex;
+  flex-direction: column;
+
 }
 
 #menuButton {
