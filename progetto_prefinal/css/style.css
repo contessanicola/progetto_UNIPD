@@ -31,8 +31,8 @@
   box-sizing: border-box;
 }
 
-.hide {
-  display: none !important;
+html{
+  height: 100%;
 }
 
 body {
