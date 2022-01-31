@@ -220,6 +220,7 @@ header {
   display: block;
   border-radius: 10px;
   font-size: 11pt;
+  
 }
 
 .contentLink:link {
@@ -262,6 +263,7 @@ header {
   text-align: center;
   background: #ffffff;
   flex: auto;
+  height: 100%;
 }
 
 /*================ SEZIONE BOTTONE "SKIP-TO-CONTENT" PER IMAGE READER ================*/
