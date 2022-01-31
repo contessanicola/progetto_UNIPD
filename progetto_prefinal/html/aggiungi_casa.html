@@ -3,22 +3,25 @@
 
 <head>
     <meta>
-    <title>Modifica Casa - La Tecno Logica Immoweb</title>
+    <title>Aggiungi Casa - La Tecno Logica Immoweb</title>
 </head>
 
 <body>
     <header></header>
     <nav id="breadcrumb">
-        <p><span lang="en"> Modifica Casa</span></p>
+        <p><span lang="en"> Aggiungi Casa</span></p>
     </nav>
     <div id="page">
         <nav id="sidebar"></nav>
         <div id="mainWrapper">
             <main id="content">
-                <section id="modifica_casa">
-                    <h2>Modifica l'annuncio dell'immobile selezionato</h2>
-                    <form id="form_modifica_casa" action="post_casa.php" method="post" >
-                        <input type="text" name="azione" value="modify" hidden>
+                <section id="aggiungi_casa">
+                    <h2>Aggiungi un nuovo annuncio di un immobile</h2>
+                    <form id="form_aggiungi_casa" enctype="multipart/form-data" action="post_casa.php" method="post" >
+                        <input type="text" name="azione" value="insert" hidden>
+                        <div class="input_row">
+                            <input type="file" id="immagini" name="immagini[]" multiple>
+                        </div>                        
                         <div class="input_row">
                             <label for="id_casa">Id Casa: </label><input readonly type="number" id="id_casa" placeholder="id_casa" name="id_casa" value="" required>
                         </div>
@@ -47,16 +50,16 @@
                               </select>
                         </div>
                         <div class="input_row">
-                            <label for="provincia">Provincia: </label><input type="text" id="provincia" placeholder="provincia" name="provincia" value="" >
+                            <label for="provincia">Provincia: </label><input type="text" id="provincia" placeholder="Provincia" name="provincia" value="" >
                         </div>
                         <div class="input_row">
-                            <label for="citta">Città: </label><input type="text" id="citta" placeholder="citta" name="citta" value="" >
+                            <label for="citta">Città: </label><input type="text" id="citta" placeholder="Citta" name="citta" value="" >
                         </div>
                         <div class="input_row">
-                            <label for="via">Via: </label><input type="text" id="via" placeholder="via" name="via" value="" >
+                            <label for="via">Via: </label><input type="text" id="via" placeholder="Via" name="via" value="" >
                         </div>
                         <div class="input_row">
-                            <label for="civico">Civico: </label><input type="number" id="civico" placeholder="civico" name="civico" value="" >
+                            <label for="civico">Civico: </label><input type="number" id="civico" placeholder="Civico" name="civico" value="" >
                         </div>
                         <div class="input_row">
                             <label for="tipologia">Tipologia:</label>
@@ -67,48 +70,48 @@
                               </select>
                         </div>
                         <div class="input_row">
-                            <label for="superficie">Superficie: </label><input type="number" id="superficie" placeholder="superficie" name="superficie" value="" >
+                            <label for="superficie">Superficie: </label><input type="number" id="superficie" placeholder="Superficie" name="superficie" value="" >
                         </div>
                         <div class="input_row">
-                            <label for="camere">Camere: </label><input type="number" id="camere" placeholder="camere" name="camere" value="" >
+                            <label for="camere">Camere: </label><input type="number" id="camere" placeholder="Camere" name="camere" value="" >
                         </div>
                         <div class="input_row">
-                            <label for="bagni">Bagni: </label><input type="number" id="bagni" placeholder="bagni" name="bagni" value="" >
+                            <label for="bagni">Bagni: </label><input type="number" id="bagni" placeholder="Bagni" name="bagni" value="" >
                         </div>
                         <div class="input_row">
-                            <label for="parcheggio">Parcheggio: </label><input type="text" id="parcheggio" placeholder="parcheggio" name="parcheggio" value="" >
+                            <label for="parcheggio">Parcheggio: </label><input type="text" id="parcheggio" placeholder="Parcheggio" name="parcheggio" value="" >
                         </div>
                         <div class="input_row">
-                            <label for="giardino">Giardino: </label><input type="text" id="giardino" placeholder="giardino" name="giardino" value="" >
+                            <label for="giardino">Giardino: </label><input type="text" id="giardino" placeholder="Giardino" name="giardino" value="" >
                         </div>
                         <div class="input_row">
-                            <label for="piscina">Piscina: </label><input type="checkbox" id="piscina" placeholder="piscina" name="piscina" value="1">
+                            <label for="piscina">Piscina: </label><input type="checkbox" id="piscina" placeholder="Piscina" name="piscina" value="1">
                         </div>
                         <div class="input_row">
-                            <label for="patio">Patio: </label><input type="checkbox" id="patio" placeholder="patio" name="patio" value="1" >
+                            <label for="patio">Patio: </label><input type="checkbox" id="patio" placeholder="patio" name="Patio" value="1" >
                         </div>
                         <div class="input_row">
-                            <label for="barbecue">Barbecue: </label><input type="checkbox" id="barbecue" placeholder="barbecue" name="barbecue" value="1" >
+                            <label for="barbecue">Barbecue: </label><input type="checkbox" id="barbecue" placeholder="Barbecue" name="barbecue" value="1" >
                         </div>
                         <div class="input_row">
-                            <label for="angolo_bar">Angolo Bar: </label><input type="checkbox" id="angolo_bar" placeholder="angolo_bar" name="angolo_bar" value="1" >
+                            <label for="angolo_bar">Angolo Bar: </label><input type="checkbox" id="angolo_bar" placeholder="Angolo Bar" name="angolo_bar" value="1" >
                         </div>
                         <div class="input_row">
-                            <label for="idromassaggio">Idromassaggio </label><input type="checkbox" id="idromassaggio" placeholder="idromassaggio" name="idromassaggio" value="1" >
+                            <label for="idromassaggio">Idromassaggio </label><input type="checkbox" id="idromassaggio" placeholder="Idromassaggio" name="idromassaggio" value="1" >
                         </div>
                         <div class="input_row">
-                            <label for="terrazzo">Terrazzo: </label><input type="checkbox" id="terrazzo" placeholder="terrazzo" name="terrazzo" value="1" >
+                            <label for="terrazzo">Terrazzo: </label><input type="checkbox" id="terrazzo" placeholder="Terrazzo" name="terrazzo" value="1" >
                         </div>
                         <div class="input_row">
-                            <label for="arredato">Arredato: </label><input type="checkbox" id="arredato" placeholder="arredato" name="arredato" value="1" >
+                            <label for="arredato">Arredato: </label><input type="checkbox" id="arredato" placeholder="Arredato" name="arredato" value="1" >
                         </div>
                         <div class="input_row">
-                            <label for="prezzo">Prezzo: </label><input type="number" id="prezzo" placeholder="prezzo" name="prezzo" value="" >
+                            <label for="prezzo">Prezzo: </label><input type="number" id="prezzo" placeholder="Prezzo" name="prezzo" value="" >
                         </div>
                         <div class="input_row">
-                            <label for="descrizione">Descrizione: </label><textarea type="text" id="descrizione" placeholder="descrizione" name="descrizione" ></textarea>
+                            <label for="descrizione">Descrizione: </label><textarea type="text" id="descrizione" placeholder="Descrizione" name="descrizione" ></textarea>
                         </div>
-                        <button type="submit" name="submit" value="submit">Modifica</button>
+                        <button type="submit" name="submit" value="submit">Aggiungi</button>
                     </form>
                     <div id="errore"></div>
                 </section>
