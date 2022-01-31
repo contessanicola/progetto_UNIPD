@@ -27,7 +27,8 @@ else{
       $filterValue = [];
       foreach($_GET as $key => $value){
             if($key == "id_casa" || $key == "regione" || $key == "provincia" || $key == "citta" || $key == "tipologia" || $key == "camere" 
-                  || $key == "bagni" || $key == "parcheggio" || $key == "giardino"){
+                  || $key == "bagni" || $key == "parcheggio" || $key == "giardino" || $key == "superficie" || $key == "arredato" ||
+                  $key == "terrazzo" || $key == "barbecue" || $key == "angolo_bar" || $key == "idromassaggio" || $key == "patio" ){
                   $filterField[] = $key;
                   $filterValue[] = $value;
             }
@@ -58,6 +59,7 @@ else{
       if(isset($_GET['regione'])){
 
             $output = str_replace('value="'.$_GET['regione'].'"','value="'.$_GET['regione'].'"  selected', $output);
+            
             $regione=$_GET['regione'];
             $controlli=array();
             $verifica=array();
