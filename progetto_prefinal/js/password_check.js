@@ -1,4 +1,5 @@
-const REGEX_PASSWORD = /^(?=.{3,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$/;
+const REGEX_PASSWORD = /^.{0,30}$/;
+const REGEX_SQL = /(XOR)|(SELECT)|(DELETE)|(INSERT)|(DROP)|(TABLE)|(VALUES)|(FROM)|(" OR ""=")|(OR 1=1)|(1=1)|(;)|(--)|(>)|(<)|(\/)|(<!--)|(-->)|(\*)|(\/\*)/;
 
 window.onload = function() {
     if (document.getElementById("form_modifica_password") != null) {
@@ -17,16 +18,18 @@ function checkSignUp() {
     var password = document.getElementById("password");
     var rpassword = document.getElementById("rpassword");
     
-    return checkRegex(password, REGEX_PASSWORD) &&
+    return checkRegex(password, REGEX_SQL) &&
         checkPassword(password,rpassword);
 }
 
 function checkRegex(item, regex) {
-    if (!item.value == '' && !regex.test(item.value)) {
+    if (regex.test(item.value)) {
         item.classList.add("error");
+        document.getElementById("errore").innerHTML = "Input non validi";
         return false;
     }
     item.classList.remove("error");
+    document.getElementById("errore").innerHTML = "";
     return true;
 }
 
@@ -34,8 +37,10 @@ function checkPassword(p,rp){
     if (!(p.value === rp.value)) {
         console.log(rp);
         rp.classList.add("error");
+        document.getElementById("errore").innerHTML = "Password non coincidono";
         return false;
     }
+    document.getElementById("errore").innerHTML = "";
     rp.classList.remove("error");
     return true;
 }

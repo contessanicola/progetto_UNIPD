@@ -1,6 +1,4 @@
-const REGEX_USERNAME = /^(?=.{3,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$/;
-const REGEX_PASSWORD = /^(?=.{3,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$/;
-
+const REGEX_SQL = /(XOR)|(SELECT)|(DELETE)|(INSERT)|(DROP)|(TABLE)|(VALUES)|(FROM)|(" OR ""=")|(OR 1=1)|(1=1)|(;)|(--)|(>)|(<)|(\/)|(<!--)|(-->)|(\*)|(\/\*)/;
 window.onload = function() {
     items = [
         "username",
@@ -15,16 +13,18 @@ function checkLogIn() {
     var username = document.getElementById("username");
     var password = document.getElementById("password");
 
-    return checkRegex(username, REGEX_USERNAME) &&
-        checkRegex(password, REGEX_PASSWORD);
+    return checkRegex(username, REGEX_SQL) &&
+        checkRegex(password, REGEX_SQL);
 }
 
 function checkRegex(item, regex) {
-    if (!item.value == '' && !regex.test(item.value)) {
-        console.log(regex.test(item.value));
+    if (regex.test(item.value)) {
+        item.classList.add("error");
+        document.getElementById("errore").innerHTML = "Input non validi";
         return false;
     }
-    console.log(regex.test(item.value));
+    item.classList.remove("error");
+    document.getElementById("errore").innerHTML = "";
     return true;
 }
 
