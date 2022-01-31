@@ -130,12 +130,30 @@ header {
 }
 
 #navList {
-  list-style: none;
+  display: flex;
+  flex-direction: row;
 }
 
 #navList li {
   display: inline-block;
   padding: 0.5em;
+}
+
+#nav_area_riservata{
+    flex-wrap: nowrap;
+}
+
+#skip-nav-link{
+    background: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0 0 0.25rem, 0.25rem;
+    position: absolute;
+    transform: translateY(-120%);
+    transition: transform 235ms ease-in;
+    color: black;
+}
+#skip-nav-link:focus{
+    transform: translateY(0);
 }
 
 /*================ SEZIONE SIDEBAR ================*/
@@ -172,6 +190,26 @@ header {
   display: inline-block;
   line-height: 3em;
   padding: 0.5em;
+}
+
+#backToTop {
+  position: fixed; 
+  bottom: 20px; 
+  right: 30px;
+  z-index: 99; 
+  border: none; 
+  outline: none;
+  background-color: #113755;
+  color: white; 
+  cursor: pointer; 
+  padding: 15px;
+  border-radius: 10px; 
+  font-size: 18px;
+  text-decoration: none;
+}
+  
+#backToTop:hover {
+  background-color: #555; 
 }
 
 /*================ SEZIONE LINK SIDEBAR E NAVBAR  ================*/
@@ -333,7 +371,10 @@ header {
 .thumb:not(:hover) {
   transition: .2s ease-out;
 }
-
+#requestAnnounce{
+    display: flex;
+    flex-direction: column;
+}
 
 /*================ SEZIONE CONTAINER SPECIFICHE PRINCIPALI ANNUNCI ================*/
 
@@ -662,6 +703,21 @@ header {
   box-shadow: 0 1px #666;
   transform: translateY(2px);
 }
+
+.error{
+      border-color: red;
+}
+
+/*================ SEZIONE AREA RISERVATA ================*/
+
+.preview_casa{
+    width: 150px;
+}
+#preferiti{
+    display: flex;
+    flex-direction: row;
+}
+
 /*================ SEZIONE TESTO CHI SIAMO E CONTATTI ================*/
 
 .text {
@@ -698,6 +754,9 @@ footer {
   margin-top: 0.6em;
 }
 
+.hide{
+    display: none;
+}
 
 /*================ SEZIONE MEDIA QUERY: LASCIARE PER ULTIME ================*/
 
@@ -727,6 +786,7 @@ footer {
   }
   .img_casa {
     min-height: clamp(140px, 1vh, 60vh);
+    border-radius: 5px;
   }
 
   .link_casa {
