@@ -1,0 +1,14 @@
+@media print{
+    nav,#skip-nav-link,#menuButton,#backToTop,.skip-img-text-reader,.containerSpecs {
+        display: none;
+    }
+    .logo{
+        width: 50%;
+    }
+    .containerImg{
+        display: none;
+    }
+    .thumb.cursor{
+        width: 50%;
+    }
+}
