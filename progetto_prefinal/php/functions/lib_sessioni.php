@@ -18,10 +18,9 @@ function check_session(){
 	
 	if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE)
 	{
-    session_start();
+    	session_start();
 		$session_id=session_id();
 	}
-
 	//controllo il login da sessione
 	if(isset($_SESSION['ultima_attivita']) && !empty($_SESSION['ultima_attivita']))
 	{
@@ -58,7 +57,18 @@ function check_session(){
 	else
 	{
 		//SESSIONE NON PRESENTE: insert in db
+		
 		$esito_controllo='SESSIONE-NO';
+	}
+
+	$connessionecheckID=new DBAccess();
+	$connessioneONcheckID=$connessionecheckID->openDBConnection();
+	if($connessioneONcheckID==true)
+	{
+		$risultatoQueryCheckID=$connessionecheckID->db_getBool(getSessioniByField('id_sessione', $session_id));
+		$connessionecheckID->closeConnection();
+		if(empty($risultatoQueryCheckID))
+			$return=$esito_controllo='SESSIONE-NO';
 	}
 	
 	//PREPARO STRINGA QUERY
@@ -79,10 +89,10 @@ function check_session(){
 				$_SESSION['nome']='';
 				$newField=array();
 				$newField[0]='ultima_attivita';
-				$newField[1]='logged';
-				$newField[2]='user';
-				$newField[3]='cognome';
-				$newField[4]='nome';
+				$newField[1]='logged';		
+				$newField[2]='cognome';
+				$newField[3]='nome';
+				$newField[4]='user';
 				$newValue=array();
 				$newValue[0]=date("Y-m-d H:i:s");
 				$newValue[1]=0;
@@ -142,7 +152,7 @@ function is_logged()
 	if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE)
 	{
 		session_start();
-		$session_id=session_id();
+		$session_id=session_id();	
 	}	
 	$esito_check_session=check_session();
 	//controllo se $esito_check_session contiene un errore
@@ -164,12 +174,13 @@ function do_Login($param)
 {
 	global $session_id;
 	$return=false;
-	
 	if (!empty($param))
 	{
+		
 		if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE)
 		{
 			session_start();
+			$session_id=session_id();
 		}
 		$esito_check_session=check_session();
 		//controllo se $esito_check_session contiene un errore
@@ -177,12 +188,14 @@ function do_Login($param)
 		{
 			//stringa 'ERRORE' non trovata: check_session è andata a buon fine
 			//setto utente loggato
+			
 			$_SESSION['nome']=$param['nome'];
 			$_SESSION['cognome']=$param['cognome'];
 			$_SESSION['user']=$param['user'];
 			$_SESSION['logged']='1';
 			$risultatoQuery=null;
 			$session_id=session_id();
+			$esito_check_session=check_session();
 			//ESEGUO QUERY
 			$connessione=new DBAccess();
 			$connessioneON=$connessione->openDBConnection();
@@ -193,20 +206,23 @@ function do_Login($param)
 				$newField[1]='cognome';
 				$newField[2]='user';
 				$newField[3]='logged';
+
 				$newValue=array();
 				$newValue[0]=$param['nome'];
 				$newValue[1]=$param['cognome'];
 				$newValue[2]=$param['user'];
 				$newValue[3]='1';
+
 				
 				$risultatoQuery=$connessione->db_getBool(updateSessioniByMoreField('id_sessione', $session_id, $newField, $newValue));
 				$connessione->closeConnection();
-				
 				unset($connessione);
 				unset($newField);
 				unset($newValue);
-				if($risultatoQuery==true)
+				if($risultatoQuery==true){
 					$return=true;	
+				}
+					
 			}
 		}
 		//stringa 'ERRORE' trovata: check_session ha fallito
@@ -225,10 +241,12 @@ function do_Login($param)
 function do_Logout()
 {
 	global $session_id;
+
 	$return=false;
 	if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE)
 	{
-    session_start();
+    	session_start();
+		$session_id = session_id();
 	}
 	$esito_check_session=check_session();
 	//controllo se $esito_check_session contiene un errore
@@ -257,15 +275,15 @@ function do_Logout()
 			$newValue[1]='';
 			$newValue[2]='';
 			$newValue[3]='0';
-			
 			$risultatoQuery=$connessione->db_getBool(updateSessioniByMoreField('id_sessione', $session_id, $newField, $newValue));
 			$connessione->closeConnection();
 			
 			unset($connessione);
 			unset($newField);
 			unset($newValue);
-			if($risultatoQuery==true)
+			if($risultatoQuery==true){
 				$return=true;	
+			}
 		}
 	}
 	//stringa 'ERRORE' trovata: check_session ha fallito
@@ -284,7 +302,8 @@ function is_admin()
 	$return=false;
 	if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE)
 	{
-    session_start();
+    	session_start();
+		$session_id=session_id();
 	}
 	$esito_check_session=check_session();
 	//controllo se $esito_check_session contiene un errore

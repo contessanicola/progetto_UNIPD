@@ -1,8 +1,6 @@
 <?php
 require_once "functions/casa.php";
 require_once "functions/db.php";
-
-session_start();
 $connect = new DBAccess();
 $connect->openDBConnection();
 

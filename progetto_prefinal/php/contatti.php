@@ -2,7 +2,6 @@
 namespace DB;
 require_once "functions/importModules.php";
 require_once "functions/lib_sessioni.php";
-
 $output = file_get_contents("../html/contatti.html");
 $import = new \importModules();
 if(is_logged()){
@@ -11,6 +10,6 @@ if(is_logged()){
 else{
       $output = $import->importEverythingOffline($output);
 }
-
+$output = str_replace('href="contatti.php"','', $output);
 echo($output);
 ?>

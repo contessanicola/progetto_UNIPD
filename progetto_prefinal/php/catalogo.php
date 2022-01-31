@@ -4,7 +4,6 @@ require_once "functions/importModules.php";
 require_once "model/casa.php";
 require_once "functions/lib_sessioni.php";
 require_once "functions/lib_validazione_input.php";
-
 $import = new \importModules();
 
 $output = file_get_contents("../html/catalogo.html");
@@ -16,7 +15,7 @@ if(is_logged()){
 else{
       $output = $import->importEverythingOffline($output);
 }
-
+$output = str_replace('href="catalogo.php"','', $output);
 $connect = new DBAccess();
 
 $connect->openDBConnection();
@@ -36,6 +35,8 @@ else{
       $output_validazione_input = true;
 
       if(isset($_GET['tipologia'])){
+
+            $output = str_replace('value="'.$_GET['tipologia'].'"','value="'.$_GET['tipologia'].'"  checked', $output);
             $tipologia=$_GET['tipologia'];           
             $controlli=array();
             $verifica=array();
@@ -55,6 +56,8 @@ else{
       }
 
       if(isset($_GET['regione'])){
+
+            $output = str_replace('value="'.$_GET['regione'].'"','value="'.$_GET['regione'].'"  selected', $output);
             $regione=$_GET['regione'];
             $controlli=array();
             $verifica=array();
@@ -92,7 +95,7 @@ if(!isset($_GET["page"])){
 $row = 0;
 if(!empty($catalogo)){
       $row = count($catalogo);
-      $catalogo = array_slice($catalogo, 0 + ($_GET["page"] - 1) * $caseperpagine, $caseperpagine + ($_GET["page"] - 1) * $caseperpagine);
+      $catalogo = array_slice($catalogo, 0 + ($_GET["page"] - 1) * $caseperpagine, $caseperpagine);
 }
 if($_GET["page"]>1){
       $previous = '<a class="buttonSearch" href=catalogo.php?'. http_build_query(array_merge($_GET, array('page' => ($_GET["page"]-1)))) .'>Precedente</a> ';
@@ -102,7 +105,13 @@ $next = '<a class="buttonSearch" href=catalogo.php?'. http_build_query(array_mer
 if(!empty($catalogo)){
       foreach($catalogo as $casa){
             $temp .= $template_casa;
-            $temp = str_replace('<div class="tipologia"></div>', '<div class="tipologia">' . $casa["tipologia"] . '</div>' , $temp);
+            if($casa["tipologia"] == "attività_commerciale"){
+                  $temp = str_replace('<div class="tipologia"></div>', '<div class="tipologia">Attività Commerciale</div>' , $temp);
+            }
+            else{
+                  $temp = str_replace('<div class="tipologia"></div>', '<div class="tipologia">' . $casa["tipologia"] . '</div>' , $temp);
+            }
+            
             $temp = str_replace('<div class="via"></div>', '<div class="via">'.$casa["via"].'</div>',$temp);
             $temp = str_replace('<div class="civico"></div>', '<div class="civico">'.$casa["civico"].'</div>',$temp);
             $temp = str_replace('<div class="citta"></div>', '<div class="citta">'.$casa["citta"].'</div>',$temp);
@@ -114,7 +123,10 @@ if(!empty($catalogo)){
             $temp = str_replace('<div class="descrizione"></div>', '<div class="descrizione">'.$casa["descrizione"].'</div>',$temp);
             $temp = str_replace('<a href="" class="link_img">', '<a href="dettagli.php?id_casa='.$casa["id_casa"].'" class="link_img">',$temp);
             $temp = str_replace('<a href="" class="contentLinkButton">', '<a href="dettagli.php?id_casa='.$casa["id_casa"].'" class="contentLinkButton">',$temp);
-            $temp = str_replace('<img src="" class="img_casa">', '<img src="../media/immaginiCase/'.$casa["id_casa"].'/'.$casa["id_casa"].'a.jpeg" class="img_casa">',$temp);
+
+            $json = file_get_contents('../media/immaginiCase/'.$casa["id_casa"].'/alt.json');
+            $json_decoded = json_decode($json,true);
+            $temp = str_replace('<img src="" class="img_casa" alt="">', '<img src="../media/immaginiCase/'.$casa["id_casa"].'/'.$casa["id_casa"].'a.jpeg" class="img_casa" alt="'.$json_decoded[0]["alt"].'">',$temp);
       }
 }
 if(isset($previous))

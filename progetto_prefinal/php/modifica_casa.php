@@ -4,7 +4,7 @@ require_once "functions/importModules.php";
 require_once "functions/lib_sessioni.php";
 require_once "functions/importModules.php";
 require_once "model/casa.php";
-
+check_session();
 $output = file_get_contents("../html/modifica_casa.html");
 
 $import = new \importModules();
@@ -21,6 +21,10 @@ $connect->openDBConnection();
 
 
 if(is_admin()){
+
+      if(empty($_GET["id_casa"])){
+            header('Location: 404.php');
+      }
       $casa = $connect->db_getArray(getCasaBy1Field("id_casa", $_GET["id_casa"]));
       if(empty($casa)){
             header('Location: 404.php');
@@ -32,8 +36,7 @@ if(is_admin()){
       $output = str_replace('placeholder="id_casa', 'placeholder="' . $casa["id_casa"], $output); 
       $output = str_replace('name="id_casa" value="', 'name="id_casa" value="' . $casa["id_casa"], $output);
 
-      $output = str_replace('placeholder="regione', 'placeholder="' . $casa["regione"], $output);
-      $output = str_replace('name="regione" value="', 'name="regione" value="' . $casa["regione"], $output);
+      $output = str_replace('value="'.$casa["regione"].'"', 'value="'.$casa["regione"].'" selected ', $output);
 
       $output = str_replace('placeholder="provincia', 'placeholder="' . $casa["provincia"], $output);
       $output = str_replace('name="provincia" value="', 'name="provincia" value="' . $casa["provincia"], $output);
@@ -47,8 +50,7 @@ if(is_admin()){
       $output = str_replace('placeholder="civico', 'placeholder="' . $casa["civico"], $output);
       $output = str_replace('name="civico" value="', 'name="civico" value="' . $casa["civico"], $output);
 
-      $output = str_replace('placeholder="tipologia', 'placeholder="' . $casa["tipologia"], $output);
-      $output = str_replace('name="tipologia" value="', 'name="tipologia" value="' . $casa["tipologia"], $output);
+      $output = str_replace('value="'.$casa["tipologia"].'"', 'value="'.$casa["tipologia"].'" selected ', $output);
 
       $output = str_replace('placeholder="superficie', 'placeholder="' . $casa["superficie"], $output);
       $output = str_replace('name="superficie" value="', 'name="superficie" value="' . $casa["superficie"], $output);

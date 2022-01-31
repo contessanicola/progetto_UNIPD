@@ -1,7 +1,7 @@
 <?php
 namespace DB;
+require_once "functions/importModules.php";
 require_once "functions/lib_sessioni.php";
-
 
 do_Logout();
 

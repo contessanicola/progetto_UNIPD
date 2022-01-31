@@ -5,13 +5,7 @@ require_once "model/casa.php";
 require_once "model/login.php";
 require_once "functions/lib_sessioni.php";
 require_once "functions/lib_validazione_input.php";
-
-//DA CANCELLARE-------------------
-session_start();
-$_SESSION['logged']=1;
-$_SESSION['user']='admin';
-//-------------------
-
+check_session();
 //controllo se la sessione è attiva
 //$is_logged è true se è utente già loggato, altrimenti è false
 $is_logged=is_logged();
@@ -35,7 +29,7 @@ echo '<br>utente ha fatto submit';
 		//controllo azione
 		if(isset($_GET['submit'])){
 			$azione=$_GET['azione'];
-			if($azione!='insert' && $azione!='delete' && $azione!='modify')
+			if($azione!='delete')
 				array_push($output_validazione_input, 'Errore: operazione non valida');
 
 			$id_casa=$_GET['id_casa'];
@@ -97,31 +91,6 @@ echo '<br>utente ha fatto submit';
 			$prezzo=$_POST['prezzo'];
 			$descrizione=$_POST['descrizione'];
 			$username=$_SESSION['user'];
-		
-		
-		
-		/*$azione='insert';
-		$id_casa=-1;
-		$regione='regione';
-		$provincia='provincia';
-		$citta='citta';
-		$via='via';
-		$civico=123;
-		$tipologia='tipologia';
-		$superficie=150;
-		$camere=4;
-		$bagni=2;
-		$parcheggio='interrato';
-		$giardino='giardino';
-		$piscina='0';
-		$patio='1';
-		$barbecue='1';
-		$angolo_bar='1';
-		$idromassaggio='1';
-		$terrazzo='1';
-		$arredato='1';
-		$prezzo=34000;
-		$descrizione='bellissimo luminosissimo un affare';*/
 		
 		$controlli=array();
 		$output=array();
@@ -556,8 +525,33 @@ echo '<br>controllo input superato: controllo in db';
 							if($risultatoQuery)
 							{
 									//#DA_INSERIRE: inserimento eseguito con successo
+									if (isset($_FILES['immagini'])) {
+										$uploaddirroot = '../media/immaginiCase/';
+										$id_casa = $_POST['id_casa'].'/';
+										mkdir($uploaddirroot.$id_casa);
+									
+										$arr = array();
+									
+										$index_letter = 'a';
+										foreach($_FILES['immagini']["tmp_name"] as $immagine){
+											$uploadfile = $uploaddirroot.$id_casa . basename($_POST['id_casa'].$index_letter.'.jpeg');
+											if (move_uploaded_file($immagine, $uploadfile)) {
+												echo ("DONE IMAGE<br>");
+												$arr[] = array("nome" => $_POST['id_casa'].$index_letter.'.jpeg',"alt" => "");
+											}	
+											else{
+												echo ("NOT DONE IMAGE<br>");
+											}
+											$index_letter++;
+										}
+									
+										echo json_encode($arr);
+										$fp = fopen($uploaddirroot.$id_casa .'alt.json', 'w');
+										fwrite($fp, json_encode($arr));
+										fclose($fp);
+									}
 									echo '<br>Inserimento avvenuto con successo';
-									header('Location: catalogo.php');	
+									header('Location: dettagli.php?id_casa='.$_POST['id_casa']);	
 							}
 							else
 							{
@@ -662,6 +656,13 @@ echo '<br>controllo input superato: controllo in db';
 							{
 									//#DA_INSERIRE: delete eseguito con successo
 									echo '<br>DELETE avvenuto con successo';
+									$dir = '../media/immaginiCase/'.$id_casa;
+									$files = array_diff(scandir($dir), array('.','..'));
+									foreach ($files as $file) {
+										(is_dir("$dir/$file")) ? recurseRmdir("$dir/$file") : unlink("$dir/$file");
+									}
+									rmdir($dir);
+
 									header('Location: catalogo.php');	
 							}
 							else
@@ -693,7 +694,7 @@ echo '<br>controllo input superato: controllo in db';
 			//gli input non erano ammissibili: alert ad utente
 			//#DA_INSERIRE cosa fare?
 			echo '<br>controllo input non superato: modificare input';			
-			header('Location: errore.php?errore="Input+non+validi"');	
+			//sheader('Location: errore.php?errore="Input+non+validi"');	
 		}
 		unset($azione);
 		unset($id_casa);
@@ -743,3 +744,6 @@ else
 	header('Location: home.php');
 	die();
 }
+
+
+?>

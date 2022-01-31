@@ -7,8 +7,8 @@ require_once "functions/lib_sessioni.php";
 $output = file_get_contents("../html/home.html");
 
 $import = new \importModules();
-
 if(is_logged()){
+      
       $output = $import->importEverythingOnline($output);
       //<a href="dettagli.php?id_casa="     "><img src="../media/immaginiCase/1/temp.jpeg" class="preview_casa"></a>
 
@@ -29,6 +29,7 @@ else{
       $output = $import->importEverythingOffline($output);
 }
 
+$output = str_replace('href="home.php"','', $output);
 echo($output);
 
 ?>

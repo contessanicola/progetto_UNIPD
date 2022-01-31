@@ -3,7 +3,7 @@ namespace DB;
 
 class DBAccess{
 	private const HOST_DB = "127.0.0.1";
-	private const DATABASE_NAME = "techweb2";
+	private const DATABASE_NAME = "techweb";
 	private const USERNAME = "root";
 	private const PASSWORD = "";
 
@@ -60,6 +60,11 @@ class DBAccess{
 		{
 			return false;
 		}
+	}
+
+	public function db_getResult($stringaQuery){
+		$queryResult=mysqli_query($this->connection, $stringaQuery) or die ('Errore in db_getArray: '.mysqli_error($this->connection));
+		return $queryResult;
 	}
 	
 }

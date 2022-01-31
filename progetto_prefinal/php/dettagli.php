@@ -4,11 +4,9 @@ require_once "functions/importModules.php";
 require_once "functions/lib_sessioni.php";
 require_once "model/casa.php";
 require_once "model/preferiti.php";
-
 $import = new \importModules();
 
 $output = file_get_contents("../html/dettagli.html");
-
 
 if(is_logged()){
       $output = $import->importEverythingOnline($output);
@@ -16,6 +14,8 @@ if(is_logged()){
 else{
       $output = $import->importEverythingOffline($output);
 }
+
+
 
 $connect = new DBAccess();
 
@@ -26,8 +26,17 @@ if(isset($_GET["id_casa"])){
 
       if(!empty($casa)){
             $casa = $casa[0];
+
+            $output = str_replace('negozi">' ,'negozi, '.$casa["citta"].', '.$casa["provincia"].' ">' , $output);
+            $output = str_replace('Il migliore sito di immobiliare, se cerchi una casa noi siamo il posto giusto', $casa["descrizione"], $output );
             $output = str_replace('<span class="locali"></span>', '<span class="locali">' . ($casa["camere"] + $casa["bagni"]) . '</span>' , $output);
-            $output = str_replace('<span class="tipologia"></span>', '<span class="tipologia">' . $casa["tipologia"] . '</span>' , $output);
+            if($casa["tipologia"] == "attività_commerciale"){
+                  $output = str_replace('<span class="tipologia"></span>', '<span class="tipologia">Attività Commerciale</span>' , $output);
+            }
+            else{
+                  $output = str_replace('<span class="tipologia"></span>', '<span class="tipologia">' . $casa["tipologia"] . '</span>' , $output);
+            }
+            
             $output = str_replace('<span class="via"></span>', '<span class="via">'.$casa["via"].'</span>',$output);
             $output = str_replace('<span class="civico"></span>', ' <span class="civico">'.$casa["civico"].'</span>',$output);
             $output = str_replace('<span class="citta"></span>', ' <span class="citta">'.$casa["citta"].'</span>',$output);
@@ -85,11 +94,9 @@ if(isset($_GET["id_casa"])){
                   $output = str_replace('<span class="arredato">', '<span class="arredato">Arredato',$output);
             }
             
-
             //INSERISCE ID CASA NEL FORM PER MANDARE UNA RICHIESTA
             $output = str_replace('<input type="hidden" value="" name="id_casa" />', '<input type="hidden" value="'.$casa["id_casa"].'" name="id_casa" />',$output);
             
-
             $json = file_get_contents('../media/immaginiCase/'.$casa["id_casa"].'/alt.json');
             $json_decoded = json_decode($json,true);
 

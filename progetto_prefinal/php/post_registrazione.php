@@ -4,7 +4,6 @@ require_once "model/db.php";
 require_once "model/login.php";
 require_once "functions/lib_sessioni.php";
 require_once "functions/lib_validazione_input.php";
-
 //controllo se la sessione è attiva
 //$is_logged è true se è utente già loggato, altrimenti è false
 $is_logged=is_logged();
@@ -175,7 +174,7 @@ echo '<br>';var_dump($output);
 echo '<br>'.$alert;
 		
 		//se tutti i campi hanno avuto validazione "OK" (cioé $fare_verifica_db=true), posso verificare la presenza nel database
-
+		echo($fare_verifica_db);
 		if($fare_verifica_db)
 		{
 			//se gli input sono ammissibili, verifico con il database
@@ -239,7 +238,7 @@ echo '<br>corrispondenza nome utente e pwd in db';
 			//gli input non erano ammissibili: alert ad utente
 			//#DA_INSERIRE cosa fare?
 			echo '<br>controllo input non superato: modificare input';	
-			header('Location: errore.php?errore="Input+Non+Valido"');
+			//header('Location: errore.php?errore="Input+Non+Valido"');
 			die();	
 		}
 		unset($username);

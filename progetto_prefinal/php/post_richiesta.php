@@ -11,7 +11,7 @@ require_once "functions/lib_validazione_input.php";
 //session_start();
 //$_SESSION['logged']=1;
 //-------------------
-
+check_session();
 //controllo se la sessione è attiva
 //$is_logged è true se è utente già loggato, altrimenti è false
 $is_logged=is_logged();

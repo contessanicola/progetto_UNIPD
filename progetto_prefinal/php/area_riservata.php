@@ -4,7 +4,6 @@ require_once "functions/importModules.php";
 require_once "functions/lib_sessioni.php";
 require_once "model/preferiti.php";
 require_once "model/login.php";
-
 $import = new \importModules();
 
 $output = file_get_contents("../html/area_riservata.html");
@@ -40,7 +39,6 @@ if(is_logged()){
             $richieste = $connect->db_getArray('SELECT * FROM richieste WHERE username LIKE "'.$_SESSION['user'].'"');
       }
       
-
       if(isset($richieste)){
             if(is_admin()){                  
                   $table_richieste = "<table>
@@ -76,16 +74,26 @@ if(is_logged()){
                         $table_richieste .= '<th><a href="post_richiesta.php?azione=delete&id_casa='.$richiesta["id_casa"].'&username='. $richiesta["username"] .'">Rimuovi</a></th></tr>';
                   }
                   $table_richieste .= "</table>";
-            }
 
+                  
+            }
             $output = str_replace('<div id="lista_richieste"></div>', $table_richieste, $output );
+           
+      }    
+
+      if(is_admin()){
+            
+            $opzioni_admin = file_get_contents("../html/modules/opzioni_admin.html");
       }
-    
+      else{
+            $opzioni_admin = "";
+      }
+      $output = str_replace('<section id="opzioni_admin"></section>',$opzioni_admin,$output);
 }
 else{
     header("location: home.php");
 }
-
+$output = str_replace('href="area_riservata.php"','', $output);
 echo($output);
 
 $connect->closeConnection();
