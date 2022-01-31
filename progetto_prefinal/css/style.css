@@ -31,8 +31,8 @@
   box-sizing: border-box;
 }
 
-html{
-  height: 100%;
+.hide {
+  display: none !important;
 }
 
 body {
@@ -64,6 +64,7 @@ sup {
   font-size: 1rem;
 }
 
+
 /*================ SEZIONE HEADER E PAGE ================*/
 
 header {
@@ -79,8 +80,7 @@ header {
 
 #page {
   display: flex;
-  flex-direction: column;
-
+  height: 100%;
 }
 
 #menuButton {
@@ -221,7 +221,6 @@ header {
   display: block;
   border-radius: 10px;
   font-size: 11pt;
-  
 }
 
 .contentLink:link {
@@ -259,12 +258,11 @@ header {
 #content {
   display: flex;
   flex-direction: column;
-  padding: .3em .8em .8em .5em;
+  padding: .3em .5em .8em .5em;
   align-items: center;
   text-align: center;
   background: #ffffff;
   flex: auto;
-  height: 100%;
 }
 
 /*================ SEZIONE BOTTONE "SKIP-TO-CONTENT" PER IMAGE READER ================*/
@@ -277,6 +275,39 @@ header {
   height: 1px;
   overflow: hidden;
 }
+/*================================================== SEZIONE HOME: RICERCA ANNUNCI ==================================================*/
+
+#ricerca h2 {
+  margin-top: 1em; 
+}
+
+#column1 {
+  display: flex;
+  flex-direction: column;
+ }
+
+.rowCard {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.input_row1, .input_row2 {
+  font-size: clamp(.9em, 1vw, 1.4em);
+  width: clamp(48%, 2%, 80%);
+  height: 100%;
+}
+
+legend {
+  margin-bottom: .6em;
+}
+
+
+/*================================================== FINE SEZIONE HOME: RICERCA ANNUNCI ==================================================*/
 
 /*================================================== SEZIONE LAYOUT ANNUNCI ==================================================*/
 
@@ -287,6 +318,7 @@ header {
 .containerImg {
   display: center;
   position: relative;
+  overflow-y: auto;
   min-width: 240px;
   max-width: 80rem;
   max-height: 75rem;
@@ -509,9 +541,6 @@ header {
   line-height: 2em;
 }
 
-.virgola:not(:last-child):after{
-      content: "  ";
-  }
 
 /*================ SEZIONE TEXTAREA FORM RICHIESTA ================*/
 
@@ -553,12 +582,6 @@ header {
   border-color: #0d2c44;
   box-shadow: 0 1px #666;
   transform: translateY(2px);
-}
-
-#requestAnnounce{
-    display: flex;
-    flex-direction: column;
-    margin-top: 50px;
 }
 
 /*================================================== FINE SEZIONE LAYOUT ANNUNCI ==================================================*/
@@ -616,11 +639,12 @@ header {
   max-height: 40vw;
 }
 
-#regione {
+select {
   background-color: #cae2ed;
   border: solid 1px #113755;
   border-radius: 2px;
 }
+
 
 /* Usato come template anche per altri bottoni nelle pagine*/
 .buttonSearch, .contentLinkButton, .buttonLike {
@@ -767,6 +791,26 @@ footer {
 
 .hide{
     display: none;
+}
+
+#contacts {
+  display: block;
+  justify-content: center;
+}
+
+
+#contacts h3 {
+  font-size: 16pt;
+}
+
+#contactsList h4 {
+  color: #113755;
+  font-size: 13pt;
+  line-height: 2em;
+}
+
+#contactsList p {
+  font-size: 12pt;
 }
 
 /*================ SEZIONE MEDIA QUERY: LASCIARE PER ULTIME ================*/
