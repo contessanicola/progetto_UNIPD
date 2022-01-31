@@ -552,6 +552,12 @@ header {
   transform: translateY(2px);
 }
 
+#requestAnnounce{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
 /*================================================== FINE SEZIONE LAYOUT ANNUNCI ==================================================*/
 
 
