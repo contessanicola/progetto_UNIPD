@@ -79,10 +79,21 @@
                             <label for="bagni">Bagni: </label><input type="number" id="bagni" placeholder="Bagni" name="bagni" value="" >
                         </div>
                         <div class="input_row">
-                            <label for="parcheggio">Parcheggio: </label><input type="text" id="parcheggio" placeholder="Parcheggio" name="parcheggio" value="" >
+                            <label for="parcheggio">Parcheggio:</label>
+                            <select id="parcheggio" name="parcheggio">
+                                <option value="">No</option>
+                                <option value="garage">Garage</option>
+                                <option value="posto_auto">Posto Auto</option>
+                                <option value="entrambi">Entrambi</option>
+                              </select>
                         </div>
                         <div class="input_row">
-                            <label for="giardino">Giardino: </label><input type="text" id="giardino" placeholder="Giardino" name="giardino" value="" >
+                            <label for="giardino">Giardino:</label>
+                            <select id="giardino" name="giardino">
+                                <option value="">No</option>
+                                <option value="comune">Comune</option>
+                                <option value="privato">Privato</option>
+                              </select>
                         </div>
                         <div class="input_row">
                             <label for="piscina">Piscina: </label><input type="checkbox" id="piscina" placeholder="Piscina" name="piscina" value="1">
