@@ -61,37 +61,37 @@ if(isset($_GET["id_casa"])){
 
             if(isset($casa["giardino"])){
                   if($casa["giardino"] == "privato")
-                        $output = str_replace('<span class="giardino">', '<span class="giardino">Giardino Privato',$output);
+                        $output = str_replace('<span class="giardino">', '<span class="giardino virgola">Giardino Privato',$output);
                   else if($casa["giardino"] == "comune")
-                        $output = str_replace('<span class="giardino">', '<span class="giardino">Giardino Comune',$output);
+                        $output = str_replace('<span class="giardino">', '<span class="giardino virgola">Giardino Comune',$output);
             }
 
             if($casa["piscina"]){
-                  $output = str_replace('<span class="piscina">', '<span class="giardino">Piscina',$output);
+                  $output = str_replace('<span class="piscina">', '<span class="giardino virgola">Piscina',$output);
             }
 
             if($casa["patio"]){
-                  $output = str_replace('<span class="patio">', '<span class="patio">Patio',$output);
+                  $output = str_replace('<span class="patio">', '<span class="patio virgola">Patio',$output);
             }
 
             if($casa["barbecue"]){
-                  $output = str_replace('<span class="barbecue">', '<span class="barbecue">Barbecue',$output);
+                  $output = str_replace('<span class="barbecue">', '<span class="barbecue virgola">Barbecue',$output);
             }
 
             if($casa["angolo_bar"]){
-                  $output = str_replace('<span class="angolo_bar">', '<span class="angolo_bar">Angolo Bar',$output);
+                  $output = str_replace('<span class="angolo_bar">', '<span class="angolo_bar virgola">Angolo Bar',$output);
             }
 
             if($casa["idromassaggio"]){
-                  $output = str_replace('<span class="idromassaggio">', '<span class="idromassaggio">Idromassaggio',$output);
+                  $output = str_replace('<span class="idromassaggio">', '<span class="idromassaggio virgola">Idromassaggio',$output);
             }
 
             if($casa["terrazzo"]){
-                  $output = str_replace('<span class="terrazzo">', '<span class="terrazzo">Terrazzo',$output);
+                  $output = str_replace('<span class="terrazzo">', '<span class="terrazzo virgola">Terrazzo',$output);
             }
 
             if($casa["arredato"]){
-                  $output = str_replace('<span class="arredato">', '<span class="arredato">Arredato',$output);
+                  $output = str_replace('<span class="arredato">', '<span class="arredato virgola">Arredato',$output);
             }
             
             //INSERISCE ID CASA NEL FORM PER MANDARE UNA RICHIESTA
