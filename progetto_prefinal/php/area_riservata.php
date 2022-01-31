@@ -91,7 +91,7 @@ if(is_logged()){
       $output = str_replace('<section id="opzioni_admin"></section>',$opzioni_admin,$output);
 }
 else{
-    header("location: home.php");
+    header("location: login.php");
 }
 $output = str_replace('href="area_riservata.php"','', $output);
 echo($output);

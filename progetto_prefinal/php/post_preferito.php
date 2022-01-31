@@ -240,6 +240,6 @@ else
 	echo '<br>utente non loggato: fare login';
 	unset($output_validazione_input);
 	unset($is_logged);
-	header('Location: errore.php?errore=Errore+Effettua+il+Login');
+	header('Location: errore.php?errore=Effettua+il+Login+per+fare+una+richiesta');
 	die();
 }

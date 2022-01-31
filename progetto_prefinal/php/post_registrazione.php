@@ -40,7 +40,7 @@ if($is_logged==false)
 		//controllo che le due password siano uguali
 		if($password!=$password_2){
 			array_push($output_validazione_input, 'Password non corrispondenti');
-			header('Location: errore.php?errore="Passow+Non+Combaciano"');
+			header('Location: signup.php?errore="Passow+Non+Combaciano"');
 		}
 
 		//controllo username
@@ -158,7 +158,7 @@ echo '<br>';var_dump($output);
 			//errore connessione DB
 			//#DA_INSERIRE: cosa fare?
 			echo '<li>Errore: provare più tardi';
-			header('Location: errore.php?errore="Errore+Connessione+Database"');
+			header('Location: signup.php?errore="Errore+Connessione+Database"');
 			die();
 
 		}
@@ -216,7 +216,7 @@ echo '<br>corrispondenza nome utente e pwd in db';
 						//#DA_INSERIRE no login cosa fare??
 						echo '<br>sessione attivata: registrato login';
 						echo 'errore';
-						header('Location: errore.php?errore="Regristrazione+Non+Effettuata"');
+						header('Location: signup.php?errore="Regristrazione+Non+Effettuata"');
 						die();
 					}
 				}
@@ -226,7 +226,7 @@ echo '<br>corrispondenza nome utente e pwd in db';
 					//#DA_INSERIRE cosa fare?
 					echo '<br>nome utente e pwd non corrispondono: modificare input';
 					$alert.='<li>Nome utente o password errati</li>';	
-					header('Location: errore.php?errore="Utente+Già+Esistente"');
+					header('Location: signup.php?errore="Utente+Già+Esistente"');
 					die();
 				}
 			}
@@ -238,7 +238,7 @@ echo '<br>corrispondenza nome utente e pwd in db';
 			//gli input non erano ammissibili: alert ad utente
 			//#DA_INSERIRE cosa fare?
 			echo '<br>controllo input non superato: modificare input';	
-			//header('Location: errore.php?errore="Input+Non+Valido"');
+			header('Location: signup.php?errore="Input+Non+Valido"');
 			die();	
 		}
 		unset($username);
@@ -257,7 +257,7 @@ echo '<br>corrispondenza nome utente e pwd in db';
 	{
 		//esecuzione senza post: non eseguire
 		//#DA_INSERIRE cosa fare?
-echo '<br>nessun submit';
+		echo '<br>nessun submit';
 		header('Location: home.php');
 		die();
 	}

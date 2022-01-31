@@ -33,9 +33,12 @@ if(is_admin()){
       $casa = $next_increment;
       $output = str_replace('placeholder="id_casa', 'placeholder="' . $next_increment, $output); 
       $output = str_replace('name="id_casa" value="', 'name="id_casa" value="' . $next_increment, $output);      
+
+      if(isset($_GET['errore']))
+      $output = str_replace('<div id="errore"></div>','<div id="errore">'.$_GET['errore'].'</div>', $output);
 }
 else{
-      header("location: errore.php?errore=Permessi+Non+Sufficienti");
+      header("location: 404.php");
 }
 
 

@@ -97,6 +97,7 @@ if(isset($_GET["id_casa"])){
             //INSERISCE ID CASA NEL FORM PER MANDARE UNA RICHIESTA
             $output = str_replace('<input type="hidden" value="" name="id_casa" />', '<input type="hidden" value="'.$casa["id_casa"].'" name="id_casa" />',$output);
             
+            $output = str_replace('min=""', 'min="'.date('Y-m-d').'T'.date('H:i').'"',$output);
             $json = file_get_contents('../media/immaginiCase/'.$casa["id_casa"].'/alt.json');
             $json_decoded = json_decode($json,true);
 

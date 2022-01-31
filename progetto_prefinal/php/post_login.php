@@ -96,7 +96,7 @@ echo '<br>utente ha fatto submit';
 						//#DA_INSERIRE tutto ok, redirect ad home??
 						echo '<br>sessione attivata: registrato login';						
 						echo '<br/><br/>#DA_INSERIRE : LOGIN FATTO, TUTTO OK<br/>';
-						//header('Location: home.php');
+						header('Location: home.php');
 						die();
 					}
 					else
@@ -104,7 +104,7 @@ echo '<br>utente ha fatto submit';
 						//#DA_INSERIRE no login cosa fare??
 						echo '<br>sessione attivata: registrato login';
 						echo 'errore';
-						
+						header('Location: home.php');
 						die();
 					}
 				}
@@ -114,7 +114,7 @@ echo '<br>utente ha fatto submit';
 					//#DA_INSERIRE cosa fare?
 					echo '<br>nome utente e pwd non corrispondono: modificare input';
 					$alert.='<li>Nome utente o password errati</li>';
-					//header('Location: errore.php?errore=Nome+utente+o+password+errati');
+					header('Location: login.php?errore=Nome+utente+o+password+errati');
 					die();
 				}
 			}
@@ -125,7 +125,8 @@ echo '<br>utente ha fatto submit';
 		{
 			//gli input non erano ammissibili: alert ad utente
 			//#DA_INSERIRE cosa fare?
-			echo '<br>controllo input non superato: modificare input';			
+			echo '<br>controllo input non superato: modificare input';	
+			header('Location: login.php?errore=Input+non+validi');		
 		}
 		unset($username);
 		unset($password);
@@ -139,7 +140,7 @@ echo '<br>utente ha fatto submit';
 		//esecuzione senza post: non eseguire
 		//#DA_INSERIRE cosa fare?
 		echo '<br>nessun submit';
-		//header('Location: home.php');
+		header('Location: home.php');
 		die();
 	}
 }
@@ -150,6 +151,6 @@ else
 	echo '<br>utente già loggato';
 	unset($output_validazione_input);
 	unset($is_logged);
-	//header('Location: home.php');
+	header('Location: home.php');
 	die();
 }

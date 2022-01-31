@@ -13,6 +13,9 @@ if(is_logged()){
 else{
       $output = $import->importEverythingOffline($output);
 }
+$output = str_replace('href="login.php"','', $output);
+if(isset($_GET['errore']))
+      $output = str_replace('<div id="errore"></div>','<div id="errore">'.$_GET['errore'].'</div>', $output);
 
 echo($output);
 ?>

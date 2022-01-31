@@ -356,7 +356,7 @@ header('Location: errore.php?errore="Input+Non+Validi"');
 	{
 		//esecuzione senza post: non eseguire
 		//#DA_INSERIRE cosa fare?
-echo '<br>nessun submit';
+		echo '<br>nessun submit';
 		header('Location: home.php');
 		die();
 	}
@@ -368,6 +368,6 @@ else
 echo '<br>utente non loggato: fare login';
 	unset($output_validazione_input);
 	unset($is_logged);
-	//header('Location: home.php');
+	header('Location: login.php');
 	die();
 }

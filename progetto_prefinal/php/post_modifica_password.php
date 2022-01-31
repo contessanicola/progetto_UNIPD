@@ -143,12 +143,14 @@ echo '<br>controllo input superato: controllo in db';
 				if($risultatoQuery)
 				{
 					//#DA_INSERIRE: inserimento eseguito con successo
-echo '<br>UPDATE avvenuto con successo';
+					echo '<br>UPDATE avvenuto con successo';
+					header('Location: area_riservata.php');
 				}
 				else
 				{
 					//#DA_INSERIRE: inserimento non eseguito 
-echo '<br>Errore: UPDATE non avvenuto';
+					echo '<br>Errore: UPDATE non avvenuto';
+					header('Location: errore.php?errore="Update+non+avvenuto"');	
 				}
 				unset($newField);
 				unset($newValue);
@@ -156,8 +158,9 @@ echo '<br>Errore: UPDATE non avvenuto';
 			}
 			else
 			{
-			//#DA_INSERIRE: cosa fare? errore connessione db
-echo '<br>Errore connesisone DB, riprovare più tardi';
+				//#DA_INSERIRE: cosa fare? errore connessione db
+				echo '<br>Errore connesisone DB, riprovare più tardi';
+				header('Location: errore.php?errore="Errore+connessione+database+riprova+più+tardi"');	
 			}
 		unset($filterField);
 		unset($filterValue);
@@ -168,7 +171,8 @@ echo '<br>Errore connesisone DB, riprovare più tardi';
 		{
 			//gli input non erano ammissibili: alert ad utente
 			//#DA_INSERIRE cosa fare?
-echo '<br>controllo input non superato: modificare input';			
+			echo '<br>controllo input non superato: modificare input';	
+			header('Location: errore.php?errore="Input+non+validi"');			
 		}
 		
 		unset($username);
@@ -196,6 +200,6 @@ else
 echo '<br>utente non loggato: fare login';
 	unset($output_validazione_input);
 	unset($is_logged);
-	//header('Location: home.php');
+	header('Location: login.php');
 	die();
 }

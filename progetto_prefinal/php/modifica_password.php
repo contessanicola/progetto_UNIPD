@@ -11,25 +11,16 @@ $import = new \importModules();
 
 if(is_logged()){
       $output = $import->importEverythingOnline($output);
+      if(isset($_GET['errore']))
+      $output = str_replace('<div id="errore"></div>','<div id="errore">'.$_GET['errore'].'</div>', $output);
 }
 else{
+      header("location: 404.php");
       $output = $import->importEverythingOffline($output);
 }
 
 $connect = new DBAccess();
 $connect->openDBConnection();
-
-
-if(is_admin()){
-      
-}
-else{
-      
-}
-
-
-
-
 
 echo($output);
 ?>

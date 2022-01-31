@@ -557,7 +557,7 @@ echo '<br>controllo input superato: controllo in db';
 							{
 									//#DA_INSERIRE: inserimento non eseguito 
 									echo '<br>Errore: Inserimento non avvenuto';
-									header('Location: errore.php?errore="Inserimento+non+avvenuto"');	
+									header('Location: aggiungi_casa.php?errore="Inserimento+non+Avvenuto"');	
 							}
 							unset($values);
 						}
@@ -565,7 +565,7 @@ echo '<br>controllo input superato: controllo in db';
 						{
 							//#DA_INSERIRE: cosa fare? errore connessione db
 							echo '<br>Errore connesisone DB, riprovare più tardi';
-							header('Location: errore.php?errore="Errore+connessione+Database"');	
+							header('Location: aggiungi_casa.php?errore="Errore+connessione+database+riprova+più+tardi"');	
 						}
 						unset($connessioneON);
 						break;
@@ -625,13 +625,13 @@ echo '<br>controllo input superato: controllo in db';
 							{
 									//#DA_INSERIRE: modifica eseguito con successo
 									echo '<br>UPDATE avvenuto con successo';
-									header('Location: catalogo.php');
+									header('Location: dettagli.php?id_casa='.$_POST['id_casa']);
 							}
 							else
 								{
 									//#DA_INSERIRE: modifica non eseguito 
 									echo '<br>Errore: UPDATE non avvenuto';
-									header('Location: errore.php?errore="Update+non+avvenuto"');
+									header('Location: modifica_casa.php?errore="Update+non+avvenuto"');
 							}
 							unset($newField);
 							unset($newValue);
@@ -640,7 +640,7 @@ echo '<br>controllo input superato: controllo in db';
 						{
 							//#DA_INSERIRE: cosa fare? errore connessione db
 							echo '<br>Errore connesisone DB, riprovare più tardi';
-							header('Location: errore.php?errore="Errore+connessione+Database"');	
+							header('Location: modifica_casa.php?errore="Errore+connessione+database+riprova+più+tardi"');	
 						}
 						unset($connessioneON);
 						break;
@@ -676,7 +676,7 @@ echo '<br>controllo input superato: controllo in db';
 						{
 								//#DA_INSERIRE: cosa fare? errore connessione db
 								echo '<br>Errore connesisone DB, riprovare più tardi';
-								header('Location: errore.php?errore="Errore+connessione+Database"');	
+								header('Location: errore.php?errore="Errore+connessione+database+riprova+più+tardi"');	
 								}
 					unset($connessioneON);
 					break;
@@ -694,7 +694,7 @@ echo '<br>controllo input superato: controllo in db';
 			//gli input non erano ammissibili: alert ad utente
 			//#DA_INSERIRE cosa fare?
 			echo '<br>controllo input non superato: modificare input';			
-			//sheader('Location: errore.php?errore="Input+non+validi"');	
+			header('Location: errore.php?errore="Input+non+validi"');	
 		}
 		unset($azione);
 		unset($id_casa);
