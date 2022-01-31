@@ -41,23 +41,23 @@ if(is_logged()){
       
       if(isset($richieste)){
             if(is_admin()){                  
-                  $table_richieste = "<table>
+                  $table_richieste = '<table><thead>
                   <tr>
-                  <th>Id_casa</th>
-                  <th>Username</th>
-                  <th>E-Mail</th>
-                  <th>Richiesta</th>
-                  <th>Orario</th>
-                  <th>Rimuovi</th>
-                  </tr>";
+                        <th scope="col">Id casa</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">E-Mail</th>
+                        <th scope="col">Richiesta</th>
+                        <th scope="col">Orario</th>
+                        <th scope="col">Rimuovi</th>
+                  </tr></thead>';
                   foreach($richieste as $richiesta){
                         $informazioni_utente = $connect->db_getArray(getLoginByField("username", $richiesta["username"]));
-                        $table_richieste .= "<tr><th>". $richiesta["id_casa"] ."</th>";
-                        $table_richieste .= "<th>". $richiesta["username"] ."</th>";
-                        $table_richieste .= "<th>". $informazioni_utente[0]["mail"] ."</th>";
-                        $table_richieste .= "<th>". $richiesta["richiesta"] ."</th>";
-                        $table_richieste .= "<th>". $richiesta["orario"] ."</th>";
-                        $table_richieste .= '<th><a href="post_richiesta.php?azione=delete&id_casa='.$richiesta["id_casa"].'&username='. $richiesta["username"] .'">Rimuovi</a></th></tr>';
+                        $table_richieste .= "<tbody><tr><td>". $richiesta["id_casa"] ."</td>";
+                        $table_richieste .= "<td>". $richiesta["username"] ."</td>";
+                        $table_richieste .= "<td>". $informazioni_utente[0]["mail"] ."</td>";
+                        $table_richieste .= "<td>". $richiesta["richiesta"] ."</td>";
+                        $table_richieste .= "<td><time>". $richiesta["orario"] ."</time></td>";
+                        $table_richieste .= '<td><a href="post_richiesta.php?azione=delete&id_casa='.$richiesta["id_casa"].'&username='. $richiesta["username"] .'">Rimuovi</a></td></tr></tbody>';
                   }
                   $table_richieste .= "</table>";
             }
