@@ -61,11 +61,9 @@ if(is_admin()){
       $output = str_replace('placeholder="bagni', 'placeholder="' . $casa["bagni"], $output);
       $output = str_replace('name="bagni" value="', 'name="bagni" value="' . $casa["bagni"], $output);
 
-      $output = str_replace('placeholder="parcheggio', 'placeholder="' . $casa["parcheggio"], $output);
-      $output = str_replace('name="parcheggio" value="', 'name="parcheggio" value="' . $casa["parcheggio"], $output);
+      $output = str_replace('value="'.$casa["parcheggio"].'"', 'value="'.$casa["parcheggio"].'" selected', $output);
 
-      $output = str_replace('placeholder="giardino', 'placeholder="' . $casa["giardino"], $output);
-      $output = str_replace('name="giardino" value="', 'name="giardino" value="' . $casa["giardino"], $output);
+      $output = str_replace('value="'.$casa["giardino"].'"', 'value="'.$casa["giardino"].'" selected ', $output);
 
       if($casa["piscina"])
             $output = str_replace('name="piscina"', 'name="piscina" checked', $output);
