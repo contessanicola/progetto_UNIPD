@@ -1,14 +1,18 @@
 <?php
+namespace DB;
 require_once "functions/importModules.php";
-session_start();
+require_once "functions/lib_sessioni.php";
+require_once "functions/importModules.php";
 $output = file_get_contents("../html/signup.html");
 
-if(isset($_SESSION['username'])){
-      $output = importModules::importEverythingOnline($output);
+$import = new \importModules();
+
+if(is_logged()){
+      $output = $import->importEverythingOnline($output);
 }
 else{
-      $output = importModules::importEverythingOffline($output);
+      $output = $import->importEverythingOffline($output);
 }
-
+$output = str_replace('href="signup.php"','', $output);
 echo($output);
 ?>
