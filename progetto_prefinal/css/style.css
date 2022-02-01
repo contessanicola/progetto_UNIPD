@@ -278,13 +278,13 @@ header {
 /*================================================== SEZIONE HOME: RICERCA ANNUNCI ==================================================*/
 
 #ricerca h2 {
-  margin-top: 1em; 
+  margin-bottom: 1em;
 }
 
 #ricerca{
-  border: 10px solid #113755;
-    border-radius: 11px;
-    padding: 15px;
+  border: 3px solid #113755;
+  border-radius: 11px;
+  padding: 5px;
 }
 
 #column1 {
@@ -303,7 +303,7 @@ header {
 }
 
 .input_row1, .input_row2 {
-  font-size: clamp(.9em, 1vw, 1.4em);
+  font-size: clamp(1.1em, 1vw, 1.6em);
   height: 100%;
 }
 
@@ -738,7 +738,7 @@ select {
 /*================ SEZIONE REGISTRAZIONE E LOGIN ================*/
 
 .input_row {
-  margin-top: 1.3em;
+  margin-top: .7em;
 }
 
 .input_row input {
@@ -794,10 +794,24 @@ select {
 
 /*================ SEZIONE AREA RISERVATA ================*/
 
-.preview_casa{
-    width: 150px;
+#divTelefono {
+  margin-bottom: 1em;
 }
-#preferiti{
+
+#richieste {
+  margin-top: .5em;
+}
+
+#area_riservata_preferiti {
+  margin-top: 1em;
+}
+
+.preview_casa{
+    width: 200px;
+    margin-right: 10px;
+}
+
+#lista_preferiti{
     display: flex;
     flex-direction: row;
 }
@@ -875,6 +889,9 @@ footer {
   .containerImg {
     max-width: 80rem;
     max-height: 75rem;
+  }
+  .rowCard {
+    justify-content: space-evenly;
   }
 }
 
@@ -958,3 +975,5 @@ footer {
     margin: 0 0 .2em .5em;
   }
 }
+
+

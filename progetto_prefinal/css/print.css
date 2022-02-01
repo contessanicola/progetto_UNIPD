@@ -1,14 +1,125 @@
 @media print{
+    * {
+        font-family: serif;
+        max-width: 1200px;
+    }
+
+    #content, #page {
+        width: 100%;
+        margin: 0;
+    }
+
+    header:before {
+        content: "\ La Tecnologica ImmoWeb";
+        color: #666 ;
+        font-size: 12pt;
+        padding-top: 30px;
+        text-align: center ;    
+        }
+
     nav,#skip-nav-link,#menuButton,#backToTop,.skip-img-text-reader,.containerSpecs {
         display: none;
     }
-    .logo{
-        width: 50%;
+
+    img.logo{
+        display: none;
     }
+    
+    /* SEZIONE ANNUNCIO */
+
     .containerImg{
         display: none;
     }
+
+    .thumb.cursor.active {
+        display: flex;
+        width: 300px;
+        height: 200px;
+    }
+
     .thumb.cursor{
+        display: none;
         width: 50%;
+    }
+
+    .descrizione, .value_caratteristiche {
+        font-size: 13pt;
+        display: inline-block;
+    }
+
+    .value_caratteristiche, .virgola {
+        margin-left: 10px;
+    }
+
+    .type_caratteristiche {
+        font-size: 14pt;
+        display: inline-block;
+    }
+
+    #requestAnnounce {
+        display: none;
+    }
+
+    /* SEZIONE CATALOGO */
+    .casa, .link_casa {
+        width: 250px;
+        display: inline-block;
+    }
+
+    .dettagli, .titolo, .informazioni, .tipologia, .via, .civico, .citta, .provincia, .prezzo, .infoCasa, .superficie, .bagni {
+        display: inline-block;
+    }
+
+    .dettagli {
+        display: inline-block;
+        max-width: 200px;
+    }
+
+    .img_casa {
+        margin-top: 1em;
+        width: 250px;
+        height: 150px;
+    }
+
+    .dettagli, .titolo, .informazioni {
+        display: block;
+        font-size: 13pt;
+    }
+
+    /* IMMAGINI FOOTER */
+    .imgValidCodeCSS, .imgValidCodeHTML {
+        margin-top: 1em;
+        width: 80px;
+        height: 40px;
+    }
+
+    a:link, a:visited, a {
+        background: transparent;
+        font-weight: bold;
+        text-decoration: underline;
+        text-align: left;
+    }
+
+    a:visited {
+        color: #520;
+    }
+
+    a {
+        page-break-inside: avoid;
+    }
+
+    /* SEZIONE RICERCA */
+
+    .buttonSearch {
+        display: none;
+    }
+
+    label, select, .input_row {
+        font-size: 13pt;
+        line-height: 20px;
+    }
+
+    h4 {
+        font-size: 15pt;
     }
 }
