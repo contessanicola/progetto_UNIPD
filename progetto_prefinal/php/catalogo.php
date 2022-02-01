@@ -141,9 +141,9 @@ if(!empty($catalogo)){
       $catalogo = array_slice($catalogo, 0 + ($_GET["page"] - 1) * $caseperpagine, $caseperpagine);
 }
 if($_GET["page"]>1){
-      $previous = '<a class="buttonSearch" href=catalogo.php?'. http_build_query(array_merge($_GET, array('page' => ($_GET["page"]-1)))) .'>Precedente</a> ';
+      $previous = '<a class="buttonSearch" href="catalogo.php?'. http_build_query(array_merge($_GET, array('page' => ($_GET["page"]-1)))) .'">Precedente</a> ';
 }
-$next = '<a class="buttonSearch" href=catalogo.php?'. http_build_query(array_merge($_GET, array('page' => ($_GET["page"]+1)))) .'>Successiva</a>';
+$next = '<a class="buttonSearch" href="catalogo.php?'. http_build_query(array_merge($_GET, array('page' => ($_GET["page"]+1)))) .'">Successiva</a>';
 
 if(!empty($catalogo)){
       foreach($catalogo as $casa){
