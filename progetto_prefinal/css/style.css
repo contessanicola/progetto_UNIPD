@@ -307,10 +307,10 @@ header {
   height: 100%;
 }
 
+
 legend {
   margin-bottom: .6em;
 }
-
 
 /*================================================== FINE SEZIONE HOME: RICERCA ANNUNCI ==================================================*/
 
@@ -643,8 +643,6 @@ legend {
   font-size: 14pt;
 }
 
-
-
 .infoCasa {
   color: #505050;
 }
@@ -701,6 +699,7 @@ select {
   -moz-appearance: button;
   -webkit-appearance: button;
   appearance: button;
+  width: -moz-fit-content;
   width: fit-content;
 }
 
@@ -821,6 +820,27 @@ select {
 .text {
   font-size: 18pt;
   max-width: 45rem;
+}
+
+#contatti {
+  display: flex;
+  margin-top: 1em;
+}
+
+#contatti ul {
+  list-style-type: none;
+}
+
+#contatti li {
+  align-content: center;
+  text-align: left;
+  line-height: 3em;
+  font-size: 13pt;
+}
+
+#contatti span {
+  font-family: Dyslexic-Bold;
+  font-size: 13pt;
 }
 
 /*================ SEZIONE FOOTER ================*/
