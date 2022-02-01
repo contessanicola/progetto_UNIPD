@@ -281,6 +281,12 @@ header {
   margin-top: 1em; 
 }
 
+#ricerca{
+  border: 10px solid #113755;
+    border-radius: 11px;
+    padding: 15px;
+}
+
 #column1 {
   display: flex;
   flex-direction: column;
@@ -298,7 +304,6 @@ header {
 
 .input_row1, .input_row2 {
   font-size: clamp(.9em, 1vw, 1.4em);
-  width: clamp(48%, 2%, 80%);
   height: 100%;
 }
 
@@ -541,6 +546,9 @@ legend {
   line-height: 2em;
 }
 
+.virgola:not(:last-child):after{
+  content: "  ";
+}
 
 /*================ SEZIONE TEXTAREA FORM RICHIESTA ================*/
 
@@ -584,6 +592,10 @@ legend {
   transform: translateY(2px);
 }
 
+#specsAnnounce{
+  width: 50%;
+}
+
 /*================================================== FINE SEZIONE LAYOUT ANNUNCI ==================================================*/
 
 
@@ -592,6 +604,8 @@ legend {
 .casa {
   display: flex;
   margin-top: 1em;
+  margin-bottom: 1em;
+  align-items: center;
 }
 
 .dettagli{
@@ -609,9 +623,9 @@ legend {
 
 .img_casa {
   vertical-align: middle;
-  min-width: 240px;
+  min-width: 30vw;
   max-width: 22vw;
-  max-height: 22vw;
+  border-radius: 5px;
 }
 
 .tipologia, .via, .civico, .citta, .provincia, .prezzo, .camere, .superficie, .bagni {
@@ -622,8 +636,24 @@ legend {
   font-size: 14pt;
 }
 
+
+
 .infoCasa {
   color: #505050;
+}
+.infoCasa::before{
+  content: " ";
+}
+
+.row_casa.descrizione_casa{
+  margin-top: 20px;
+}
+.descrizione_casa{
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .tipologia{
@@ -664,6 +694,7 @@ select {
   -moz-appearance: button;
   -webkit-appearance: button;
   appearance: button;
+  width: fit-content;
 }
 
 .buttonSearch:active, .contentLinkButton:active, .buttonLike:active {
@@ -682,6 +713,17 @@ select {
   margin: 1em 0 .2em .5em;
   padding: 1px;
 }
+
+.divisorio{
+  background-color: #cae2ed;
+  height: 1rem;
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
 
 /*================================================== FINE SEZIONE LAYOUT CATALOGO CASE ==================================================*/
 
@@ -830,18 +872,26 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
+  #catalogo{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   #navbar {
     display: none;
   }
 
   /* Media query per la sezione del catalogo */
   .casa {
-    max-width: clamp(320px, 1vw ,768px);
-    min-height: 60vh;
+    flex-direction: column;
+    align-items: center;
   }
   .img_casa {
-    min-height: clamp(140px, 1vh, 60vh);
     border-radius: 5px;
+    max-height: 100%;
+    max-width: 65vw;
   }
 
   .link_casa {
@@ -849,18 +899,23 @@ footer {
     position: relative;
   }
   .dettagli {
-    display: inline-block;
-    position: absolute;
-    margin-top: 22vh;
+    margin-top: 1rem;
     min-width: 280px;
     padding-left: 0;
-    margin-left: -7vw;
     line-height: 1.7em;
     text-align: center;
+    width: 65vw;
   }
+    .informazioni{
+      margin-bottom: 1rem;
+    }
   .titolo, .informazioni {
     display: inline-block;
     min-width: 280px;
+  }
+
+  .descrizione_casa{
+    -webkit-line-clamp: 6;
   }
 }
 
