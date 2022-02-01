@@ -18,11 +18,13 @@ function checkSignUp() {
     var password = document.getElementById("password");
     var rpassword = document.getElementById("rpassword");
     
-    return checkRegex(password, REGEX_SQL) &&
+    return checkRegexSQL(password, REGEX_SQL) &&
+        checkRegexSQL(vecchia_password, REGEX_SQL) &&
+        checkRegex(password, REGEX_PASSWORD) &&
         checkPassword(password,rpassword);
 }
 
-function checkRegex(item, regex) {
+function checkRegexSQL(item, regex) {
     if (regex.test(item.value)) {
         item.classList.add("error");
         document.getElementById("errore").innerHTML = "Input non validi";
@@ -30,6 +32,15 @@ function checkRegex(item, regex) {
     }
     item.classList.remove("error");
     document.getElementById("errore").innerHTML = "";
+    return true;
+}
+
+function checkRegex(item, regex) {
+    if (!item.value == '' && !regex.test(item.value)) {
+        item.classList.add("error");
+        return false;
+    }
+    item.classList.remove("error");
     return true;
 }
 
