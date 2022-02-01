@@ -41,7 +41,13 @@ if(isset($_GET["id_casa"])){
             $output = str_replace('<span class="civico"></span>', ' <span class="civico">'.$casa["civico"].'</span>',$output);
             $output = str_replace('<span class="citta"></span>', ' <span class="citta">'.$casa["citta"].'</span>',$output);
             $output = str_replace('<span class="provincia"></span>', ' <span class="provincia">'.$casa["provincia"].'</span>',$output);
-            $output = str_replace('<span class="prezzo"></span>', '<span class="prezzo">'.$casa["prezzo"].'</span>',$output);
+            
+            if($casa["prezzo"] == 0){
+                  $output = str_replace('<span class="prezzo"></span>', '<span class="prezzo">Trattativa Riservata</span>',$output);
+            }
+            else{
+                  $output = str_replace('<span class="prezzo"></span>', '<span class="prezzo">'.$casa["prezzo"].'</span>',$output);
+            }
             $output = str_replace('<span class="camere"></span>', '<span class="camere">'.$casa["camere"].'</span>',$output);
             $output = str_replace('<span class="superficie"></span>', '<span class="superficie">'. $casa["superficie"] . '</span>',$output);
             $output = str_replace('<span class="bagni"></span>', '<span class="bagni">'.$casa["bagni"].'</span>',$output);
