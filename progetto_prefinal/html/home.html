@@ -20,10 +20,10 @@
                     <form id="search_form" action="catalogo.php" method="get" >
                         <div id="column1">
                             <div class="rowCard">
-                                <fieldset class="input_row1">
-                                    <legend>Seleziona la regione:</legend>
+                                <div class="input_row1">
                                     <label for="regione">Regione:</label>
                                     <select id="regione" name="regione">
+                                        <option value="">Qualsiasi</option>
                                         <option value="Abruzzo">Abruzzo</option>
                                         <option value="Campania">Campania</option>
                                         <option value="Emilia-Romagna">Emilia-Romagna</option>
@@ -35,47 +35,46 @@
                                         <option value="Valle d'Aosta">Valle d'Aosta</option>
                                         <option value="Veneto">Veneto</option>
                                     </select>
-                                </fieldset>
-                                <fieldset class="input_row2">
-                                    <legend>Seleziona la tipologia dell'immobile:</legend>
+                                </div>
+                                <div class="input_row2">
                                     <label for="tipologia">Tipologia:</label>
                                     <select id="tipologia" name="tipologia">
+                                        <option value="">Qualsiasi</option>
                                         <option value="villa">Villa</option>
                                         <option value="appartamento">Appartamento</option>
                                         <option value="attività_commerciale">Attività Commerciale</option>
                                     </select>
-                                </fieldset>
+                                </div>
                             </div>
                             <div class="rowCard">
                         <!--Vedere come implementare superficie-->
-                                <fieldset class="input_row1">
-                                <legend>Seleziona il numero di camere:</legend>
-                                <label for="camere">Camere:</label>
+                                <div class="input_row1">
+                                <label for="camere">Numero camere:</label>
                                 <select id="camere" name="camere">
-                                    <option value="" disabled selected>Numero di camere</option>
+                                    <option value="" disabled selected>Numero camere</option>
+                                    <option value="">Qualsiasi</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
                                     <option value="4">4</option>
                                     <option value="5">5</option>
                                 </select>
-                            </fieldset>
-                            <fieldset class="input_row2">
-                                <legend>Seleziona il numero di bagni:</legend>
-                                <label for="bagni">Bagni:</label>
+                            </div>
+                            <div class="input_row2">
+                                <label for="bagni">Numero bagni:</label>
                                 <select id="bagni" name="bagni">
-                                    <option value="" disabled selected>Numero di bagni</option>
+                                    <option value="" disabled selected>Numero bagni</option>
+                                    <option value="">Qualsiasi</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
                                     <option value="4">4</option>
                                     <option value="5">5</option>
                                 </select>
-                            </fieldset>
+                            </div>
                             </div>
                             <div class="rowCard">
-                                <fieldset class="input_row1">
-                                <legend>Seleziona il tipo di parcheggio:</legend>
+                                <div class="input_row1">
                                 <label for="parcheggio">Parcheggio:</label>
                                 <select id="parcheggio" name="parcheggio">
                                     <option value="" disabled selected>Tipologia parcheggio</option>
@@ -84,9 +83,8 @@
                                     <option value="posto_auto">Posto Auto</option>
                                     <option value="entrambi">Entrambi</option>
                                 </select>
-                                </fieldset>
-                            <fieldset class="input_row2">
-                                <legend>Seleziona il tipo di giardino:</legend>
+                                </div>
+                            <div class="input_row2">
                                 <label for="giardino">Giardino:</label>
                                 <select id="giardino" name="giardino">
                                     <option value="" disabled selected>Tipologia giardino</option>
@@ -94,16 +92,15 @@
                                     <option value="comune">Comune</option>
                                     <option value="privato">Privato</option>
                                 </select>
-                            </fieldset>
+                            </div>
                             </div>
                             <div class="rowOneCard">
                                 <div class="input_row">
-                                    <fieldset class="input_row">
-                                    <legend>Seleziona altre caratteristiche dell'immobile:</legend>
+                                    <div class="input_row">
                                     <label for="piscina">Piscina:</label>
                                     <input type="checkbox" name="piscina" id="piscina" value="1">&nbsp;
                                     <label for="idromassaggio">Idromassaggio:</label>
-                                    <input type="checkbox" name="idromassaggio" id="idromassaggio">&nbsp;
+                                    <input type="checkbox" name="idromassaggio" id="idromassaggio" value="1">&nbsp;
                                     <label for="patio">Patio:</label>
                                     <input type="checkbox" name="patio" id="patio" value="1">&nbsp;
                                     <label for="barbecue">Barbecue:</label>
@@ -114,13 +111,13 @@
                                     <input type="checkbox" name="terrazzo" id="terrazzo" value="1">&nbsp;
                                     <label for="arredato">Arredato:</label>
                                     <input type="checkbox" name="arredato" id="arredato" value="1">  
-                                    </fieldset>
+                                    </div>
                                 </div>
                             </div>
                             <div class="rowOneCard">
+                                <div class="input_row">Prezzo:</div>
                                 <div class="input_row">
-                                    <fieldset>
-                                        <legend>Seleziona il prezzo desiderato:</legend>
+                                    <div>
                                         <label for="prezzoDa">Da:</label>
                                         <select id="prezzoDa" name="prezzoDa">
                                             <option value="0">0</option>
@@ -135,6 +132,7 @@
                                         </select>
                                         <label for="prezzoA">A:</label>
                                         <select id="prezzoA" name="prezzoA">
+                                            <option value="999999999999">Nessun Limite</option>
                                             <option value="20000">20000</option>
                                             <option value="50000">50000</option>
                                             <option value="70000">70000</option>
@@ -142,15 +140,13 @@
                                             <option value="200000">200000</option>
                                             <option value="500000">500000</option>
                                             <option value="750000">750000</option>
-                                            <option value="1000000">1000000</option>
-                                            <option>Nessun Limite</option>
+                                            <option value="1000000">1000000</option>                                            
                                         </select>
-                                    </fieldset>
+                                    </div>
                                 </div>
                             </div> 
                         </div>
                         <button class="buttonSearch" type="submit" name="submit" value="submit">Cerca</button>
-                        <button class="buttonSearch" type="button" onclick="location.href='catalogo.php'" >Resetta Filtri</button>
                     </form>
                 </section>
             </main>
