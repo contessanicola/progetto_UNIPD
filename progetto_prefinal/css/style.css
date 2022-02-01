@@ -518,36 +518,46 @@ legend {
 }
 
 /*================ SEZIONE CONTAINER SPECIFICHE ESTESE ANNUNCI ================*/
-.containerSpecsFull{
-  max-width: 100%;
+
+#specsAnnounce{
+  max-width: 48rem;
 }
-.containerSpecsFull dl {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: .8em;
-  min-width: 18rem;
-  height: 100%;
-}
-/* Sezioni specifiche per i dt e i dd */
-.specsFullTitle {
+
+#caratteristiche {
   color: #505050;
   flex-shrink: 1;
   flex-grow: 1;
-  font-size: clamp(.9em, 3vw, 1.3em);
   text-align: center;
-  width: 40%;
+  font-size: 14pt;
 }
 
-.specsFullDefine {
-  flex-grow: 2;
-  width: 60%;
-  position: relative;
-  font-size: clamp(.8em, 3vw, 1.2em);
-  line-height: 2em;
+.row_caratteristiche{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.type_caratteristiche{
+  display: flex;
+  width: 40%;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  text-align: left;
 }
 
 .virgola:not(:last-child):after{
-  content: "  ";
+  content: " ";
+}
+.value_caratteristiche{
+  width: 60%;
+  text-align: left;
+}
+
+.value_caratteristiche.altre > span{
+  background-color: #f5f5f5;
+  margin-right: 5px;
+  flex-wrap: wrap;
+  
 }
 
 /*================ SEZIONE TEXTAREA FORM RICHIESTA ================*/
@@ -592,9 +602,6 @@ legend {
   transform: translateY(2px);
 }
 
-#specsAnnounce{
-  width: 50%;
-}
 
 /*================================================== FINE SEZIONE LAYOUT ANNUNCI ==================================================*/
 
